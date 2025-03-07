@@ -1,15 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
-
 class User(AbstractUser):
-    email = models.EmailField(blank=True, null=True)  # Make email not required
+    email = models.EmailField(blank=True, null=True)  # Make email optional
     birth_date = models.DateField(null=True, blank=True)
     address = models.CharField(max_length=200, blank=True)
     phone = models.CharField(max_length=200, blank=True)
-    image = models.ImageField(upload_to='user_images/', blank=True)
+    image = models.ImageField(upload_to='media/user_images/', blank=True)
     is_superuser = models.BooleanField(default=False)
     is_manager = models.BooleanField(default=False)
+    username = models.CharField(max_length=150, unique=True)  # Make username unique
 
     def __str__(self):
         return self.username
@@ -26,6 +26,12 @@ class User(AbstractUser):
         blank=True
     )
 
+    # Override the save method to allow simple passwords
+    def save(self, *args, **kwargs):
+        if self.pk is None and self.password:
+            self.set_password(self.password)
+        super().save(*args, **kwargs)
+
 class Questionnaire(models.Model):
     user = models.ForeignKey(User, related_name='questionnaires', on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=200)
@@ -41,7 +47,12 @@ class Question(models.Model):
     option1 = models.CharField(max_length=200)
     option2 = models.CharField(max_length=200)
     option3 = models.CharField(max_length=200)
-    correct_option = models.CharField(max_length=200)
+    OPTION_CHOICES = [
+        ('option1', 'Option 1'),
+        ('option2', 'Option 2'),
+        ('option3', 'Option 3'),
+    ]
+    user_choice = models.CharField(max_length=7, choices=OPTION_CHOICES, default='option1')
     def __str__(self):
         return self.question_text[:50]
 

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from ..models import User, Questionnaire, Question, FormalBook
+from .models import User, Questionnaire, Question, FormalBook
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:

@@ -7,11 +7,14 @@ from django.contrib.auth.models import Group
 admin.site.unregister(Group)
 
 class UserAdminForm(forms.ModelForm):
-     class Meta:
+    class Meta:
         model = User
-        fields = '__all__'
-        exclude = ('groups', 'user_permissions','is_active','is_staff','first_name','last_name','last_login','password')  # 🚀 Hides these fields in the form
+        fields = ('username', 'phone', 'email', 'image', 'password', 'birth_date', 'address', 'is_superuser', 'is_manager')
 
+    def __init__(self, *args, **kwargs):
+        super(UserAdminForm, self).__init__(*args, **kwargs)
+        if self.instance and self.instance.pk:
+            self.fields['password'].disabled = True  # Make the password field not editable only on edit form
 
 class UserAdmin(admin.ModelAdmin):
     form = UserAdminForm
@@ -37,7 +40,7 @@ class QuestionAdminForm(forms.ModelForm):
 
 class QuestionAdmin(admin.ModelAdmin):
     form = QuestionAdminForm
-    list_display = ('question_text',  'correct_option')
+    list_display = ('question_text',  'user_choice')
     search_fields = ('question_text', 'inquery__title')
 
 class FormalBookAdminForm(forms.ModelForm):
