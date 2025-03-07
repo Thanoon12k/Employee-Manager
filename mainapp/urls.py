@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
-from .views import UserViewSet, QuestionnaireViewSet, QuestionViewSet, FormalBookViewSet, login_view
+from .views import UserViewSet, QuestionnaireViewSet, QuestionViewSet, FormalBookViewSet, LoginView
 
 # Initialize router
 router = DefaultRouter()
@@ -14,5 +14,6 @@ router.register(r'formalbooks', FormalBookViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),  # Add this to include the router-generated URLs
-    path('api/token/', login_view),  # Add the login view URL
+     path('api/login/', LoginView.as_view(), name='login'), # Separate URL for LoginView
+
 ]
