@@ -11,7 +11,6 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 class LoginView(APIView):
-    @csrf_exempt
     def post(self, request, *args, **kwargs):
         data = json.loads(request.body)
         username = data.get('username')
@@ -21,10 +20,10 @@ class LoginView(APIView):
         if user is not None:
             login(request, user)
             # Generate Token Here
-            return Response({'status': 'success', 'access': 'YourAccessTokenHere'})
+            return Response({'status': 'success', 'token': f"{username}_{password}"}, status=status.HTTP_200_OK)
         else:
-            return Response({'status': 'fail', 'detail': 'No active account found with the given credentials'}, status=status.HTTP_401_UNAUTHORIZED)
-        
+            return Response({'status': 'error', 'detail': 'No active account found with the given credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
