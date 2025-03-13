@@ -28,7 +28,7 @@ def get_folder_tree(start_folder, exclude_folders=None):
 
 if __name__ == "__main__":
     start_folder = os.path.dirname(os.path.abspath(__file__))
-    exclude = ['folder_to_exclude1', 'folder_to_exclude2']
+    exclude = ['.git', '__pycache__', 'venv']
     tree = get_folder_tree(start_folder, exclude)
     with open('parent_name.txt', 'w', encoding='utf-8') as f:
         f.write(tree)

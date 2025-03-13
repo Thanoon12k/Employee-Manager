@@ -6,7 +6,7 @@ class User(AbstractUser):
     birth_date = models.DateField(null=True, blank=True)
     address = models.CharField(max_length=200, blank=True)
     phone = models.CharField(max_length=200, blank=True)
-    image = models.ImageField(upload_to='media/user_images/', blank=True)
+    image = models.ImageField(upload_to='user_images/', blank=True)
     is_superuser = models.BooleanField(default=False)
     is_manager = models.BooleanField(default=False)
     username = models.CharField(max_length=150, unique=True)  # Make username unique
@@ -54,7 +54,7 @@ class Question(models.Model):
     ]
     user_choice = models.CharField(max_length=7, choices=OPTION_CHOICES, default='option1')
     def __str__(self):
-        return self.question_text[:50]
+        return self.question_text
 
 class FormalBook(models.Model):
     user = models.ForeignKey(User, related_name='formal_books', on_delete=models.CASCADE, null=True)
@@ -64,4 +64,4 @@ class FormalBook(models.Model):
     file = models.FileField(upload_to='files/')
     pub_date = models.DateTimeField('date published')
     def __str__(self):
-        return self.title[30:]
+        return self.title
