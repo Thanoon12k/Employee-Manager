@@ -55,7 +55,7 @@ class UserViewSet(viewsets.ModelViewSet):
 class QuestionnaireViewSet(viewsets.ModelViewSet):
     queryset = Questionnaire.objects.none()
     serializer_class = QuestionnaireSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         return Questionnaire.objects.filter(user=self.request.user)
@@ -64,7 +64,7 @@ class QuestionnaireViewSet(viewsets.ModelViewSet):
 class QuestionViewSet(viewsets.ModelViewSet):
     queryset= Question.objects.none()
     serializer_class = QuestionSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         return Question.objects.filter(users=self.request.user)
@@ -74,7 +74,7 @@ class QuestionViewSet(viewsets.ModelViewSet):
 class FormalBookViewSet(viewsets.ModelViewSet):
     queryset= FormalBook.objects.none()
     serializer_class = FormalBookSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         return FormalBook.objects.filter(users=self.request.user)
