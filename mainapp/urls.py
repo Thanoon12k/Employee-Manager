@@ -4,7 +4,7 @@ from rest_framework.routers import DefaultRouter
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .views import UserViewSet, QuestionnaireViewSet, QuestionViewSet, FormalBookViewSet, LoginView
+from .views import *
 
 # Initialize router
 router = DefaultRouter()
@@ -14,9 +14,10 @@ router.register(r'questions', QuestionViewSet)
 router.register(r'formalbooks', FormalBookViewSet)
 
 urlpatterns = [
+    # path('user/',getuserFormalBooks ),
+    path('auth/token/', TokenAuthView.as_view(), name='token-auth'),  # Token authentication endpoint
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),  # Add this to include the router-generated URLs
-     path('api/login/', LoginView.as_view(), name='login'), # Separate URL for LoginView
 
 ]
 if settings.DEBUG:

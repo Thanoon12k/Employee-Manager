@@ -7,44 +7,74 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.contrib.auth import authenticate, login
 import json
-from django.views.decorators.csrf import csrf_exempt
 
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.authtoken.models import Token
+from django.contrib.auth import authenticate
 
-class LoginView(APIView):
+class TokenAuthView(APIView):
     def post(self, request, *args, **kwargs):
-        data = json.loads(request.body)
-        username = data.get('username')
-        password = data.get('password')
+        username = request.data.get('username')
+        password = request.data.get('password')
 
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            # Generate Token Here
-            return Response({'status': 'success', 'token': f"{username}_{password}"}, status=status.HTTP_200_OK)
+        # Authenticate the user
+        user = authenticate(username=username, password=password)
+        if user:
+            # Generate a token for the authenticated user
+            token, created = Token.objects.get_or_create(user=user)
+            return Response(
+                {
+                    "status": "success",
+                    "token": token.key,
+                    "user": {
+                        "username": user.username,
+                        "email": user.email,
+                        "is_manager": user.is_manager,
+                        "is_superuser": user.is_superuser,
+                    },
+                },
+                status=status.HTTP_200_OK,
+            )
         else:
-            return Response({'status': 'error', 'detail': 'No active account found with the given credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+            return Response(
+                {"detail": "Invalid credentials"},
+                status=status.HTTP_401_UNAUTHORIZED,
+            )
+
 
 
 class UserViewSet(viewsets.ModelViewSet):
+    
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    # authentication_classes = [TokenAuthentication]
-    # permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
+
 
 class QuestionnaireViewSet(viewsets.ModelViewSet):
-    queryset = Questionnaire.objects.all()
+    queryset = Questionnaire.objects.none()
     serializer_class = QuestionnaireSerializer
-    # authentication_classes = [TokenAuthentication]
-    # permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        return Questionnaire.objects.filter(user=self.request.user)
+
 
 class QuestionViewSet(viewsets.ModelViewSet):
-    queryset = Question.objects.all()
+    queryset= Question.objects.none()
     serializer_class = QuestionSerializer
-    # authentication_classes = [TokenAuthentication]
-    # permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        return Question.objects.filter(users=self.request.user)
+
+
 
 class FormalBookViewSet(viewsets.ModelViewSet):
-    queryset = FormalBook.objects.all()
+    queryset= FormalBook.objects.none()
     serializer_class = FormalBookSerializer
-    # authentication_classes = [TokenAuthentication]
-    # permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        return FormalBook.objects.filter(users=self.request.user)
