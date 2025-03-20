@@ -85,7 +85,7 @@ class QuestionViewSet(viewsets.ModelViewSet):
 class FormalBookViewSet(viewsets.ModelViewSet):
     queryset= FormalBook.objects.none()
     serializer_class = FormalBookSerializer
-    authentication_classes = [BasicAuthentication]
+    authentication_classes = [BasicAuthentication, TokenAuthentication, SessionAuthentication]
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
