@@ -1,5 +1,5 @@
 from rest_framework import viewsets, permissions
-from rest_framework.authentication import TokenAuthentication
+from rest_framework.authentication import TokenAuthentication, BasicAuthentication, SessionAuthentication
 from .models import User, Questionnaire, Question, FormalBook
 from .serializers import UserSerializer, QuestionnaireSerializer, QuestionSerializer, FormalBookSerializer
 from rest_framework.views import APIView
@@ -44,37 +44,54 @@ class TokenAuthView(APIView):
             )
 
 
-
 class UserViewSet(viewsets.ModelViewSet):
     
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    authentication_classes = [TokenAuthentication]
     permission_classes = [permissions.IsAuthenticated]
 
 
 class QuestionnaireViewSet(viewsets.ModelViewSet):
     queryset = Questionnaire.objects.none()
     serializer_class = QuestionnaireSerializer
-    # permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        return Questionnaire.objects.filter(user=self.request.user)
+        user = self.request.user
+        if user.is_authenticated:
+            # Show only questionnaires belonging to the authenticated user
+            return Questionnaire.objects.filter(user=user)
+        else:
+            return Questionnaire.objects.none()
 
 
 class QuestionViewSet(viewsets.ModelViewSet):
     queryset= Question.objects.none()
     serializer_class = QuestionSerializer
-    # permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        return Question.objects.filter(users=self.request.user)
-
+        user = self.request.user
+        if user.is_authenticated:
+            # Show only questions related to the user's questionnaires
+            return Question.objects.filter(inquery__user=user)
+        else:
+            return Question.objects.none()
 
 
 class FormalBookViewSet(viewsets.ModelViewSet):
     queryset= FormalBook.objects.none()
     serializer_class = FormalBookSerializer
-    # permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        return FormalBook.objects.filter(users=self.request.user)
+        user = self.request.user
+        if user.is_authenticated:
+            # Show only formal books linked to the authenticated user
+            return FormalBook.objects.filter(users=user)
+        else:
+            return FormalBook.objects.none()
