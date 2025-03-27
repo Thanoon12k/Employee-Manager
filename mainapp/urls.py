@@ -15,7 +15,7 @@ router.register(r'query-responses', QueryResponseViewSet, basename='queryrespons
 router.register(r'formalbooks', FormalBookViewSet)
 urlpatterns = [
     # path('user/',getuserFormalBooks ),
-    path('auth/token/', TokenAuthView.as_view(), name='token-auth'),  # Token authentication endpoint
+    path('api/auth/', TokenAuthView.as_view(), name='token-auth'),  # Token authentication endpoint
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),  # Add this to include the router-generated URLs
     path('api/login/', login_view),  # Custom login endpoint
