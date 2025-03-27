@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django import forms
 from django.contrib.auth.models import Group
-from .models import User, Questionnaire, Question, FormalBook
+from .models import User, FormalBook, Query
 
 # Unregister the Group model (optional cleanup)
 admin.site.unregister(Group)
@@ -22,30 +22,6 @@ class UserAdmin(admin.ModelAdmin):
     list_display = ('username', 'phone', 'is_superuser', 'is_manager')
     search_fields = ('username',)
 
-# Questionnaire admin customization
-class QuestionnaireAdminForm(forms.ModelForm):
-    class Meta:
-        model = Questionnaire
-        fields = '__all__'
-        exclude = ('user',)
-
-class QuestionnaireAdmin(admin.ModelAdmin):
-    form = QuestionnaireAdminForm
-    list_display = ('title', 'description', 'pub_date', 'user')
-    search_fields = ('title', 'description')
-
-# Question admin customization
-class QuestionAdminForm(forms.ModelForm):
-    class Meta:
-        model = Question
-        fields = '__all__'
-
-class QuestionAdmin(admin.ModelAdmin):
-    form = QuestionAdminForm
-    list_display = ('question_text', 'user_choice')
-    search_fields = ('question_text', 'inquery__title')
-
-# FormalBook admin customization
 class FormalBookAdminForm(forms.ModelForm):
     users = forms.ModelMultipleChoiceField(
         queryset=User.objects.all(),
@@ -67,8 +43,39 @@ class FormalBookAdmin(admin.ModelAdmin):
         return ", ".join([user.username for user in obj.users.all()])
     linked_users.short_description = 'Linked Users'
 
-# Register models
 admin.site.register(User, UserAdmin)
-admin.site.register(Questionnaire, QuestionnaireAdmin)
-admin.site.register(Question, QuestionAdmin)
+
 admin.site.register(FormalBook, FormalBookAdmin)
+
+
+from .models import Query, Question, QueryResponse
+
+# Inline admin for managing questions within a Query
+class QuestionInline(admin.TabularInline):  # or use admin.StackedInline
+    model = Question
+    extra = 1  # Number of empty fields to display for adding new questions
+
+# Admin for Query
+class QueryAdmin(admin.ModelAdmin):
+    list_display = ('title', 'description', 'pub_date')  # Display fields in the query list
+    search_fields = ('title', 'description')  # Add search functionality
+    inlines = [QuestionInline]  # Allow managing questions directly within the Query admin
+    filter_horizontal = ('users',)  # Horizontal filter for ManyToManyField
+
+# Admin for Questions
+class QuestionAdmin(admin.ModelAdmin):
+    list_display = ('question_text', 'question_type', 'query')  # Fields to display
+    list_filter = ('question_type',)  # Filter by question type
+    search_fields = ('question_text',)  # Enable search by question text
+
+# Admin for QueryResponse
+class QueryResponseAdmin(admin.ModelAdmin):
+    list_display = ('query', 'question', 'user', 'response_date')  # Display fields
+    list_filter = ('response_date',)  # Filter responses by date
+    search_fields = ('query__title', 'question__question_text', 'user__username')  # Enable search
+
+# Register models in admin
+admin.site.register(Query, QueryAdmin)
+admin.site.register(Question, QuestionAdmin)
+admin.site.register(QueryResponse, QueryResponseAdmin)
+

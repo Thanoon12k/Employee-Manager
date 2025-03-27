@@ -1,8 +1,1 @@
-POST  http://127.0.0.1:8000/auth/token/ HTTP/1.1
-Content-Type: application/json
-
-{
-    "username": "thanoon",
-    "password": "123"
-}
-
+GET https://api.github.com/repos/atom/atom/issues/19191 HTTP/1.1

@@ -21,30 +21,7 @@ class User(AbstractUser):
             self.set_password(self.password)  # Set password for new users
         super().save(*args, **kwargs)
 
-class Questionnaire(models.Model):
-    user = models.ForeignKey(User, related_name='questionnaires', on_delete=models.CASCADE, null=True)
-    title = models.CharField(max_length=200)
-    description = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
 
-    def __str__(self):
-        return self.title
-
-class Question(models.Model):
-    inquery = models.ForeignKey(Questionnaire, related_name='questions', on_delete=models.CASCADE)
-    question_text = models.CharField(max_length=200)
-    option1 = models.CharField(max_length=200)
-    option2 = models.CharField(max_length=200)
-    option3 = models.CharField(max_length=200)
-    OPTION_CHOICES = [
-        ('option1', 'Option 1'),
-        ('option2', 'Option 2'),
-        ('option3', 'Option 3'),
-    ]
-    user_choice = models.CharField(max_length=7, choices=OPTION_CHOICES, default='option1')
-
-    def __str__(self):
-        return self.question_text
 
 class FormalBook(models.Model):
     users = models.ManyToManyField(
@@ -60,3 +37,56 @@ class FormalBook(models.Model):
 
     def __str__(self):
         return self.title
+
+# Flexible Query Model
+class Query(models.Model):
+    title = models.CharField(max_length=200)  # Query title (form title)
+    description = models.TextField(blank=True)  # Optional description
+    users = models.ManyToManyField(
+        User, related_name='linked_queries', blank=True
+    )
+    pub_date = models.DateTimeField('date published', auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+
+# Question Model for individual questions
+class Question(models.Model):
+    TEXT = 'text'
+    MULTIPLE_CHOICE = 'multiple_choice'
+    TRUE_FALSE = 'true_false'
+
+    QUESTION_TYPES = [
+        (TEXT, 'Text Answer'),
+        (MULTIPLE_CHOICE, 'Multiple Choice'),
+        (TRUE_FALSE, 'True/False'),
+    ]
+
+    query = models.ForeignKey(
+        Query, related_name='questions', on_delete=models.CASCADE
+    )
+    question_text = models.CharField(max_length=300)
+    question_type = models.CharField(max_length=20, choices=QUESTION_TYPES, default=TEXT)
+    option1 = models.CharField(max_length=200, blank=True, null=True)
+    option2 = models.CharField(max_length=200, blank=True, null=True)
+    option3 = models.CharField(max_length=200, blank=True, null=True)
+    option4 = models.CharField(max_length=200, blank=True, null=True)
+
+    def __str__(self):
+        return self.question_text
+
+
+# Response Model for user answers
+class QueryResponse(models.Model):
+    query = models.ForeignKey(Query, related_name='responses', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='responses', on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, related_name='question_responses', on_delete=models.CASCADE)
+    text_answer = models.TextField(blank=True, null=True)  # For text-type responses
+    selected_option = models.CharField(max_length=200, blank=True, null=True)  # For multiple-choice responses
+    true_false_answer = models.BooleanField(blank=True, null=True)  # For true/false responses
+
+    response_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Response to {self.question.question_text} by {self.user.username}"
