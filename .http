@@ -1,7 +1,7 @@
 
 # GET https://thanoon.pythonanywhere.com/get-user-announcements/ HTTP/1.1
 
-GET http://127.0.0.1:8000/get-user-announcements/ HTTP/1.1
+# GET http://127.0.0.1:8000/get-users-list/ HTTP/1.1
 
 
 
@@ -12,10 +12,10 @@ GET http://127.0.0.1:8000/get-user-announcements/ HTTP/1.1
 # {"username": "thanoon1","password": "123" }
 
 
-POST https://thanoon.pythonanywhere.com/get-user-announcements/ HTTP/1.1
-Content-Type: application/json
+# POST https://thanoon.pythonanywhere.com/get-user-announcements/ HTTP/1.1
+# Content-Type: application/json
 
-{
-    "username": "thanoon",
-    "password": "123"
-}
+# {
+#     "username": "thanoon",
+#     "password": "123"
+# }

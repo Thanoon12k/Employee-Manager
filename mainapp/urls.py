@@ -12,7 +12,7 @@ urlpatterns = [
    path('api-token-auth/', authenticate_user_and_get_token, name='api_token_auth'),  # Custom endpoint for token authentication
     path('get-user-reports/', get_user_reports, name='get_user_reports'), 
     path('get-users-list/', get_users_list, name='get_users_list'),  # Custom endpoint to get users list
-]
+    ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  
 

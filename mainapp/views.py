@@ -62,6 +62,5 @@ def authenticate_user_and_get_token(request):
     if user is not None:
         login(request, user)
         token,_=Token.objects.get_or_create(user=user)
-        return JsonResponse({"token":token.key}, status=200)
+        return JsonResponse({"token":token.key,"userID":user.pk,"username":user.username}, status=200)
     return JsonResponse({"error": "Invalid credentials "}, status=401)
-  
