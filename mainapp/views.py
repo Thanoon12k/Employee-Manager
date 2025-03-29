@@ -70,7 +70,7 @@ def authenticate_user_and_get_token(request):
             "birth_date": user.birth_date,
             "address": user.address,
             "phone": user.phone,
-            "image": request.build_absolute_uri('/media/' + user.image) if user.image else None,
+            "image": request.build_absolute_uri(user.image.url) if user.image else None,
             "token": token.key
         }
         return JsonResponse(user_data, status=200)
