@@ -61,6 +61,16 @@ def authenticate_user_and_get_token(request):
     user = authenticate(request, username=username, password=password)
     if user is not None:
         login(request, user)
-        token,_=Token.objects.get_or_create(user=user)
-        return JsonResponse({"token":token.key,"userID":user.pk,"username":user.username}, status=200)
+        token, _ = Token.objects.get_or_create(user=user)
+        user_data = {
+            "id": user.id,
+            "username": user.username,
+            "email": user.email,
+            "birth_date": user.birth_date,
+            "address": user.address,
+            "phone": user.phone,
+            "image": request.build_absolute_uri('/media/' + user.image) if user.image else None,
+            "token": token.key
+        }
+        return JsonResponse(user_data, status=200)
     return JsonResponse({"error": "Invalid credentials "}, status=401)
