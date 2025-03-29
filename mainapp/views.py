@@ -11,7 +11,13 @@ def getBoooks(request):
     user = request.user
     if user.is_authenticated:
         announcements = Announcement.objects.filter(users=user)
-        return JsonResponse({"announcements": list(announcements.values())}, safe=False)
+        announcements_data = list(announcements.values())
+        for announcement in announcements_data:
+            if announcement['image']:
+                announcement['image'] = request.build_absolute_uri('/media/' + announcement['image'])
+            if announcement['file']:
+                announcement['file'] = request.build_absolute_uri('/media/' + announcement['file'])
+        return JsonResponse({"announcements": announcements_data}, safe=False)
     return JsonResponse({"error": "User not authenticated"}, status=401)
 
 
@@ -20,7 +26,10 @@ def get_users_list(request):
     if user.is_authenticated:
         if user.is_manager or user.is_superuser:
             users = User.objects.all()
-            users_data = list(users.values('id', 'username', 'email', 'birth_date', 'address','phone','image','image_url'))
+            users_data = list(users.values('id', 'username', 'email', 'birth_date', 'address', 'phone', 'image'))
+            for user_data in users_data:
+                if user_data['image']:
+                    user_data['image'] = request.build_absolute_uri('/media/' + user_data['image'])
             return JsonResponse({"users": users_data}, safe=False)
         return JsonResponse({"error": "You are not manager"}, status=403)            
     return JsonResponse({"error": "User not authenticated"}, status=401)

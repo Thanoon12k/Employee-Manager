@@ -1,11 +1,21 @@
+HTTP/1.1 500 Internal Server Error
+Date: Sat, 29 Mar 2025 17:28:08 GMT
+Server: WSGIServer/0.2 CPython/3.10.9
+Content-Type: text/html; charset=utf-8
+X-Frame-Options: DENY
+Content-Length: 81757
+Vary: Cookie
+X-Content-Type-Options: nosniff
+Referrer-Policy: same-origin
+Cross-Origin-Opener-Policy: same-origin
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="robots" content="NONE,NOARCHIVE">
-  <title>RuntimeError
-          at /api-token-auth</title>
+  <title>JSONDecodeError
+          at /api-token-auth/</title>
   <style>
     html * { padding:0; margin:0; }
     body * { padding:10px 20px; }
@@ -101,9 +111,9 @@
 </head>
 <body>
 <header id="summary">
-  <h1>RuntimeError
-       at /api-token-auth</h1>
-  <pre class="exception_value">You called this URL via POST, but the URL doesn&#x27;t end in a slash and you have APPEND_SLASH set. Django can&#x27;t redirect to the slash URL while maintaining POST data. Change your form to point to thanoon.pythonanywhere.com/api-token-auth/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.</pre>
+  <h1>JSONDecodeError
+       at /api-token-auth/</h1>
+  <pre class="exception_value">Extra data: line 7 column 1 (char 61)</pre>
   <table class="meta">
 
     <tr>
@@ -112,7 +122,7 @@
     </tr>
     <tr>
       <th scope="row">Request URL:</th>
-      <td>https://thanoon.pythonanywhere.com/api-token-auth</td>
+      <td>http://127.0.0.1:8000/api-token-auth/</td>
     </tr>
 
     <tr>
@@ -122,45 +132,51 @@
 
     <tr>
       <th scope="row">Exception Type:</th>
-      <td>RuntimeError</td>
+      <td>JSONDecodeError</td>
     </tr>
 
 
     <tr>
       <th scope="row">Exception Value:</th>
-      <td><pre>You called this URL via POST, but the URL doesn&#x27;t end in a slash and you have APPEND_SLASH set. Django can&#x27;t redirect to the slash URL while maintaining POST data. Change your form to point to thanoon.pythonanywhere.com/api-token-auth/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.</pre></td>
+      <td><pre>Extra data: line 7 column 1 (char 61)</pre></td>
     </tr>
 
 
     <tr>
       <th scope="row">Exception Location:</th>
-      <td><span class="fname">/home/thanoon/Employee-Manager/venv/lib/python3.10/site-packages/django/middleware/common.py</span>, line 87, in get_full_path_with_slash</td>
+      <td><span class="fname">D:\Program Files\Python3109\lib\json\decoder.py</span>, line 340, in decode</td>
     </tr>
 
+
+    <tr>
+      <th scope="row">Raised during:</th>
+      <td>mainapp.views.authenticate_user_and_get_token</td>
+    </tr>
 
     <tr>
       <th scope="row">Python Executable:</th>
-      <td>/usr/local/bin/uwsgi</td>
+      <td>D:\Program Files\Python3109\python.exe</td>
     </tr>
     <tr>
       <th scope="row">Python Version:</th>
-      <td>3.10.5</td>
+      <td>3.10.9</td>
     </tr>
     <tr>
       <th scope="row">Python Path:</th>
-      <td><pre><code>[&#x27;/var/www&#x27;,
- &#x27;.&#x27;,
- &#x27;&#x27;,
- &#x27;/var/www&#x27;,
- &#x27;/usr/local/lib/python310.zip&#x27;,
- &#x27;/usr/local/lib/python3.10&#x27;,
- &#x27;/usr/local/lib/python3.10/lib-dynload&#x27;,
- &#x27;/home/thanoon/Employee-Manager/venv/lib/python3.10/site-packages&#x27;,
- &#x27;/home/thanoon/Employee-Manager&#x27;]</code></pre></td>
+      <td><pre><code>[&#x27;C:\\Users\\WIN10\\Desktop\\Projects\\Employee Manager &#x27;
+ &#x27;-wroking\\employees_manager&#x27;,
+ &#x27;D:\\Program Files\\Python3109\\python310.zip&#x27;,
+ &#x27;D:\\Program Files\\Python3109\\DLLs&#x27;,
+ &#x27;D:\\Program Files\\Python3109\\lib&#x27;,
+ &#x27;D:\\Program Files\\Python3109&#x27;,
+ &#x27;D:\\Program Files\\Python3109\\lib\\site-packages&#x27;,
+ &#x27;D:\\Program Files\\Python3109\\lib\\site-packages\\win32&#x27;,
+ &#x27;D:\\Program Files\\Python3109\\lib\\site-packages\\win32\\lib&#x27;,
+ &#x27;D:\\Program Files\\Python3109\\lib\\site-packages\\Pythonwin&#x27;]</code></pre></td>
     </tr>
     <tr>
       <th scope="row">Server time:</th>
-      <td>Sat, 29 Mar 2025 16:20:57 +0000</td>
+      <td>Sat, 29 Mar 2025 17:28:08 +0000</td>
     </tr>
   </table>
 </header>
@@ -180,47 +196,47 @@
         
         <li class="frame django">
           
-            <code class="fname">/home/thanoon/Employee-Manager/venv/lib/python3.10/site-packages/django/core/handlers/exception.py</code>, line 55, in inner
+            <code class="fname">D:\Program Files\Python3109\lib\site-packages\django\core\handlers\exception.py</code>, line 55, in inner
           
 
           
-            <div class="context" id="c129496411153536">
+            <div class="context" id="c2089756784960">
               
-                <ol start="48" class="pre-context" id="pre129496411153536">
+                <ol start="48" class="pre-context" id="pre2089756784960">
                 
-                  <li onclick="toggle('pre129496411153536', 'post129496411153536')"><pre></pre></li>
+                  <li onclick="toggle('pre2089756784960', 'post2089756784960')"><pre></pre></li>
                 
-                  <li onclick="toggle('pre129496411153536', 'post129496411153536')"><pre>        return inner</pre></li>
+                  <li onclick="toggle('pre2089756784960', 'post2089756784960')"><pre>        return inner</pre></li>
                 
-                  <li onclick="toggle('pre129496411153536', 'post129496411153536')"><pre>    else:</pre></li>
+                  <li onclick="toggle('pre2089756784960', 'post2089756784960')"><pre>    else:</pre></li>
                 
-                  <li onclick="toggle('pre129496411153536', 'post129496411153536')"><pre></pre></li>
+                  <li onclick="toggle('pre2089756784960', 'post2089756784960')"><pre></pre></li>
                 
-                  <li onclick="toggle('pre129496411153536', 'post129496411153536')"><pre>        @wraps(get_response)</pre></li>
+                  <li onclick="toggle('pre2089756784960', 'post2089756784960')"><pre>        @wraps(get_response)</pre></li>
                 
-                  <li onclick="toggle('pre129496411153536', 'post129496411153536')"><pre>        def inner(request):</pre></li>
+                  <li onclick="toggle('pre2089756784960', 'post2089756784960')"><pre>        def inner(request):</pre></li>
                 
-                  <li onclick="toggle('pre129496411153536', 'post129496411153536')"><pre>            try:</pre></li>
+                  <li onclick="toggle('pre2089756784960', 'post2089756784960')"><pre>            try:</pre></li>
                 
                 </ol>
               
               <ol start="55" class="context-line">
-                <li onclick="toggle('pre129496411153536', 'post129496411153536')"><pre>                response = get_response(request)</pre> <span>…</span></li>
+                <li onclick="toggle('pre2089756784960', 'post2089756784960')"><pre>                response = get_response(request)</pre> <span>…</span></li>
               </ol>
               
-                <ol start='56' class="post-context" id="post129496411153536">
+                <ol start='56' class="post-context" id="post2089756784960">
                   
-                  <li onclick="toggle('pre129496411153536', 'post129496411153536')"><pre>            except Exception as exc:</pre></li>
+                  <li onclick="toggle('pre2089756784960', 'post2089756784960')"><pre>            except Exception as exc:</pre></li>
                   
-                  <li onclick="toggle('pre129496411153536', 'post129496411153536')"><pre>                response = response_for_exception(request, exc)</pre></li>
+                  <li onclick="toggle('pre2089756784960', 'post2089756784960')"><pre>                response = response_for_exception(request, exc)</pre></li>
                   
-                  <li onclick="toggle('pre129496411153536', 'post129496411153536')"><pre>            return response</pre></li>
+                  <li onclick="toggle('pre2089756784960', 'post2089756784960')"><pre>            return response</pre></li>
                   
-                  <li onclick="toggle('pre129496411153536', 'post129496411153536')"><pre></pre></li>
+                  <li onclick="toggle('pre2089756784960', 'post2089756784960')"><pre></pre></li>
                   
-                  <li onclick="toggle('pre129496411153536', 'post129496411153536')"><pre>        return inner</pre></li>
+                  <li onclick="toggle('pre2089756784960', 'post2089756784960')"><pre>        return inner</pre></li>
                   
-                  <li onclick="toggle('pre129496411153536', 'post129496411153536')"><pre></pre></li>
+                  <li onclick="toggle('pre2089756784960', 'post2089756784960')"><pre></pre></li>
                   
               </ol>
               
@@ -232,7 +248,7 @@
               <details>
                 <summary class="commands">Local vars</summary>
             
-            <table class="vars" id="v129496411153536">
+            <table class="vars" id="v2089756784960">
               <thead>
                 <tr>
                   <th scope="col">Variable</th>
@@ -243,17 +259,17 @@
                 
                   <tr>
                     <td>exc</td>
-                    <td class="code"><pre>RuntimeError(&quot;You called this URL via POST, but the URL doesn&#x27;t end in a slash and you have APPEND_SLASH set. Django can&#x27;t redirect to the slash URL while maintaining POST data. Change your form to point to thanoon.pythonanywhere.com/api-token-auth/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.&quot;)</pre></td>
+                    <td class="code"><pre>JSONDecodeError(&#x27;Extra data: line 7 column 1 (char 61)&#x27;)</pre></td>
                   </tr>
                 
                   <tr>
                     <td>get_response</td>
-                    <td class="code"><pre>&lt;CommonMiddleware get_response=convert_exception_to_response.&lt;locals&gt;.inner&gt;</pre></td>
+                    <td class="code"><pre>&lt;bound method BaseHandler._get_response of &lt;django.core.handlers.wsgi.WSGIHandler object at 0x000001E68DBE2FE0&gt;&gt;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>request</td>
-                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/api-token-auth&#x27;&gt;</pre></td>
+                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/api-token-auth/&#x27;&gt;</pre></td>
                   </tr>
                 
               </tbody>
@@ -265,47 +281,47 @@
         
         <li class="frame django">
           
-            <code class="fname">/home/thanoon/Employee-Manager/venv/lib/python3.10/site-packages/django/utils/deprecation.py</code>, line 131, in __call__
+            <code class="fname">D:\Program Files\Python3109\lib\site-packages\django\core\handlers\base.py</code>, line 197, in _get_response
           
 
           
-            <div class="context" id="c129496411144704">
+            <div class="context" id="c2089756049600">
               
-                <ol start="124" class="pre-context" id="pre129496411144704">
+                <ol start="190" class="pre-context" id="pre2089756049600">
                 
-                  <li onclick="toggle('pre129496411144704', 'post129496411144704')"><pre>        if self.async_mode:</pre></li>
+                  <li onclick="toggle('pre2089756049600', 'post2089756049600')"><pre></pre></li>
                 
-                  <li onclick="toggle('pre129496411144704', 'post129496411144704')"><pre>            return self.__acall__(request)</pre></li>
+                  <li onclick="toggle('pre2089756049600', 'post2089756049600')"><pre>        if response is None:</pre></li>
                 
-                  <li onclick="toggle('pre129496411144704', 'post129496411144704')"><pre>        response = None</pre></li>
+                  <li onclick="toggle('pre2089756049600', 'post2089756049600')"><pre>            wrapped_callback = self.make_view_atomic(callback)</pre></li>
                 
-                  <li onclick="toggle('pre129496411144704', 'post129496411144704')"><pre>        if hasattr(self, &quot;process_request&quot;):</pre></li>
+                  <li onclick="toggle('pre2089756049600', 'post2089756049600')"><pre>            # If it is an asynchronous view, run it in a subthread.</pre></li>
                 
-                  <li onclick="toggle('pre129496411144704', 'post129496411144704')"><pre>            response = self.process_request(request)</pre></li>
+                  <li onclick="toggle('pre2089756049600', 'post2089756049600')"><pre>            if iscoroutinefunction(wrapped_callback):</pre></li>
                 
-                  <li onclick="toggle('pre129496411144704', 'post129496411144704')"><pre>        response = response or self.get_response(request)</pre></li>
+                  <li onclick="toggle('pre2089756049600', 'post2089756049600')"><pre>                wrapped_callback = async_to_sync(wrapped_callback)</pre></li>
                 
-                  <li onclick="toggle('pre129496411144704', 'post129496411144704')"><pre>        if hasattr(self, &quot;process_response&quot;):</pre></li>
+                  <li onclick="toggle('pre2089756049600', 'post2089756049600')"><pre>            try:</pre></li>
                 
                 </ol>
               
-              <ol start="131" class="context-line">
-                <li onclick="toggle('pre129496411144704', 'post129496411144704')"><pre>            response = self.process_response(request, response)</pre> <span>…</span></li>
+              <ol start="197" class="context-line">
+                <li onclick="toggle('pre2089756049600', 'post2089756049600')"><pre>                response = wrapped_callback(request, *callback_args, **callback_kwargs)</pre> <span>…</span></li>
               </ol>
               
-                <ol start='132' class="post-context" id="post129496411144704">
+                <ol start='198' class="post-context" id="post2089756049600">
                   
-                  <li onclick="toggle('pre129496411144704', 'post129496411144704')"><pre>        return response</pre></li>
+                  <li onclick="toggle('pre2089756049600', 'post2089756049600')"><pre>            except Exception as e:</pre></li>
                   
-                  <li onclick="toggle('pre129496411144704', 'post129496411144704')"><pre></pre></li>
+                  <li onclick="toggle('pre2089756049600', 'post2089756049600')"><pre>                response = self.process_exception_by_middleware(e, request)</pre></li>
                   
-                  <li onclick="toggle('pre129496411144704', 'post129496411144704')"><pre>    async def __acall__(self, request):</pre></li>
+                  <li onclick="toggle('pre2089756049600', 'post2089756049600')"><pre>                if response is None:</pre></li>
                   
-                  <li onclick="toggle('pre129496411144704', 'post129496411144704')"><pre>        &quot;&quot;&quot;</pre></li>
+                  <li onclick="toggle('pre2089756049600', 'post2089756049600')"><pre>                    raise</pre></li>
                   
-                  <li onclick="toggle('pre129496411144704', 'post129496411144704')"><pre>        Async version of __call__ that is swapped in when an async request</pre></li>
+                  <li onclick="toggle('pre2089756049600', 'post2089756049600')"><pre></pre></li>
                   
-                  <li onclick="toggle('pre129496411144704', 'post129496411144704')"><pre>        is running.</pre></li>
+                  <li onclick="toggle('pre2089756049600', 'post2089756049600')"><pre>        # Complain if the view returned None (a common error).</pre></li>
                   
               </ol>
               
@@ -317,7 +333,7 @@
               <details>
                 <summary class="commands">Local vars</summary>
             
-            <table class="vars" id="v129496411144704">
+            <table class="vars" id="v2089756049600">
               <thead>
                 <tr>
                   <th scope="col">Variable</th>
@@ -327,18 +343,43 @@
               <tbody>
                 
                   <tr>
+                    <td>callback</td>
+                    <td class="code"><pre>&lt;function authenticate_user_and_get_token at 0x000001E68E20DAB0&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>callback_args</td>
+                    <td class="code"><pre>()</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>callback_kwargs</td>
+                    <td class="code"><pre>{}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>middleware_method</td>
+                    <td class="code"><pre>&lt;bound method CsrfViewMiddleware.process_view of &lt;CsrfViewMiddleware get_response=convert_exception_to_response.&lt;locals&gt;.inner&gt;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
                     <td>request</td>
-                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/api-token-auth&#x27;&gt;</pre></td>
+                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/api-token-auth/&#x27;&gt;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>response</td>
-                    <td class="code"><pre>&lt;HttpResponseNotFound status_code=404, &quot;text/html; charset=utf-8&quot;&gt;</pre></td>
+                    <td class="code"><pre>None</pre></td>
                   </tr>
                 
                   <tr>
                     <td>self</td>
-                    <td class="code"><pre>&lt;CommonMiddleware get_response=convert_exception_to_response.&lt;locals&gt;.inner&gt;</pre></td>
+                    <td class="code"><pre>&lt;django.core.handlers.wsgi.WSGIHandler object at 0x000001E68DBE2FE0&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>wrapped_callback</td>
+                    <td class="code"><pre>&lt;function authenticate_user_and_get_token at 0x000001E68E20DAB0&gt;</pre></td>
                   </tr>
                 
               </tbody>
@@ -350,47 +391,43 @@
         
         <li class="frame django">
           
-            <code class="fname">/home/thanoon/Employee-Manager/venv/lib/python3.10/site-packages/django/middleware/common.py</code>, line 108, in process_response
+            <code class="fname">D:\Program Files\Python3109\lib\site-packages\django\views\decorators\csrf.py</code>, line 65, in _view_wrapper
           
 
           
-            <div class="context" id="c129496411152896">
+            <div class="context" id="c2089756315840">
               
-                <ol start="101" class="pre-context" id="pre129496411152896">
+                <ol start="58" class="pre-context" id="pre2089756315840">
                 
-                  <li onclick="toggle('pre129496411152896', 'post129496411152896')"><pre>        &quot;&quot;&quot;</pre></li>
+                  <li onclick="toggle('pre2089756315840', 'post2089756315840')"><pre></pre></li>
                 
-                  <li onclick="toggle('pre129496411152896', 'post129496411152896')"><pre>        When the status code of the response is 404, it may redirect to a path</pre></li>
+                  <li onclick="toggle('pre2089756315840', 'post2089756315840')"><pre>        async def _view_wrapper(request, *args, **kwargs):</pre></li>
                 
-                  <li onclick="toggle('pre129496411152896', 'post129496411152896')"><pre>        with an appended slash if should_redirect_with_slash() returns True.</pre></li>
+                  <li onclick="toggle('pre2089756315840', 'post2089756315840')"><pre>            return await view_func(request, *args, **kwargs)</pre></li>
                 
-                  <li onclick="toggle('pre129496411152896', 'post129496411152896')"><pre>        &quot;&quot;&quot;</pre></li>
+                  <li onclick="toggle('pre2089756315840', 'post2089756315840')"><pre></pre></li>
                 
-                  <li onclick="toggle('pre129496411152896', 'post129496411152896')"><pre>        # If the given URL is &quot;Not Found&quot;, then check if we should redirect to</pre></li>
+                  <li onclick="toggle('pre2089756315840', 'post2089756315840')"><pre>    else:</pre></li>
                 
-                  <li onclick="toggle('pre129496411152896', 'post129496411152896')"><pre>        # a path with a slash appended.</pre></li>
+                  <li onclick="toggle('pre2089756315840', 'post2089756315840')"><pre></pre></li>
                 
-                  <li onclick="toggle('pre129496411152896', 'post129496411152896')"><pre>        if response.status_code == 404 and self.should_redirect_with_slash(request):</pre></li>
+                  <li onclick="toggle('pre2089756315840', 'post2089756315840')"><pre>        def _view_wrapper(request, *args, **kwargs):</pre></li>
                 
                 </ol>
               
-              <ol start="108" class="context-line">
-                <li onclick="toggle('pre129496411152896', 'post129496411152896')"><pre>            return self.response_redirect_class(self.get_full_path_with_slash(request))</pre> <span>…</span></li>
+              <ol start="65" class="context-line">
+                <li onclick="toggle('pre2089756315840', 'post2089756315840')"><pre>            return view_func(request, *args, **kwargs)</pre> <span>…</span></li>
               </ol>
               
-                <ol start='109' class="post-context" id="post129496411152896">
+                <ol start='66' class="post-context" id="post2089756315840">
                   
-                  <li onclick="toggle('pre129496411152896', 'post129496411152896')"><pre></pre></li>
+                  <li onclick="toggle('pre2089756315840', 'post2089756315840')"><pre></pre></li>
                   
-                  <li onclick="toggle('pre129496411152896', 'post129496411152896')"><pre>        # Add the Content-Length header to non-streaming responses if not</pre></li>
+                  <li onclick="toggle('pre2089756315840', 'post2089756315840')"><pre>    _view_wrapper.csrf_exempt = True</pre></li>
                   
-                  <li onclick="toggle('pre129496411152896', 'post129496411152896')"><pre>        # already set.</pre></li>
+                  <li onclick="toggle('pre2089756315840', 'post2089756315840')"><pre></pre></li>
                   
-                  <li onclick="toggle('pre129496411152896', 'post129496411152896')"><pre>        if not response.streaming and not response.has_header(&quot;Content-Length&quot;):</pre></li>
-                  
-                  <li onclick="toggle('pre129496411152896', 'post129496411152896')"><pre>            response.headers[&quot;Content-Length&quot;] = str(len(response.content))</pre></li>
-                  
-                  <li onclick="toggle('pre129496411152896', 'post129496411152896')"><pre></pre></li>
+                  <li onclick="toggle('pre2089756315840', 'post2089756315840')"><pre>    return wraps(view_func)(_view_wrapper)</pre></li>
                   
               </ol>
               
@@ -402,7 +439,7 @@
               <details>
                 <summary class="commands">Local vars</summary>
             
-            <table class="vars" id="v129496411152896">
+            <table class="vars" id="v2089756315840">
               <thead>
                 <tr>
                   <th scope="col">Variable</th>
@@ -412,18 +449,23 @@
               <tbody>
                 
                   <tr>
+                    <td>args</td>
+                    <td class="code"><pre>()</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>kwargs</td>
+                    <td class="code"><pre>{}</pre></td>
+                  </tr>
+                
+                  <tr>
                     <td>request</td>
-                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/api-token-auth&#x27;&gt;</pre></td>
+                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/api-token-auth/&#x27;&gt;</pre></td>
                   </tr>
                 
                   <tr>
-                    <td>response</td>
-                    <td class="code"><pre>&lt;HttpResponseNotFound status_code=404, &quot;text/html; charset=utf-8&quot;&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>self</td>
-                    <td class="code"><pre>&lt;CommonMiddleware get_response=convert_exception_to_response.&lt;locals&gt;.inner&gt;</pre></td>
+                    <td>view_func</td>
+                    <td class="code"><pre>&lt;function authenticate_user_and_get_token at 0x000001E68E20DA20&gt;</pre></td>
                   </tr>
                 
               </tbody>
@@ -433,49 +475,49 @@
         </li>
       
         
-        <li class="frame django">
+        <li class="frame user">
           
-            <code class="fname">/home/thanoon/Employee-Manager/venv/lib/python3.10/site-packages/django/middleware/common.py</code>, line 87, in get_full_path_with_slash
+            <code class="fname">C:\Users\WIN10\Desktop\Projects\Employee Manager -wroking\employees_manager\mainapp\views.py</code>, line 58, in authenticate_user_and_get_token
           
 
           
-            <div class="context" id="c129496411144576">
+            <div class="context" id="c2089756311616">
               
-                <ol start="80" class="pre-context" id="pre129496411144576">
+                <ol start="51" class="pre-context" id="pre2089756311616">
                 
-                  <li onclick="toggle('pre129496411144576', 'post129496411144576')"><pre>        Raise a RuntimeError if settings.DEBUG is True and request.method is</pre></li>
+                  <li onclick="toggle('pre2089756311616', 'post2089756311616')"><pre>            })</pre></li>
                 
-                  <li onclick="toggle('pre129496411144576', 'post129496411144576')"><pre>        DELETE, POST, PUT, or PATCH.</pre></li>
+                  <li onclick="toggle('pre2089756311616', 'post2089756311616')"><pre>        return JsonResponse({&quot;reports&quot;: reports_data}, safe=False)</pre></li>
                 
-                  <li onclick="toggle('pre129496411144576', 'post129496411144576')"><pre>        &quot;&quot;&quot;</pre></li>
+                  <li onclick="toggle('pre2089756311616', 'post2089756311616')"><pre>    return JsonResponse({&quot;error&quot;: &quot;User not authenticated&quot;}, status=401)</pre></li>
                 
-                  <li onclick="toggle('pre129496411144576', 'post129496411144576')"><pre>        new_path = request.get_full_path(force_append_slash=True)</pre></li>
+                  <li onclick="toggle('pre2089756311616', 'post2089756311616')"><pre></pre></li>
                 
-                  <li onclick="toggle('pre129496411144576', 'post129496411144576')"><pre>        # Prevent construction of scheme relative urls.</pre></li>
+                  <li onclick="toggle('pre2089756311616', 'post2089756311616')"><pre></pre></li>
                 
-                  <li onclick="toggle('pre129496411144576', 'post129496411144576')"><pre>        new_path = escape_leading_slashes(new_path)</pre></li>
+                  <li onclick="toggle('pre2089756311616', 'post2089756311616')"><pre>@csrf_exempt</pre></li>
                 
-                  <li onclick="toggle('pre129496411144576', 'post129496411144576')"><pre>        if settings.DEBUG and request.method in (&quot;DELETE&quot;, &quot;POST&quot;, &quot;PUT&quot;, &quot;PATCH&quot;):</pre></li>
+                  <li onclick="toggle('pre2089756311616', 'post2089756311616')"><pre>def authenticate_user_and_get_token(request):</pre></li>
                 
                 </ol>
               
-              <ol start="87" class="context-line">
-                <li onclick="toggle('pre129496411144576', 'post129496411144576')"><pre>            raise RuntimeError(</pre> <span>…</span></li>
+              <ol start="58" class="context-line">
+                <li onclick="toggle('pre2089756311616', 'post2089756311616')"><pre>    data = json.loads(request.body)</pre> <span>…</span></li>
               </ol>
               
-                <ol start='88' class="post-context" id="post129496411144576">
+                <ol start='59' class="post-context" id="post2089756311616">
                   
-                  <li onclick="toggle('pre129496411144576', 'post129496411144576')"><pre>                &quot;You called this URL via %(method)s, but the URL doesn&#x27;t end &quot;</pre></li>
+                  <li onclick="toggle('pre2089756311616', 'post2089756311616')"><pre>    username = data.get(&#x27;username&#x27;)</pre></li>
                   
-                  <li onclick="toggle('pre129496411144576', 'post129496411144576')"><pre>                &quot;in a slash and you have APPEND_SLASH set. Django can&#x27;t &quot;</pre></li>
+                  <li onclick="toggle('pre2089756311616', 'post2089756311616')"><pre>    password = data.get(&#x27;password&#x27;)    </pre></li>
                   
-                  <li onclick="toggle('pre129496411144576', 'post129496411144576')"><pre>                &quot;redirect to the slash URL while maintaining %(method)s data. &quot;</pre></li>
+                  <li onclick="toggle('pre2089756311616', 'post2089756311616')"><pre>    user = authenticate(request, username=username, password=password)</pre></li>
                   
-                  <li onclick="toggle('pre129496411144576', 'post129496411144576')"><pre>                &quot;Change your form to point to %(url)s (note the trailing &quot;</pre></li>
+                  <li onclick="toggle('pre2089756311616', 'post2089756311616')"><pre>    if user is not None:</pre></li>
                   
-                  <li onclick="toggle('pre129496411144576', 'post129496411144576')"><pre>                &quot;slash), or set APPEND_SLASH=False in your Django settings.&quot;</pre></li>
+                  <li onclick="toggle('pre2089756311616', 'post2089756311616')"><pre>        login(request, user)</pre></li>
                   
-                  <li onclick="toggle('pre129496411144576', 'post129496411144576')"><pre>                % {</pre></li>
+                  <li onclick="toggle('pre2089756311616', 'post2089756311616')"><pre>        token,_=Token.objects.get_or_create(user=user)</pre></li>
                   
               </ol>
               
@@ -487,7 +529,7 @@
               <details>
                 <summary class="commands">Local vars</summary>
             
-            <table class="vars" id="v129496411144576">
+            <table class="vars" id="v2089756311616">
               <thead>
                 <tr>
                   <th scope="col">Variable</th>
@@ -497,18 +539,237 @@
               <tbody>
                 
                   <tr>
-                    <td>new_path</td>
-                    <td class="code"><pre>&#x27;/api-token-auth/&#x27;</pre></td>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/api-token-auth/&#x27;&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          
+            <code class="fname">D:\Program Files\Python3109\lib\json\__init__.py</code>, line 346, in loads
+          
+
+          
+            <div class="context" id="c2089757396992">
+              
+                <ol start="339" class="pre-context" id="pre2089757396992">
+                
+                  <li onclick="toggle('pre2089757396992', 'post2089757396992')"><pre>            raise TypeError(f&#x27;the JSON object must be str, bytes or bytearray, &#x27;</pre></li>
+                
+                  <li onclick="toggle('pre2089757396992', 'post2089757396992')"><pre>                            f&#x27;not {s.__class__.__name__}&#x27;)</pre></li>
+                
+                  <li onclick="toggle('pre2089757396992', 'post2089757396992')"><pre>        s = s.decode(detect_encoding(s), &#x27;surrogatepass&#x27;)</pre></li>
+                
+                  <li onclick="toggle('pre2089757396992', 'post2089757396992')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre2089757396992', 'post2089757396992')"><pre>    if (cls is None and object_hook is None and</pre></li>
+                
+                  <li onclick="toggle('pre2089757396992', 'post2089757396992')"><pre>            parse_int is None and parse_float is None and</pre></li>
+                
+                  <li onclick="toggle('pre2089757396992', 'post2089757396992')"><pre>            parse_constant is None and object_pairs_hook is None and not kw):</pre></li>
+                
+                </ol>
+              
+              <ol start="346" class="context-line">
+                <li onclick="toggle('pre2089757396992', 'post2089757396992')"><pre>        return _default_decoder.decode(s)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='347' class="post-context" id="post2089757396992">
+                  
+                  <li onclick="toggle('pre2089757396992', 'post2089757396992')"><pre>    if cls is None:</pre></li>
+                  
+                  <li onclick="toggle('pre2089757396992', 'post2089757396992')"><pre>        cls = JSONDecoder</pre></li>
+                  
+                  <li onclick="toggle('pre2089757396992', 'post2089757396992')"><pre>    if object_hook is not None:</pre></li>
+                  
+                  <li onclick="toggle('pre2089757396992', 'post2089757396992')"><pre>        kw[&#x27;object_hook&#x27;] = object_hook</pre></li>
+                  
+                  <li onclick="toggle('pre2089757396992', 'post2089757396992')"><pre>    if object_pairs_hook is not None:</pre></li>
+                  
+                  <li onclick="toggle('pre2089757396992', 'post2089757396992')"><pre>        kw[&#x27;object_pairs_hook&#x27;] = object_pairs_hook</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            
+              <details>
+                <summary class="commands">Local vars</summary>
+            
+            <table class="vars" id="v2089757396992">
+              <thead>
+                <tr>
+                  <th scope="col">Variable</th>
+                  <th scope="col">Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>cls</td>
+                    <td class="code"><pre>None</pre></td>
                   </tr>
                 
                   <tr>
-                    <td>request</td>
-                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/api-token-auth&#x27;&gt;</pre></td>
+                    <td>kw</td>
+                    <td class="code"><pre>{}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>object_hook</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>object_pairs_hook</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>parse_constant</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>parse_float</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>parse_int</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>s</td>
+                    <td class="code"><pre>(&#x27;{\r\n&#x27;
+ &#x27;    &quot;username&quot;: &quot;thanoon&quot;,\r\n&#x27;
+ &#x27;    &quot;password&quot;: &quot;123&quot;\r\n&#x27;
+ &#x27;}\r\n&#x27;
+ &#x27;\r\n&#x27;
+ &#x27;\r\n&#x27;
+ &#x27;POST https://thanoon.pythonanywhere.com/api-token-auth/ HTTP/1.1\r\n&#x27;
+ &#x27;Content-Type: application/json\r\n&#x27;
+ &#x27;\r\n&#x27;
+ &#x27;{\r\n&#x27;
+ &#x27;    &quot;username&quot;: &quot;thanoon&quot;,\r\n&#x27;
+ &#x27;    &quot;password&quot;: &quot;123&quot;\r\n&#x27;
+ &#x27;}&#x27;)</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          
+            <code class="fname">D:\Program Files\Python3109\lib\json\decoder.py</code>, line 340, in decode
+          
+
+          
+            <div class="context" id="c2089756612160">
+              
+                <ol start="333" class="pre-context" id="pre2089756612160">
+                
+                  <li onclick="toggle('pre2089756612160', 'post2089756612160')"><pre>        &quot;&quot;&quot;Return the Python representation of ``s`` (a ``str`` instance</pre></li>
+                
+                  <li onclick="toggle('pre2089756612160', 'post2089756612160')"><pre>        containing a JSON document).</pre></li>
+                
+                  <li onclick="toggle('pre2089756612160', 'post2089756612160')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre2089756612160', 'post2089756612160')"><pre>        &quot;&quot;&quot;</pre></li>
+                
+                  <li onclick="toggle('pre2089756612160', 'post2089756612160')"><pre>        obj, end = self.raw_decode(s, idx=_w(s, 0).end())</pre></li>
+                
+                  <li onclick="toggle('pre2089756612160', 'post2089756612160')"><pre>        end = _w(s, end).end()</pre></li>
+                
+                  <li onclick="toggle('pre2089756612160', 'post2089756612160')"><pre>        if end != len(s):</pre></li>
+                
+                </ol>
+              
+              <ol start="340" class="context-line">
+                <li onclick="toggle('pre2089756612160', 'post2089756612160')"><pre>            raise JSONDecodeError(&quot;Extra data&quot;, s, end)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='341' class="post-context" id="post2089756612160">
+                  
+                  <li onclick="toggle('pre2089756612160', 'post2089756612160')"><pre>        return obj</pre></li>
+                  
+                  <li onclick="toggle('pre2089756612160', 'post2089756612160')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre2089756612160', 'post2089756612160')"><pre>    def raw_decode(self, s, idx=0):</pre></li>
+                  
+                  <li onclick="toggle('pre2089756612160', 'post2089756612160')"><pre>        &quot;&quot;&quot;Decode a JSON document from ``s`` (a ``str`` beginning with</pre></li>
+                  
+                  <li onclick="toggle('pre2089756612160', 'post2089756612160')"><pre>        a JSON document) and return a 2-tuple of the Python</pre></li>
+                  
+                  <li onclick="toggle('pre2089756612160', 'post2089756612160')"><pre>        representation and the index in ``s`` where the document ended.</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            
+              <details>
+                <summary class="commands">Local vars</summary>
+            
+            <table class="vars" id="v2089756612160">
+              <thead>
+                <tr>
+                  <th scope="col">Variable</th>
+                  <th scope="col">Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>_w</td>
+                    <td class="code"><pre>&lt;built-in method match of re.Pattern object at 0x000001E68CFC6330&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>end</td>
+                    <td class="code"><pre>61</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>obj</td>
+                    <td class="code"><pre>{&#x27;password&#x27;: &#x27;123&#x27;, &#x27;username&#x27;: &#x27;thanoon&#x27;}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>s</td>
+                    <td class="code"><pre>(&#x27;{\r\n&#x27;
+ &#x27;    &quot;username&quot;: &quot;thanoon&quot;,\r\n&#x27;
+ &#x27;    &quot;password&quot;: &quot;123&quot;\r\n&#x27;
+ &#x27;}\r\n&#x27;
+ &#x27;\r\n&#x27;
+ &#x27;\r\n&#x27;
+ &#x27;POST https://thanoon.pythonanywhere.com/api-token-auth/ HTTP/1.1\r\n&#x27;
+ &#x27;Content-Type: application/json\r\n&#x27;
+ &#x27;\r\n&#x27;
+ &#x27;{\r\n&#x27;
+ &#x27;    &quot;username&quot;: &quot;thanoon&quot;,\r\n&#x27;
+ &#x27;    &quot;password&quot;: &quot;123&quot;\r\n&#x27;
+ &#x27;}&#x27;)</pre></td>
                   </tr>
                 
                   <tr>
                     <td>self</td>
-                    <td class="code"><pre>&lt;CommonMiddleware get_response=convert_exception_to_response.&lt;locals&gt;.inner&gt;</pre></td>
+                    <td class="code"><pre>&lt;json.decoder.JSONDecoder object at 0x000001E68D4C9DB0&gt;</pre></td>
                   </tr>
                 
               </tbody>
@@ -524,7 +785,7 @@
   <div id="pastebinTraceback" class="pastebin">
     <input type="hidden" name="language" value="PythonConsole">
     <input type="hidden" name="title"
-      value="RuntimeError at /api-token-auth">
+      value="JSONDecodeError at /api-token-auth/">
     <input type="hidden" name="source" value="Django Dpaste Agent">
     <input type="hidden" name="poster" value="Django">
     <textarea name="content" id="traceback_area" cols="140" rows="25">
@@ -532,10 +793,10 @@ Environment:
 
 
 Request Method: POST
-Request URL: https://thanoon.pythonanywhere.com/api-token-auth
+Request URL: http://127.0.0.1:8000/api-token-auth/
 
 Django Version: 5.1.6
-Python Version: 3.10.5
+Python Version: 3.10.9
 Installed Applications:
 [&#x27;django.contrib.admin&#x27;,
  &#x27;django.contrib.auth&#x27;,
@@ -558,17 +819,21 @@ Installed Middleware:
 
 
 Traceback (most recent call last):
-  File "/home/thanoon/Employee-Manager/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+  File "D:\Program Files\Python3109\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
     response = get_response(request)
-  File "/home/thanoon/Employee-Manager/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 131, in __call__
-    response = self.process_response(request, response)
-  File "/home/thanoon/Employee-Manager/venv/lib/python3.10/site-packages/django/middleware/common.py", line 108, in process_response
-    return self.response_redirect_class(self.get_full_path_with_slash(request))
-  File "/home/thanoon/Employee-Manager/venv/lib/python3.10/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
-    raise RuntimeError(
+  File "D:\Program Files\Python3109\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Program Files\Python3109\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\WIN10\Desktop\Projects\Employee Manager -wroking\employees_manager\mainapp\views.py", line 58, in authenticate_user_and_get_token
+    data = json.loads(request.body)
+  File "D:\Program Files\Python3109\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "D:\Program Files\Python3109\lib\json\decoder.py", line 340, in decode
+    raise JSONDecodeError(&quot;Extra data&quot;, s, end)
 
-Exception Type: RuntimeError at /api-token-auth
-Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a slash and you have APPEND_SLASH set. Django can&#x27;t redirect to the slash URL while maintaining POST data. Change your form to point to thanoon.pythonanywhere.com/api-token-auth/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+Exception Type: JSONDecodeError at /api-token-auth/
+Exception Value: Extra data: line 7 column 1 (char 61)
 </textarea>
   <br><br>
   <input type="submit" value="Share this traceback on a public website">
@@ -584,7 +849,7 @@ Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a
 
   
     <h3 id="user-info">USER</h3>
-    <p>AnonymousUser</p>
+    <p>thanoon</p>
   
 
   <h3 id="get-info">GET</h3>
@@ -604,7 +869,27 @@ Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a
 
   <h3 id="cookie-info">COOKIES</h3>
   
-    <p>No cookie data</p>
+    <table class="req">
+      <thead>
+        <tr>
+          <th scope="col">Variable</th>
+          <th scope="col">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+          <tr>
+            <td>csrftoken</td>
+            <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+          </tr>
+        
+          <tr>
+            <td>sessionid</td>
+            <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+          </tr>
+        
+      </tbody>
+    </table>
   
 
   <h3 id="meta-info">META</h3>
@@ -618,8 +903,68 @@ Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a
     <tbody>
       
         <tr>
+          <td>ALLUSERSPROFILE</td>
+          <td class="code"><pre>&#x27;C:\\ProgramData&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ANDROID_SDK_ROOT</td>
+          <td class="code"><pre>&#x27;D:\\AndroidSdks&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>APPDATA</td>
+          <td class="code"><pre>&#x27;C:\\Users\\WIN10\\AppData\\Roaming&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>BUNDLED_DEBUGPY_PATH</td>
+          <td class="code"><pre>&#x27;c:\\Users\\WIN10\\.vscode\\extensions\\ms-python.debugpy-2025.4.1-win32-x64\\bundled\\libs\\debugpy&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CHROME_CRASHPAD_PIPE_NAME</td>
+          <td class="code"><pre>&#x27;\\\\.\\pipe\\crashpad_7660_MWPGUYTJJXIHMORP&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CHROME_EXECUTABLE</td>
+          <td class="code"><pre>&#x27;C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe &#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COLORTERM</td>
+          <td class="code"><pre>&#x27;truecolor&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMMONPROGRAMFILES</td>
+          <td class="code"><pre>&#x27;C:\\Program Files\\Common Files&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMMONPROGRAMFILES(X86)</td>
+          <td class="code"><pre>&#x27;C:\\Program Files (x86)\\Common Files&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMMONPROGRAMW6432</td>
+          <td class="code"><pre>&#x27;C:\\Program Files\\Common Files&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMPUTERNAME</td>
+          <td class="code"><pre>&#x27;DESKTOP-T3L5UDU&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMSPEC</td>
+          <td class="code"><pre>&#x27;C:\\Windows\\system32\\cmd.exe&#x27;</pre></td>
+        </tr>
+      
+        <tr>
           <td>CONTENT_LENGTH</td>
-          <td class="code"><pre>&#x27;55&#x27;</pre></td>
+          <td class="code"><pre>&#x27;216&#x27;</pre></td>
         </tr>
       
         <tr>
@@ -628,13 +973,68 @@ Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a
         </tr>
       
         <tr>
-          <td>DOCUMENT_ROOT</td>
-          <td class="code"><pre>&#x27;/usr/local/openresty/nginx/html&#x27;</pre></td>
+          <td>CSRF_COOKIE</td>
+          <td class="code"><pre>&#x27;IFOmfkdyZ8QaGgZ8YshzlkxMzbTm858j&#x27;</pre></td>
         </tr>
       
         <tr>
-          <td>HTTPS</td>
-          <td class="code"><pre>&#x27;on&#x27;</pre></td>
+          <td>DEVENVDIR</td>
+          <td class="code"><pre>&#x27;C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\Common7\\IDE&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DJANGO_SETTINGS_MODULE</td>
+          <td class="code"><pre>&#x27;employee_manager.settings&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DRIVERDATA</td>
+          <td class="code"><pre>&#x27;C:\\Windows\\System32\\Drivers\\DriverData&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FPS_BROWSER_APP_PROFILE_STRING</td>
+          <td class="code"><pre>&#x27;Internet Explorer&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FPS_BROWSER_USER_PROFILE_STRING</td>
+          <td class="code"><pre>&#x27;Default&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FRAMEWORK35VERSION</td>
+          <td class="code"><pre>&#x27;v3.5&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FRAMEWORKDIR</td>
+          <td class="code"><pre>&#x27;C:\\WINDOWS\\Microsoft.NET\\Framework&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FRAMEWORKVERSION</td>
+          <td class="code"><pre>&#x27;v2.0.50727&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>GATEWAY_INTERFACE</td>
+          <td class="code"><pre>&#x27;CGI/1.1&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>GIT_ASKPASS</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HOMEDRIVE</td>
+          <td class="code"><pre>&#x27;C:&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HOMEPATH</td>
+          <td class="code"><pre>&#x27;\\Users\\WIN10&#x27;</pre></td>
         </tr>
       
         <tr>
@@ -644,22 +1044,17 @@ Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a
       
         <tr>
           <td>HTTP_CONNECTION</td>
-          <td class="code"><pre>&#x27;upgrade&#x27;</pre></td>
+          <td class="code"><pre>&#x27;close&#x27;</pre></td>
         </tr>
       
         <tr>
-          <td>HTTP_CONTENT_LENGTH</td>
-          <td class="code"><pre>&#x27;55&#x27;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HTTP_CONTENT_TYPE</td>
-          <td class="code"><pre>&#x27;application/json&#x27;</pre></td>
+          <td>HTTP_COOKIE</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
         </tr>
       
         <tr>
           <td>HTTP_HOST</td>
-          <td class="code"><pre>&#x27;thanoon.pythonanywhere.com&#x27;</pre></td>
+          <td class="code"><pre>&#x27;127.0.0.1:8000&#x27;</pre></td>
         </tr>
       
         <tr>
@@ -668,18 +1063,154 @@ Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a
         </tr>
       
         <tr>
-          <td>HTTP_X_FORWARDED_FOR</td>
-          <td class="code"><pre>&#x27;104.28.243.185&#x27;</pre></td>
+          <td>INCLUDE</td>
+          <td class="code"><pre>(&#x27;C:\\Program Files (x86)\\Microsoft Visual Studio &#x27;
+ &#x27;10.0\\VC\\ATLMFC\\INCLUDE;C:\\Program Files (x86)\\Microsoft Visual Studio &#x27;
+ &#x27;10.0\\VC\\INCLUDE;C:\\Program Files (x86)\\Microsoft &#x27;
+ &#x27;SDKs\\Windows\\v7.0A\\Include; &#x27;)</pre></td>
         </tr>
       
         <tr>
-          <td>HTTP_X_REAL_IP</td>
-          <td class="code"><pre>&#x27;104.28.243.185&#x27;</pre></td>
+          <td>JAVA_HOME</td>
+          <td class="code"><pre>&#x27;D:\\AndroidSdks\\jdk-23.0.2&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANG</td>
+          <td class="code"><pre>&#x27;en_US.UTF-8&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LIB</td>
+          <td class="code"><pre>(&#x27;C:\\Program Files (x86)\\Microsoft Visual Studio &#x27;
+ &#x27;10.0\\VC\\atlmfc\\lib;C:\\Program Files (x86)\\Microsoft Visual Studio &#x27;
+ &#x27;10.0\\VC\\lib;C:\\Program Files (x86)\\Microsoft SDKs\\Windows\\v7.0A\\Lib; &#x27;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LIBPATH</td>
+          <td class="code"><pre>(&#x27;C:\\WINDOWS\\Microsoft.NET\\Framework\\v3.5;C:\\WINDOWS\\Microsoft.NET\\Framework\\v2.0.50727;C:\\Program &#x27;
+ &#x27;Files (x86)\\Microsoft Visual Studio 10.0\\VC\\ATLMFC\\LIB;C:\\Program Files &#x27;
+ &#x27;(x86)\\Microsoft Visual Studio 10.0\\VC\\LIB;&#x27;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOCALAPPDATA</td>
+          <td class="code"><pre>&#x27;C:\\Users\\WIN10\\AppData\\Local&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGONSERVER</td>
+          <td class="code"><pre>&#x27;\\\\DESKTOP-T3L5UDU&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>NUMBER_OF_PROCESSORS</td>
+          <td class="code"><pre>&#x27;4&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ONEDRIVE</td>
+          <td class="code"><pre>&#x27;C:\\Users\\WIN10\\OneDrive&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ORIGINAL_XDG_CURRENT_DESKTOP</td>
+          <td class="code"><pre>&#x27;undefined&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>OS</td>
+          <td class="code"><pre>&#x27;Windows_NT&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PATH</td>
+          <td class="code"><pre>(&#x27;D:\\Program Files\\Python3109\\;D:\\Program &#x27;
+ &#x27;Files\\Python3109\\Scripts\\;D:\\Program Files\\python313;D:\\Program &#x27;
+ &#x27;Files\\python313\\Scripts\\;D:\\Program Files\\python311;D:\\Program &#x27;
+ &#x27;Files\\python311\\Scripts\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;c:\\Program &#x27;
+ &#x27;Files (x86)\\Microsoft SQL Server\\100\\Tools\\Binn\\;c:\\Program &#x27;
+ &#x27;Files\\Microsoft SQL Server\\100\\Tools\\Binn\\;c:\\Program Files\\Microsoft &#x27;
+ &#x27;SQL &#x27;
+ &#x27;Server\\100\\DTS\\Binn\\;C:\\Users\\WIN10\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Program &#x27;
+ &#x27;Files (x86)\\Microsoft Visual Studio &#x27;
+ &#x27;10.0\\VC\\BIN;C:\\WINDOWS\\Microsoft.NET\\Framework\\v3.5;C:\\WINDOWS\\Microsoft.NET\\Framework\\v2.0.50727;C:\\Program &#x27;
+ &#x27;Files (x86)\\Microsoft Visual Studio 10.0\\VC\\VCPackages;C:\\Program Files &#x27;
+ &#x27;(x86)\\Microsoft Visual Studio 10.0\\Common7\\IDE;C:\\Program Files &#x27;
+ &#x27;(x86)\\Microsoft Visual Studio 10.0\\Common7\\Tools;C:\\Program Files &#x27;
+ &#x27;(x86)\\Microsoft SDKs\\Windows\\v7.0A\\Bin;C:\\Program &#x27;
+ &#x27;Files\\Cloudflare\\Cloudflare WARP\\;C:\\programs\\Microsoft VS &#x27;
+ &#x27;Code\\bin;D:\\AndroidSdks\\cmdline-tools\\latest\\bin;D:\\AndroidSdks\\platform-tools;D:\\AndroidSdks\\emulator;C:\\Program &#x27;
+ &#x27;Files\\Git\\cmd;D:\\AndroidSdks\\cmdline-tools\\latest\\bin;D:\\AndroidSdks\\platform-tools;D:\\AndroidSdks\\emulator;D:\\AndroidSdks\\jdk-23.0.2\\bin;D:\\AndroidSdks\\flutter\\bin;D:\\AndroidSdks\\gradle-8.12.1\\bin;C:\\programs\\Microsoft &#x27;
+ &#x27;VS &#x27;
+ &#x27;Code\\bin;C:\\Users\\WIN10\\AppData\\Local\\Pub\\Cache\\bin;;c:\\Users\\WIN10\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand;c:\\Users\\WIN10\\.vscode\\extensions\\ms-python.debugpy-2025.4.1-win32-x64\\bundled\\scripts\\noConfigScripts&#x27;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PATHEXT</td>
+          <td class="code"><pre>&#x27;.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW;.CPL&#x27;</pre></td>
         </tr>
       
         <tr>
           <td>PATH_INFO</td>
-          <td class="code"><pre>&#x27;/api-token-auth&#x27;</pre></td>
+          <td class="code"><pre>&#x27;/api-token-auth/&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROCESSOR_ARCHITECTURE</td>
+          <td class="code"><pre>&#x27;AMD64&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROCESSOR_IDENTIFIER</td>
+          <td class="code"><pre>&#x27;Intel64 Family 6 Model 158 Stepping 9, GenuineIntel&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROCESSOR_LEVEL</td>
+          <td class="code"><pre>&#x27;6&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROCESSOR_REVISION</td>
+          <td class="code"><pre>&#x27;9e09&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROGRAMDATA</td>
+          <td class="code"><pre>&#x27;C:\\ProgramData&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROGRAMFILES</td>
+          <td class="code"><pre>&#x27;C:\\Program Files&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROGRAMFILES(X86)</td>
+          <td class="code"><pre>&#x27;C:\\Program Files (x86)&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROGRAMW6432</td>
+          <td class="code"><pre>&#x27;C:\\Program Files&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PSMODULEPATH</td>
+          <td class="code"><pre>(&#x27;C:\\Users\\WIN10\\Documents\\WindowsPowerShell\\Modules;C:\\Program &#x27;
+ &#x27;Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules&#x27;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PUBLIC</td>
+          <td class="code"><pre>&#x27;C:\\Users\\Public&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PYDEVD_DISABLE_FILE_VALIDATION</td>
+          <td class="code"><pre>&#x27;1&#x27;</pre></td>
         </tr>
       
         <tr>
@@ -689,12 +1220,12 @@ Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a
       
         <tr>
           <td>REMOTE_ADDR</td>
-          <td class="code"><pre>&#x27;10.0.4.170&#x27;</pre></td>
+          <td class="code"><pre>&#x27;127.0.0.1&#x27;</pre></td>
         </tr>
       
         <tr>
-          <td>REMOTE_PORT</td>
-          <td class="code"><pre>&#x27;45030&#x27;</pre></td>
+          <td>REMOTE_HOST</td>
+          <td class="code"><pre>&#x27;&#x27;</pre></td>
         </tr>
       
         <tr>
@@ -703,8 +1234,8 @@ Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a
         </tr>
       
         <tr>
-          <td>REQUEST_URI</td>
-          <td class="code"><pre>&#x27;/api-token-auth&#x27;</pre></td>
+          <td>RUN_MAIN</td>
+          <td class="code"><pre>&#x27;true&#x27;</pre></td>
         </tr>
       
         <tr>
@@ -714,12 +1245,12 @@ Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a
       
         <tr>
           <td>SERVER_NAME</td>
-          <td class="code"><pre>&#x27;thanoon.pythonanywhere.com&#x27;</pre></td>
+          <td class="code"><pre>&#x27;DESKTOP-T3L5UDU&#x27;</pre></td>
         </tr>
       
         <tr>
           <td>SERVER_PORT</td>
-          <td class="code"><pre>&#x27;443&#x27;</pre></td>
+          <td class="code"><pre>&#x27;8000&#x27;</pre></td>
         </tr>
       
         <tr>
@@ -728,28 +1259,133 @@ Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a
         </tr>
       
         <tr>
-          <td>uwsgi.node</td>
-          <td class="code"><pre>b&#x27;green-liveweb44&#x27;</pre></td>
+          <td>SERVER_SOFTWARE</td>
+          <td class="code"><pre>&#x27;WSGIServer/0.2&#x27;</pre></td>
         </tr>
       
         <tr>
-          <td>uwsgi.version</td>
-          <td class="code"><pre>b&#x27;2.0.20&#x27;</pre></td>
+          <td>SESSIONNAME</td>
+          <td class="code"><pre>&#x27;Console&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SYSTEMDRIVE</td>
+          <td class="code"><pre>&#x27;C:&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SYSTEMROOT</td>
+          <td class="code"><pre>&#x27;C:\\Windows&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMP</td>
+          <td class="code"><pre>&#x27;C:\\Users\\WIN10\\AppData\\Local\\Temp&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TERM_PROGRAM</td>
+          <td class="code"><pre>&#x27;vscode&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TERM_PROGRAM_VERSION</td>
+          <td class="code"><pre>&#x27;1.98.2&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TMP</td>
+          <td class="code"><pre>&#x27;C:\\Users\\WIN10\\AppData\\Local\\Temp&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USERDOMAIN</td>
+          <td class="code"><pre>&#x27;DESKTOP-T3L5UDU&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USERDOMAIN_ROAMINGPROFILE</td>
+          <td class="code"><pre>&#x27;DESKTOP-T3L5UDU&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USERNAME</td>
+          <td class="code"><pre>&#x27;WIN10&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USERPROFILE</td>
+          <td class="code"><pre>&#x27;C:\\Users\\WIN10&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>VCINSTALLDIR</td>
+          <td class="code"><pre>&#x27;C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\VC&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>VS100COMNTOOLS</td>
+          <td class="code"><pre>&#x27;C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\Common7\\Tools\\&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>VSCODE_DEBUGPY_ADAPTER_ENDPOINTS</td>
+          <td class="code"><pre>&#x27;c:\\Users\\WIN10\\.vscode\\extensions\\ms-python.debugpy-2025.4.1-win32-x64\\.noConfigDebugAdapterEndpoints\\endpoint-9eaa43d6e6031779.txt&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>VSCODE_GIT_ASKPASS_EXTRA_ARGS</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>VSCODE_GIT_ASKPASS_MAIN</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>VSCODE_GIT_ASKPASS_NODE</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>VSCODE_GIT_IPC_HANDLE</td>
+          <td class="code"><pre>&#x27;\\\\.\\pipe\\vscode-git-9f5c1940c4-sock&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>VSCODE_INJECTION</td>
+          <td class="code"><pre>&#x27;1&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>VSINSTALLDIR</td>
+          <td class="code"><pre>&#x27;C:\\Program Files (x86)\\Microsoft Visual Studio 10.0&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>WINDIR</td>
+          <td class="code"><pre>&#x27;C:\\Windows&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>WINDOWSSDKDIR</td>
+          <td class="code"><pre>&#x27;C:\\Program Files (x86)\\Microsoft SDKs\\Windows\\v7.0A;&#x27;</pre></td>
         </tr>
       
         <tr>
           <td>wsgi.errors</td>
-          <td class="code"><pre>&lt;uwsgi_file__bin_user_wsgi_wrapper.ErrorLogFile object at 0x75c6bbbac3a0&gt;</pre></td>
+          <td class="code"><pre>&lt;_io.TextIOWrapper name=&#x27;&lt;stderr&gt;&#x27; mode=&#x27;w&#x27; encoding=&#x27;utf-8&#x27;&gt;</pre></td>
         </tr>
       
         <tr>
           <td>wsgi.file_wrapper</td>
-          <td class="code"><pre>&lt;built-in function uwsgi_sendfile&gt;</pre></td>
+          <td class="code"><pre>&lt;class &#x27;wsgiref.util.FileWrapper&#x27;&gt;</pre></td>
         </tr>
       
         <tr>
           <td>wsgi.input</td>
-          <td class="code"><pre>&lt;uwsgi._Input object at 0x75c6bbbbb450&gt;</pre></td>
+          <td class="code"><pre>&lt;django.core.handlers.wsgi.LimitedStream object at 0x000001E68F3CF670&gt;</pre></td>
         </tr>
       
         <tr>
@@ -759,7 +1395,7 @@ Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a
       
         <tr>
           <td>wsgi.multithread</td>
-          <td class="code"><pre>False</pre></td>
+          <td class="code"><pre>True</pre></td>
         </tr>
       
         <tr>
@@ -769,7 +1405,7 @@ Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a
       
         <tr>
           <td>wsgi.url_scheme</td>
-          <td class="code"><pre>&#x27;https&#x27;</pre></td>
+          <td class="code"><pre>&#x27;http&#x27;</pre></td>
         </tr>
       
         <tr>
@@ -829,7 +1465,7 @@ Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a
       
         <tr>
           <td>BASE_DIR</td>
-          <td class="code"><pre>PosixPath(&#x27;/home/thanoon/Employee-Manager&#x27;)</pre></td>
+          <td class="code"><pre>WindowsPath(&#x27;C:/Users/WIN10/Desktop/Projects/Employee Manager -wroking/employees_manager&#x27;)</pre></td>
         </tr>
       
         <tr>
@@ -915,7 +1551,7 @@ Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a
              &#x27;CONN_MAX_AGE&#x27;: 0,
              &#x27;ENGINE&#x27;: &#x27;django.db.backends.sqlite3&#x27;,
              &#x27;HOST&#x27;: &#x27;&#x27;,
-             &#x27;NAME&#x27;: PosixPath(&#x27;/home/thanoon/Employee-Manager/db.sqlite3&#x27;),
+             &#x27;NAME&#x27;: WindowsPath(&#x27;C:/Users/WIN10/Desktop/Projects/Employee Manager -wroking/employees_manager/db.sqlite3&#x27;),
              &#x27;OPTIONS&#x27;: {},
              &#x27;PASSWORD&#x27;: &#x27;********************&#x27;,
              &#x27;PORT&#x27;: &#x27;&#x27;,
@@ -1365,7 +2001,8 @@ Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a
       
         <tr>
           <td>MEDIA_ROOT</td>
-          <td class="code"><pre>&#x27;/home/thanoon/Employee-Manager/media&#x27;</pre></td>
+          <td class="code"><pre>(&#x27;C:\\Users\\WIN10\\Desktop\\Projects\\Employee Manager &#x27;
+ &#x27;-wroking\\employees_manager\\media&#x27;)</pre></td>
         </tr>
       
         <tr>
@@ -1588,7 +2225,8 @@ Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a
       
         <tr>
           <td>STATICFILES_DIRS</td>
-          <td class="code"><pre>[&#x27;/home/thanoon/Employee-Manager/static&#x27;]</pre></td>
+          <td class="code"><pre>[&#x27;C:\\Users\\WIN10\\Desktop\\Projects\\Employee Manager &#x27;
+ &#x27;-wroking\\employees_manager\\static&#x27;]</pre></td>
         </tr>
       
         <tr>
@@ -1599,7 +2237,8 @@ Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a
       
         <tr>
           <td>STATIC_ROOT</td>
-          <td class="code"><pre>&#x27;/home/thanoon/Employee-Manager/staticfiles&#x27;</pre></td>
+          <td class="code"><pre>(&#x27;C:\\Users\\WIN10\\Desktop\\Projects\\Employee Manager &#x27;
+ &#x27;-wroking\\employees_manager\\staticfiles&#x27;)</pre></td>
         </tr>
       
         <tr>
