@@ -7,24 +7,22 @@ from django.contrib.auth import authenticate, login
 from rest_framework.authtoken.models import Token
 from django.views.decorators.csrf import csrf_exempt
 
-def getBoooks(request):
-    user = request.user
-    if user.is_authenticated:
-        token_key = request.headers.get('Authorization', '').split('Token ')[-1]
-        try:
-            token = Token.objects.get(key=token_key)
-            user = token.user
-        except Token.DoesNotExist:
-            return JsonResponse({"error": "Invalid token"}, status=401)
-        announcements = Announcement.objects.filter(users=user)
-        announcements_data = list(announcements.values())
-        for announcement in announcements_data:
-            if announcement['image']:
-                announcement['image'] = request.build_absolute_uri('/media/' + announcement['image'])
-            if announcement['file']:
-                announcement['file'] = request.build_absolute_uri('/media/' + announcement['file'])
-        return JsonResponse({"announcements": announcements_data}, safe=False)
-    return JsonResponse({"error": "User not authenticated"}, status=401)
+def getAnnouncement(request):
+    token_key = request.headers.get('Authorization', '').split('Token ')[-1]
+    try:
+        token = Token.objects.get(key=token_key)
+        user = token.user
+    except Token.DoesNotExist:
+        return JsonResponse({"error": "Invalid token"}, status=401)
+    announcements = Announcement.objects.filter(users=user)
+    announcements_data = list(announcements.values())
+    for announcement in announcements_data:
+        if announcement['image']:
+            announcement['image'] = request.build_absolute_uri('/media/' + announcement['image'])
+        if announcement['file']:
+            announcement['file'] = request.build_absolute_uri('/media/' + announcement['file'])
+    return JsonResponse({"announcements": announcements_data}, safe=False)
+    
 
 
 def get_users_list(request):
