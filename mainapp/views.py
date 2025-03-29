@@ -56,8 +56,9 @@ def get_user_reports(request):
 @csrf_exempt
 def authenticate_user_and_get_token(request):
     data = json.loads(request.body)
+    print(f"Request Data: {data}")  # Log the request body
     username = data.get('username')
-    password = data.get('password')    
+    password = data.get('password')
     user = authenticate(request, username=username, password=password)
     if user is not None:
         login(request, user)

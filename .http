@@ -6,16 +6,16 @@
 
 
 
+# POST http://127.0.0.1:8000/api-token-auth/ HTTP/1.1
+# Content-Type: application/json
+
+# {"username": "thanoon1","password": "123" }
+
+
 POST http://127.0.0.1:8000/api-token-auth/ HTTP/1.1
 Content-Type: application/json
 
-{"username": "thanoon1","password": "123" }
-
-
-# POST https://thanoon.pythonanywhere.com/get-user-announcements/ HTTP/1.1
-# Content-Type: application/json
-
-# {
-#     "username": "thanoon",
-#     "password": "123"
-# }
+{
+    "username": "qw",
+    "password": "123"
+}

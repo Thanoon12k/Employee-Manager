@@ -33,14 +33,11 @@ INSTALLED_APPS = [
         
     # 'rest_framework_simplejwt',
 ]
+   
 REST_FRAMEWORK = {
-   'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.BasicAuthentication',
-    ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',  # Restrict access to authenticated users
-    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
 }
 
 MIDDLEWARE = [

@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import FileExtensionValidator
 
-
 # Custom User Model
 class User(AbstractUser):
     username = models.CharField(max_length=150, unique=True)
@@ -15,10 +14,14 @@ class User(AbstractUser):
     is_superuser = models.BooleanField(default=False)
     is_manager = models.BooleanField(default=False)
 
+    def save(self, *args, **kwargs):
+        if self.pk is None and self.password:  # Check if it's a new user and password is set
+            self.set_password(self.password)  # Hash the password
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.username
-    
+  
 # Announcement Model
 class Announcement(models.Model):
     users = models.ManyToManyField(User, related_name='linked_announcements', blank=True)
