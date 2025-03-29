@@ -15,6 +15,16 @@ def getBoooks(request):
     return JsonResponse({"error": "User not authenticated"}, status=401)
 
 
+def get_users_list(request):
+    user=request.user
+    if user.is_authenticated:
+        if user.is_manager or user.is_superuser:
+            users = User.objects.all()
+            users_data = list(users.values('id', 'username', 'email', 'birth_date', 'address','phone','image','image_url'))
+            return JsonResponse({"users": users_data}, safe=False)
+        return JsonResponse({"error": "You are not manager"}, status=403)            
+    return JsonResponse({"error": "User not authenticated"}, status=401)
+
 def get_user_reports(request):
     user = request.user
     if user.is_authenticated:

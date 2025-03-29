@@ -5,19 +5,24 @@ from django.core.validators import FileExtensionValidator
 
 # Custom User Model
 class User(AbstractUser):
+    username = models.CharField(max_length=150, unique=True)
     email = models.EmailField(blank=True, null=True)
     birth_date = models.DateField(blank=True, null=True)
     address = models.CharField(max_length=200, blank=True)
     phone = models.CharField(max_length=200, blank=True)
     image = models.ImageField(upload_to='user_images/', blank=True)
+    image_url = models.URLField(blank=True, null=True)
     is_superuser = models.BooleanField(default=False)
     is_manager = models.BooleanField(default=False)
-    username = models.CharField(max_length=150, unique=True)
+
+    def save(self, *args, **kwargs):
+        if self.image and not self.image_url:
+            self.image_url = self.image.url
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.username
-
-
+    
 # Announcement Model
 class Announcement(models.Model):
     users = models.ManyToManyField(User, related_name='linked_announcements', blank=True)

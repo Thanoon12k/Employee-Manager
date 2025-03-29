@@ -1,13 +1,3 @@
-HTTP/1.1 500 Internal Server Error
-Date: Wed, 12 Mar 2025 09:29:27 GMT
-Content-Type: text/html; charset=utf-8
-Transfer-Encoding: chunked
-Connection: close
-Vary: Cookie
-X-Content-Type-Options: nosniff
-Referrer-Policy: same-origin
-Cross-Origin-Opener-Policy: same-origin
-Server: PythonAnywhere
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +5,7 @@ Server: PythonAnywhere
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="robots" content="NONE,NOARCHIVE">
   <title>RuntimeError
-          at /api/login</title>
+          at /api-token-auth</title>
   <style>
     html * { padding:0; margin:0; }
     body * { padding:10px 20px; }
@@ -112,8 +102,8 @@ Server: PythonAnywhere
 <body>
 <header id="summary">
   <h1>RuntimeError
-       at /api/login</h1>
-  <pre class="exception_value">You called this URL via POST, but the URL doesn&#x27;t end in a slash and you have APPEND_SLASH set. Django can&#x27;t redirect to the slash URL while maintaining POST data. Change your form to point to thanoon.pythonanywhere.com/api/login/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.</pre>
+       at /api-token-auth</h1>
+  <pre class="exception_value">You called this URL via POST, but the URL doesn&#x27;t end in a slash and you have APPEND_SLASH set. Django can&#x27;t redirect to the slash URL while maintaining POST data. Change your form to point to thanoon.pythonanywhere.com/api-token-auth/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.</pre>
   <table class="meta">
 
     <tr>
@@ -122,7 +112,7 @@ Server: PythonAnywhere
     </tr>
     <tr>
       <th scope="row">Request URL:</th>
-      <td>https://thanoon.pythonanywhere.com/api/login</td>
+      <td>https://thanoon.pythonanywhere.com/api-token-auth</td>
     </tr>
 
     <tr>
@@ -138,7 +128,7 @@ Server: PythonAnywhere
 
     <tr>
       <th scope="row">Exception Value:</th>
-      <td><pre>You called this URL via POST, but the URL doesn&#x27;t end in a slash and you have APPEND_SLASH set. Django can&#x27;t redirect to the slash URL while maintaining POST data. Change your form to point to thanoon.pythonanywhere.com/api/login/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.</pre></td>
+      <td><pre>You called this URL via POST, but the URL doesn&#x27;t end in a slash and you have APPEND_SLASH set. Django can&#x27;t redirect to the slash URL while maintaining POST data. Change your form to point to thanoon.pythonanywhere.com/api-token-auth/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.</pre></td>
     </tr>
 
 
@@ -170,7 +160,7 @@ Server: PythonAnywhere
     </tr>
     <tr>
       <th scope="row">Server time:</th>
-      <td>Wed, 12 Mar 2025 09:29:27 +0000</td>
+      <td>Sat, 29 Mar 2025 16:20:57 +0000</td>
     </tr>
   </table>
 </header>
@@ -194,43 +184,43 @@ Server: PythonAnywhere
           
 
           
-            <div class="context" id="c123847770139776">
+            <div class="context" id="c129496411153536">
               
-                <ol start="48" class="pre-context" id="pre123847770139776">
+                <ol start="48" class="pre-context" id="pre129496411153536">
                 
-                  <li onclick="toggle('pre123847770139776', 'post123847770139776')"><pre></pre></li>
+                  <li onclick="toggle('pre129496411153536', 'post129496411153536')"><pre></pre></li>
                 
-                  <li onclick="toggle('pre123847770139776', 'post123847770139776')"><pre>        return inner</pre></li>
+                  <li onclick="toggle('pre129496411153536', 'post129496411153536')"><pre>        return inner</pre></li>
                 
-                  <li onclick="toggle('pre123847770139776', 'post123847770139776')"><pre>    else:</pre></li>
+                  <li onclick="toggle('pre129496411153536', 'post129496411153536')"><pre>    else:</pre></li>
                 
-                  <li onclick="toggle('pre123847770139776', 'post123847770139776')"><pre></pre></li>
+                  <li onclick="toggle('pre129496411153536', 'post129496411153536')"><pre></pre></li>
                 
-                  <li onclick="toggle('pre123847770139776', 'post123847770139776')"><pre>        @wraps(get_response)</pre></li>
+                  <li onclick="toggle('pre129496411153536', 'post129496411153536')"><pre>        @wraps(get_response)</pre></li>
                 
-                  <li onclick="toggle('pre123847770139776', 'post123847770139776')"><pre>        def inner(request):</pre></li>
+                  <li onclick="toggle('pre129496411153536', 'post129496411153536')"><pre>        def inner(request):</pre></li>
                 
-                  <li onclick="toggle('pre123847770139776', 'post123847770139776')"><pre>            try:</pre></li>
+                  <li onclick="toggle('pre129496411153536', 'post129496411153536')"><pre>            try:</pre></li>
                 
                 </ol>
               
               <ol start="55" class="context-line">
-                <li onclick="toggle('pre123847770139776', 'post123847770139776')"><pre>                response = get_response(request)</pre> <span>…</span></li>
+                <li onclick="toggle('pre129496411153536', 'post129496411153536')"><pre>                response = get_response(request)</pre> <span>…</span></li>
               </ol>
               
-                <ol start='56' class="post-context" id="post123847770139776">
+                <ol start='56' class="post-context" id="post129496411153536">
                   
-                  <li onclick="toggle('pre123847770139776', 'post123847770139776')"><pre>            except Exception as exc:</pre></li>
+                  <li onclick="toggle('pre129496411153536', 'post129496411153536')"><pre>            except Exception as exc:</pre></li>
                   
-                  <li onclick="toggle('pre123847770139776', 'post123847770139776')"><pre>                response = response_for_exception(request, exc)</pre></li>
+                  <li onclick="toggle('pre129496411153536', 'post129496411153536')"><pre>                response = response_for_exception(request, exc)</pre></li>
                   
-                  <li onclick="toggle('pre123847770139776', 'post123847770139776')"><pre>            return response</pre></li>
+                  <li onclick="toggle('pre129496411153536', 'post129496411153536')"><pre>            return response</pre></li>
                   
-                  <li onclick="toggle('pre123847770139776', 'post123847770139776')"><pre></pre></li>
+                  <li onclick="toggle('pre129496411153536', 'post129496411153536')"><pre></pre></li>
                   
-                  <li onclick="toggle('pre123847770139776', 'post123847770139776')"><pre>        return inner</pre></li>
+                  <li onclick="toggle('pre129496411153536', 'post129496411153536')"><pre>        return inner</pre></li>
                   
-                  <li onclick="toggle('pre123847770139776', 'post123847770139776')"><pre></pre></li>
+                  <li onclick="toggle('pre129496411153536', 'post129496411153536')"><pre></pre></li>
                   
               </ol>
               
@@ -242,7 +232,7 @@ Server: PythonAnywhere
               <details>
                 <summary class="commands">Local vars</summary>
             
-            <table class="vars" id="v123847770139776">
+            <table class="vars" id="v129496411153536">
               <thead>
                 <tr>
                   <th scope="col">Variable</th>
@@ -253,7 +243,7 @@ Server: PythonAnywhere
                 
                   <tr>
                     <td>exc</td>
-                    <td class="code"><pre>RuntimeError(&quot;You called this URL via POST, but the URL doesn&#x27;t end in a slash and you have APPEND_SLASH set. Django can&#x27;t redirect to the slash URL while maintaining POST data. Change your form to point to thanoon.pythonanywhere.com/api/login/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.&quot;)</pre></td>
+                    <td class="code"><pre>RuntimeError(&quot;You called this URL via POST, but the URL doesn&#x27;t end in a slash and you have APPEND_SLASH set. Django can&#x27;t redirect to the slash URL while maintaining POST data. Change your form to point to thanoon.pythonanywhere.com/api-token-auth/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.&quot;)</pre></td>
                   </tr>
                 
                   <tr>
@@ -263,7 +253,7 @@ Server: PythonAnywhere
                 
                   <tr>
                     <td>request</td>
-                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/api/login&#x27;&gt;</pre></td>
+                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/api-token-auth&#x27;&gt;</pre></td>
                   </tr>
                 
               </tbody>
@@ -279,43 +269,43 @@ Server: PythonAnywhere
           
 
           
-            <div class="context" id="c123847770134656">
+            <div class="context" id="c129496411144704">
               
-                <ol start="124" class="pre-context" id="pre123847770134656">
+                <ol start="124" class="pre-context" id="pre129496411144704">
                 
-                  <li onclick="toggle('pre123847770134656', 'post123847770134656')"><pre>        if self.async_mode:</pre></li>
+                  <li onclick="toggle('pre129496411144704', 'post129496411144704')"><pre>        if self.async_mode:</pre></li>
                 
-                  <li onclick="toggle('pre123847770134656', 'post123847770134656')"><pre>            return self.__acall__(request)</pre></li>
+                  <li onclick="toggle('pre129496411144704', 'post129496411144704')"><pre>            return self.__acall__(request)</pre></li>
                 
-                  <li onclick="toggle('pre123847770134656', 'post123847770134656')"><pre>        response = None</pre></li>
+                  <li onclick="toggle('pre129496411144704', 'post129496411144704')"><pre>        response = None</pre></li>
                 
-                  <li onclick="toggle('pre123847770134656', 'post123847770134656')"><pre>        if hasattr(self, &quot;process_request&quot;):</pre></li>
+                  <li onclick="toggle('pre129496411144704', 'post129496411144704')"><pre>        if hasattr(self, &quot;process_request&quot;):</pre></li>
                 
-                  <li onclick="toggle('pre123847770134656', 'post123847770134656')"><pre>            response = self.process_request(request)</pre></li>
+                  <li onclick="toggle('pre129496411144704', 'post129496411144704')"><pre>            response = self.process_request(request)</pre></li>
                 
-                  <li onclick="toggle('pre123847770134656', 'post123847770134656')"><pre>        response = response or self.get_response(request)</pre></li>
+                  <li onclick="toggle('pre129496411144704', 'post129496411144704')"><pre>        response = response or self.get_response(request)</pre></li>
                 
-                  <li onclick="toggle('pre123847770134656', 'post123847770134656')"><pre>        if hasattr(self, &quot;process_response&quot;):</pre></li>
+                  <li onclick="toggle('pre129496411144704', 'post129496411144704')"><pre>        if hasattr(self, &quot;process_response&quot;):</pre></li>
                 
                 </ol>
               
               <ol start="131" class="context-line">
-                <li onclick="toggle('pre123847770134656', 'post123847770134656')"><pre>            response = self.process_response(request, response)</pre> <span>…</span></li>
+                <li onclick="toggle('pre129496411144704', 'post129496411144704')"><pre>            response = self.process_response(request, response)</pre> <span>…</span></li>
               </ol>
               
-                <ol start='132' class="post-context" id="post123847770134656">
+                <ol start='132' class="post-context" id="post129496411144704">
                   
-                  <li onclick="toggle('pre123847770134656', 'post123847770134656')"><pre>        return response</pre></li>
+                  <li onclick="toggle('pre129496411144704', 'post129496411144704')"><pre>        return response</pre></li>
                   
-                  <li onclick="toggle('pre123847770134656', 'post123847770134656')"><pre></pre></li>
+                  <li onclick="toggle('pre129496411144704', 'post129496411144704')"><pre></pre></li>
                   
-                  <li onclick="toggle('pre123847770134656', 'post123847770134656')"><pre>    async def __acall__(self, request):</pre></li>
+                  <li onclick="toggle('pre129496411144704', 'post129496411144704')"><pre>    async def __acall__(self, request):</pre></li>
                   
-                  <li onclick="toggle('pre123847770134656', 'post123847770134656')"><pre>        &quot;&quot;&quot;</pre></li>
+                  <li onclick="toggle('pre129496411144704', 'post129496411144704')"><pre>        &quot;&quot;&quot;</pre></li>
                   
-                  <li onclick="toggle('pre123847770134656', 'post123847770134656')"><pre>        Async version of __call__ that is swapped in when an async request</pre></li>
+                  <li onclick="toggle('pre129496411144704', 'post129496411144704')"><pre>        Async version of __call__ that is swapped in when an async request</pre></li>
                   
-                  <li onclick="toggle('pre123847770134656', 'post123847770134656')"><pre>        is running.</pre></li>
+                  <li onclick="toggle('pre129496411144704', 'post129496411144704')"><pre>        is running.</pre></li>
                   
               </ol>
               
@@ -327,7 +317,7 @@ Server: PythonAnywhere
               <details>
                 <summary class="commands">Local vars</summary>
             
-            <table class="vars" id="v123847770134656">
+            <table class="vars" id="v129496411144704">
               <thead>
                 <tr>
                   <th scope="col">Variable</th>
@@ -338,7 +328,7 @@ Server: PythonAnywhere
                 
                   <tr>
                     <td>request</td>
-                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/api/login&#x27;&gt;</pre></td>
+                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/api-token-auth&#x27;&gt;</pre></td>
                   </tr>
                 
                   <tr>
@@ -364,43 +354,43 @@ Server: PythonAnywhere
           
 
           
-            <div class="context" id="c123847769826368">
+            <div class="context" id="c129496411152896">
               
-                <ol start="101" class="pre-context" id="pre123847769826368">
+                <ol start="101" class="pre-context" id="pre129496411152896">
                 
-                  <li onclick="toggle('pre123847769826368', 'post123847769826368')"><pre>        &quot;&quot;&quot;</pre></li>
+                  <li onclick="toggle('pre129496411152896', 'post129496411152896')"><pre>        &quot;&quot;&quot;</pre></li>
                 
-                  <li onclick="toggle('pre123847769826368', 'post123847769826368')"><pre>        When the status code of the response is 404, it may redirect to a path</pre></li>
+                  <li onclick="toggle('pre129496411152896', 'post129496411152896')"><pre>        When the status code of the response is 404, it may redirect to a path</pre></li>
                 
-                  <li onclick="toggle('pre123847769826368', 'post123847769826368')"><pre>        with an appended slash if should_redirect_with_slash() returns True.</pre></li>
+                  <li onclick="toggle('pre129496411152896', 'post129496411152896')"><pre>        with an appended slash if should_redirect_with_slash() returns True.</pre></li>
                 
-                  <li onclick="toggle('pre123847769826368', 'post123847769826368')"><pre>        &quot;&quot;&quot;</pre></li>
+                  <li onclick="toggle('pre129496411152896', 'post129496411152896')"><pre>        &quot;&quot;&quot;</pre></li>
                 
-                  <li onclick="toggle('pre123847769826368', 'post123847769826368')"><pre>        # If the given URL is &quot;Not Found&quot;, then check if we should redirect to</pre></li>
+                  <li onclick="toggle('pre129496411152896', 'post129496411152896')"><pre>        # If the given URL is &quot;Not Found&quot;, then check if we should redirect to</pre></li>
                 
-                  <li onclick="toggle('pre123847769826368', 'post123847769826368')"><pre>        # a path with a slash appended.</pre></li>
+                  <li onclick="toggle('pre129496411152896', 'post129496411152896')"><pre>        # a path with a slash appended.</pre></li>
                 
-                  <li onclick="toggle('pre123847769826368', 'post123847769826368')"><pre>        if response.status_code == 404 and self.should_redirect_with_slash(request):</pre></li>
+                  <li onclick="toggle('pre129496411152896', 'post129496411152896')"><pre>        if response.status_code == 404 and self.should_redirect_with_slash(request):</pre></li>
                 
                 </ol>
               
               <ol start="108" class="context-line">
-                <li onclick="toggle('pre123847769826368', 'post123847769826368')"><pre>            return self.response_redirect_class(self.get_full_path_with_slash(request))</pre> <span>…</span></li>
+                <li onclick="toggle('pre129496411152896', 'post129496411152896')"><pre>            return self.response_redirect_class(self.get_full_path_with_slash(request))</pre> <span>…</span></li>
               </ol>
               
-                <ol start='109' class="post-context" id="post123847769826368">
+                <ol start='109' class="post-context" id="post129496411152896">
                   
-                  <li onclick="toggle('pre123847769826368', 'post123847769826368')"><pre></pre></li>
+                  <li onclick="toggle('pre129496411152896', 'post129496411152896')"><pre></pre></li>
                   
-                  <li onclick="toggle('pre123847769826368', 'post123847769826368')"><pre>        # Add the Content-Length header to non-streaming responses if not</pre></li>
+                  <li onclick="toggle('pre129496411152896', 'post129496411152896')"><pre>        # Add the Content-Length header to non-streaming responses if not</pre></li>
                   
-                  <li onclick="toggle('pre123847769826368', 'post123847769826368')"><pre>        # already set.</pre></li>
+                  <li onclick="toggle('pre129496411152896', 'post129496411152896')"><pre>        # already set.</pre></li>
                   
-                  <li onclick="toggle('pre123847769826368', 'post123847769826368')"><pre>        if not response.streaming and not response.has_header(&quot;Content-Length&quot;):</pre></li>
+                  <li onclick="toggle('pre129496411152896', 'post129496411152896')"><pre>        if not response.streaming and not response.has_header(&quot;Content-Length&quot;):</pre></li>
                   
-                  <li onclick="toggle('pre123847769826368', 'post123847769826368')"><pre>            response.headers[&quot;Content-Length&quot;] = str(len(response.content))</pre></li>
+                  <li onclick="toggle('pre129496411152896', 'post129496411152896')"><pre>            response.headers[&quot;Content-Length&quot;] = str(len(response.content))</pre></li>
                   
-                  <li onclick="toggle('pre123847769826368', 'post123847769826368')"><pre></pre></li>
+                  <li onclick="toggle('pre129496411152896', 'post129496411152896')"><pre></pre></li>
                   
               </ol>
               
@@ -412,7 +402,7 @@ Server: PythonAnywhere
               <details>
                 <summary class="commands">Local vars</summary>
             
-            <table class="vars" id="v123847769826368">
+            <table class="vars" id="v129496411152896">
               <thead>
                 <tr>
                   <th scope="col">Variable</th>
@@ -423,7 +413,7 @@ Server: PythonAnywhere
                 
                   <tr>
                     <td>request</td>
-                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/api/login&#x27;&gt;</pre></td>
+                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/api-token-auth&#x27;&gt;</pre></td>
                   </tr>
                 
                   <tr>
@@ -449,43 +439,43 @@ Server: PythonAnywhere
           
 
           
-            <div class="context" id="c123847770052800">
+            <div class="context" id="c129496411144576">
               
-                <ol start="80" class="pre-context" id="pre123847770052800">
+                <ol start="80" class="pre-context" id="pre129496411144576">
                 
-                  <li onclick="toggle('pre123847770052800', 'post123847770052800')"><pre>        Raise a RuntimeError if settings.DEBUG is True and request.method is</pre></li>
+                  <li onclick="toggle('pre129496411144576', 'post129496411144576')"><pre>        Raise a RuntimeError if settings.DEBUG is True and request.method is</pre></li>
                 
-                  <li onclick="toggle('pre123847770052800', 'post123847770052800')"><pre>        DELETE, POST, PUT, or PATCH.</pre></li>
+                  <li onclick="toggle('pre129496411144576', 'post129496411144576')"><pre>        DELETE, POST, PUT, or PATCH.</pre></li>
                 
-                  <li onclick="toggle('pre123847770052800', 'post123847770052800')"><pre>        &quot;&quot;&quot;</pre></li>
+                  <li onclick="toggle('pre129496411144576', 'post129496411144576')"><pre>        &quot;&quot;&quot;</pre></li>
                 
-                  <li onclick="toggle('pre123847770052800', 'post123847770052800')"><pre>        new_path = request.get_full_path(force_append_slash=True)</pre></li>
+                  <li onclick="toggle('pre129496411144576', 'post129496411144576')"><pre>        new_path = request.get_full_path(force_append_slash=True)</pre></li>
                 
-                  <li onclick="toggle('pre123847770052800', 'post123847770052800')"><pre>        # Prevent construction of scheme relative urls.</pre></li>
+                  <li onclick="toggle('pre129496411144576', 'post129496411144576')"><pre>        # Prevent construction of scheme relative urls.</pre></li>
                 
-                  <li onclick="toggle('pre123847770052800', 'post123847770052800')"><pre>        new_path = escape_leading_slashes(new_path)</pre></li>
+                  <li onclick="toggle('pre129496411144576', 'post129496411144576')"><pre>        new_path = escape_leading_slashes(new_path)</pre></li>
                 
-                  <li onclick="toggle('pre123847770052800', 'post123847770052800')"><pre>        if settings.DEBUG and request.method in (&quot;DELETE&quot;, &quot;POST&quot;, &quot;PUT&quot;, &quot;PATCH&quot;):</pre></li>
+                  <li onclick="toggle('pre129496411144576', 'post129496411144576')"><pre>        if settings.DEBUG and request.method in (&quot;DELETE&quot;, &quot;POST&quot;, &quot;PUT&quot;, &quot;PATCH&quot;):</pre></li>
                 
                 </ol>
               
               <ol start="87" class="context-line">
-                <li onclick="toggle('pre123847770052800', 'post123847770052800')"><pre>            raise RuntimeError(</pre> <span>…</span></li>
+                <li onclick="toggle('pre129496411144576', 'post129496411144576')"><pre>            raise RuntimeError(</pre> <span>…</span></li>
               </ol>
               
-                <ol start='88' class="post-context" id="post123847770052800">
+                <ol start='88' class="post-context" id="post129496411144576">
                   
-                  <li onclick="toggle('pre123847770052800', 'post123847770052800')"><pre>                &quot;You called this URL via %(method)s, but the URL doesn&#x27;t end &quot;</pre></li>
+                  <li onclick="toggle('pre129496411144576', 'post129496411144576')"><pre>                &quot;You called this URL via %(method)s, but the URL doesn&#x27;t end &quot;</pre></li>
                   
-                  <li onclick="toggle('pre123847770052800', 'post123847770052800')"><pre>                &quot;in a slash and you have APPEND_SLASH set. Django can&#x27;t &quot;</pre></li>
+                  <li onclick="toggle('pre129496411144576', 'post129496411144576')"><pre>                &quot;in a slash and you have APPEND_SLASH set. Django can&#x27;t &quot;</pre></li>
                   
-                  <li onclick="toggle('pre123847770052800', 'post123847770052800')"><pre>                &quot;redirect to the slash URL while maintaining %(method)s data. &quot;</pre></li>
+                  <li onclick="toggle('pre129496411144576', 'post129496411144576')"><pre>                &quot;redirect to the slash URL while maintaining %(method)s data. &quot;</pre></li>
                   
-                  <li onclick="toggle('pre123847770052800', 'post123847770052800')"><pre>                &quot;Change your form to point to %(url)s (note the trailing &quot;</pre></li>
+                  <li onclick="toggle('pre129496411144576', 'post129496411144576')"><pre>                &quot;Change your form to point to %(url)s (note the trailing &quot;</pre></li>
                   
-                  <li onclick="toggle('pre123847770052800', 'post123847770052800')"><pre>                &quot;slash), or set APPEND_SLASH=False in your Django settings.&quot;</pre></li>
+                  <li onclick="toggle('pre129496411144576', 'post129496411144576')"><pre>                &quot;slash), or set APPEND_SLASH=False in your Django settings.&quot;</pre></li>
                   
-                  <li onclick="toggle('pre123847770052800', 'post123847770052800')"><pre>                % {</pre></li>
+                  <li onclick="toggle('pre129496411144576', 'post129496411144576')"><pre>                % {</pre></li>
                   
               </ol>
               
@@ -497,7 +487,7 @@ Server: PythonAnywhere
               <details>
                 <summary class="commands">Local vars</summary>
             
-            <table class="vars" id="v123847770052800">
+            <table class="vars" id="v129496411144576">
               <thead>
                 <tr>
                   <th scope="col">Variable</th>
@@ -508,12 +498,12 @@ Server: PythonAnywhere
                 
                   <tr>
                     <td>new_path</td>
-                    <td class="code"><pre>&#x27;/api/login/&#x27;</pre></td>
+                    <td class="code"><pre>&#x27;/api-token-auth/&#x27;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>request</td>
-                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/api/login&#x27;&gt;</pre></td>
+                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/api-token-auth&#x27;&gt;</pre></td>
                   </tr>
                 
                   <tr>
@@ -534,7 +524,7 @@ Server: PythonAnywhere
   <div id="pastebinTraceback" class="pastebin">
     <input type="hidden" name="language" value="PythonConsole">
     <input type="hidden" name="title"
-      value="RuntimeError at /api/login">
+      value="RuntimeError at /api-token-auth">
     <input type="hidden" name="source" value="Django Dpaste Agent">
     <input type="hidden" name="poster" value="Django">
     <textarea name="content" id="traceback_area" cols="140" rows="25">
@@ -542,7 +532,7 @@ Environment:
 
 
 Request Method: POST
-Request URL: https://thanoon.pythonanywhere.com/api/login
+Request URL: https://thanoon.pythonanywhere.com/api-token-auth
 
 Django Version: 5.1.6
 Python Version: 3.10.5
@@ -554,7 +544,8 @@ Installed Applications:
  &#x27;django.contrib.messages&#x27;,
  &#x27;django.contrib.staticfiles&#x27;,
  &#x27;mainapp&#x27;,
- &#x27;rest_framework&#x27;]
+ &#x27;rest_framework&#x27;,
+ &#x27;rest_framework.authtoken&#x27;]
 Installed Middleware:
 [&#x27;django.middleware.security.SecurityMiddleware&#x27;,
  &#x27;django.contrib.sessions.middleware.SessionMiddleware&#x27;,
@@ -576,8 +567,8 @@ Traceback (most recent call last):
   File "/home/thanoon/Employee-Manager/venv/lib/python3.10/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
     raise RuntimeError(
 
-Exception Type: RuntimeError at /api/login
-Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a slash and you have APPEND_SLASH set. Django can&#x27;t redirect to the slash URL while maintaining POST data. Change your form to point to thanoon.pythonanywhere.com/api/login/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+Exception Type: RuntimeError at /api-token-auth
+Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a slash and you have APPEND_SLASH set. Django can&#x27;t redirect to the slash URL while maintaining POST data. Change your form to point to thanoon.pythonanywhere.com/api-token-auth/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
 </textarea>
   <br><br>
   <input type="submit" value="Share this traceback on a public website">
@@ -593,7 +584,7 @@ Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a
 
   
     <h3 id="user-info">USER</h3>
-    <p>thanoon</p>
+    <p>AnonymousUser</p>
   
 
   <h3 id="get-info">GET</h3>
@@ -613,27 +604,7 @@ Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a
 
   <h3 id="cookie-info">COOKIES</h3>
   
-    <table class="req">
-      <thead>
-        <tr>
-          <th scope="col">Variable</th>
-          <th scope="col">Value</th>
-        </tr>
-      </thead>
-      <tbody>
-        
-          <tr>
-            <td>csrftoken</td>
-            <td class="code"><pre>&#x27;********************&#x27;</pre></td>
-          </tr>
-        
-          <tr>
-            <td>sessionid</td>
-            <td class="code"><pre>&#x27;********************&#x27;</pre></td>
-          </tr>
-        
-      </tbody>
-    </table>
+    <p>No cookie data</p>
   
 
   <h3 id="meta-info">META</h3>
@@ -648,17 +619,12 @@ Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a
       
         <tr>
           <td>CONTENT_LENGTH</td>
-          <td class="code"><pre>&#x27;58&#x27;</pre></td>
+          <td class="code"><pre>&#x27;55&#x27;</pre></td>
         </tr>
       
         <tr>
           <td>CONTENT_TYPE</td>
-          <td class="code"><pre>&#x27;&#x27;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CSRF_COOKIE</td>
-          <td class="code"><pre>&#x27;3x7N8yTwspzBnKGBjtoA3SjrnsjAPjNn&#x27;</pre></td>
+          <td class="code"><pre>&#x27;application/json&#x27;</pre></td>
         </tr>
       
         <tr>
@@ -683,12 +649,12 @@ Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a
       
         <tr>
           <td>HTTP_CONTENT_LENGTH</td>
-          <td class="code"><pre>&#x27;58&#x27;</pre></td>
+          <td class="code"><pre>&#x27;55&#x27;</pre></td>
         </tr>
       
         <tr>
-          <td>HTTP_COOKIE</td>
-          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+          <td>HTTP_CONTENT_TYPE</td>
+          <td class="code"><pre>&#x27;application/json&#x27;</pre></td>
         </tr>
       
         <tr>
@@ -703,17 +669,17 @@ Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a
       
         <tr>
           <td>HTTP_X_FORWARDED_FOR</td>
-          <td class="code"><pre>&#x27;104.28.243.179&#x27;</pre></td>
+          <td class="code"><pre>&#x27;104.28.243.185&#x27;</pre></td>
         </tr>
       
         <tr>
           <td>HTTP_X_REAL_IP</td>
-          <td class="code"><pre>&#x27;104.28.243.179&#x27;</pre></td>
+          <td class="code"><pre>&#x27;104.28.243.185&#x27;</pre></td>
         </tr>
       
         <tr>
           <td>PATH_INFO</td>
-          <td class="code"><pre>&#x27;/api/login&#x27;</pre></td>
+          <td class="code"><pre>&#x27;/api-token-auth&#x27;</pre></td>
         </tr>
       
         <tr>
@@ -728,7 +694,7 @@ Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a
       
         <tr>
           <td>REMOTE_PORT</td>
-          <td class="code"><pre>&#x27;60912&#x27;</pre></td>
+          <td class="code"><pre>&#x27;45030&#x27;</pre></td>
         </tr>
       
         <tr>
@@ -738,7 +704,7 @@ Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a
       
         <tr>
           <td>REQUEST_URI</td>
-          <td class="code"><pre>&#x27;/api/login&#x27;</pre></td>
+          <td class="code"><pre>&#x27;/api-token-auth&#x27;</pre></td>
         </tr>
       
         <tr>
@@ -773,7 +739,7 @@ Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a
       
         <tr>
           <td>wsgi.errors</td>
-          <td class="code"><pre>&lt;uwsgi_file__bin_user_wsgi_wrapper.ErrorLogFile object at 0x70a38e842080&gt;</pre></td>
+          <td class="code"><pre>&lt;uwsgi_file__bin_user_wsgi_wrapper.ErrorLogFile object at 0x75c6bbbac3a0&gt;</pre></td>
         </tr>
       
         <tr>
@@ -783,7 +749,7 @@ Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a
       
         <tr>
           <td>wsgi.input</td>
-          <td class="code"><pre>&lt;uwsgi._Input object at 0x70a38e669a50&gt;</pre></td>
+          <td class="code"><pre>&lt;uwsgi._Input object at 0x75c6bbbbb450&gt;</pre></td>
         </tr>
       
         <tr>
@@ -1205,7 +1171,8 @@ Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a
  &#x27;django.contrib.messages&#x27;,
  &#x27;django.contrib.staticfiles&#x27;,
  &#x27;mainapp&#x27;,
- &#x27;rest_framework&#x27;]</pre></td>
+ &#x27;rest_framework&#x27;,
+ &#x27;rest_framework.authtoken&#x27;]</pre></td>
         </tr>
       
         <tr>
@@ -1398,12 +1365,12 @@ Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a
       
         <tr>
           <td>MEDIA_ROOT</td>
-          <td class="code"><pre>&#x27;&#x27;</pre></td>
+          <td class="code"><pre>&#x27;/home/thanoon/Employee-Manager/media&#x27;</pre></td>
         </tr>
       
         <tr>
           <td>MEDIA_URL</td>
-          <td class="code"><pre>&#x27;/&#x27;</pre></td>
+          <td class="code"><pre>&#x27;/media/&#x27;</pre></td>
         </tr>
       
         <tr>
@@ -1454,8 +1421,9 @@ Exception Value: You called this URL via POST, but the URL doesn&#x27;t end in a
       
         <tr>
           <td>REST_FRAMEWORK</td>
-          <td class="code"><pre>{&#x27;DEFAULT_AUTHENTICATION_CLASSES&#x27;: [],
- &#x27;DEFAULT_PERMISSION_CLASSES&#x27;: [&#x27;rest_framework.permissions.AllowAny&#x27;]}</pre></td>
+          <td class="code"><pre>{&#x27;DEFAULT_AUTHENTICATION_CLASSES&#x27;: [&#x27;rest_framework.authentication.SessionAuthentication&#x27;,
+                                    &#x27;rest_framework.authentication.BasicAuthentication&#x27;],
+ &#x27;DEFAULT_PERMISSION_CLASSES&#x27;: [&#x27;rest_framework.permissions.IsAuthenticated&#x27;]}</pre></td>
         </tr>
       
         <tr>
