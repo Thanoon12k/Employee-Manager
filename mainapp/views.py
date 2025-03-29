@@ -10,6 +10,12 @@ from django.views.decorators.csrf import csrf_exempt
 def getBoooks(request):
     user = request.user
     if user.is_authenticated:
+        token_key = request.headers.get('Authorization', '').split('Token ')[-1]
+        try:
+            token = Token.objects.get(key=token_key)
+            user = token.user
+        except Token.DoesNotExist:
+            return JsonResponse({"error": "Invalid token"}, status=401)
         announcements = Announcement.objects.filter(users=user)
         announcements_data = list(announcements.values())
         for announcement in announcements_data:
