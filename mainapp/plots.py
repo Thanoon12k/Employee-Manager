@@ -38,12 +38,12 @@ def report_statistics_view(request):
 
     # Check if a report is selected and process its questions
     if selected_report:
-        questions = selected_report.linked_questions.filter(question_type__in=["OPTIONS", "T/F"])
+        questions = selected_report.linked_questions.filter(question_type__in=["multiple_choice", "T/F"])
         
         for question in questions:
             pie_chart = None
             # Example pie chart generation for OPTIONS and T/F questions
-            if question.question_type == "OPTIONS":
+            if question.question_type == "multiple_choice":
                 options = question.options_data.split("-") if question.options_data else []
                 answers = question.linked_answers.values_list('answer_data', flat=True)
                 # Corrected: Use filter instead of count with arguments

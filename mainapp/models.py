@@ -54,7 +54,7 @@ class Report(models.Model):
 
 QUESTION_TYPES = [
         ("TEXT", 'Text Answer'),
-        ("OPTIONS", 'Multiple Choice'),
+        ("multiple_choice", 'Multiple Choice'),
         ("T/F", 'True/False'),
     ]
 class Question(models.Model):
@@ -70,7 +70,7 @@ class Question(models.Model):
         return self.question
     
     def save(self, *args, **kwargs):
-        if self.question_type == 'OPTIONS' or self.question_type == 'T/F':
+        if self.question_type == 'multiple_choice' or self.question_type == 'T/F':
             self.is_statistic = True
         else:
             self.is_statistic = False
