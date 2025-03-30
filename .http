@@ -1,6 +1,5 @@
 
-GET http://127.0.0.1:8000/get-user-announcements/ HTTP/1.1
-Authorization: Token f7522840b9a7a360be3295d70d0f232a90d6a607
+GET https://thanoon.pythonanywhere.com/get-user-announcements/ HTTP/1.1
 
 # GET http://127.0.0.1:8000/get-users-list/ HTTP/1.1
 
@@ -13,10 +12,10 @@ Authorization: Token f7522840b9a7a360be3295d70d0f232a90d6a607
 # {"username": "thanoon1","password": "123" }
 
 
-# POST http://127.0.0.1:8000/api-token-auth/ HTTP/1.1
-# Content-Type: application/json
+POST http://thanoon.pythonanywhere.com/api-token-auth/ HTTP/1.1
+Content-Type: application/json
 
-# {
-#     "username": "ali",
-#     "password": "123"
-# }
+{
+    "username": "thanoon",
+    "password": "123"
+}
