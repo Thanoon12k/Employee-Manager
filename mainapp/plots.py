@@ -61,10 +61,7 @@ def report_statistics_view(request):
                 'pie_chart': pie_chart,
             })
 
-    # print(f"Reports: {Report.objects.all()}")  # Debugging: List all reports
-    # print(f"Selected Report: {selected_report}")  # Debugging: Check the selected report
-    # print(f"Questions Data: {questions_data}")  # Debugging: Inspect generated question data
-
+  
     return render(request, 'report_statistics.html', {
         'reports': Report.objects.all(),  # Pass all reports to the template
         'selected_report': selected_report,  # Pass the selected report

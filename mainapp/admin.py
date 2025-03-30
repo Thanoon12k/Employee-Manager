@@ -3,6 +3,8 @@ from django import forms
 from django.contrib.auth.models import Group
 from django.utils.safestring import mark_safe
 from .models import *
+from django.utils.html import format_html
+from django.urls import reverse
 
 # ---------------------------------
 # Custom User Admin
@@ -19,13 +21,21 @@ class UserAdminForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         if self.instance and self.instance.pk:
             self.fields['password'].disabled = True  # Prevent editing the password for existing users
-
+    
 
 class UserAdmin(admin.ModelAdmin):
     form = UserAdminForm
     list_display = ('username', 'phone', 'email', 'is_superuser', 'is_manager')
     search_fields = ('username', 'phone', 'email')
     list_filter = ('is_superuser', 'is_manager')  # Filters for user roles
+    def has_change_permission(self, request, obj=None):
+        return request.user.is_superuser
+
+    def has_add_permission(self, request):
+        return request.user.is_superuser
+
+    def has_delete_permission(self, request, obj=None):
+        return request.user.is_superuser
 
 
 # ---------------------------------
@@ -53,6 +63,15 @@ class AnnouncementAdmin(admin.ModelAdmin):
     def linked_users(self, obj):
         return ", ".join([user.username for user in obj.users.all()])
     linked_users.short_description = 'Linked Users'
+    
+    def has_change_permission(self, request, obj=None):
+        return request.user.is_manager or request.user.is_superuser
+
+    def has_add_permission(self, request):
+        return request.user.is_manager or request.user.is_superuser
+
+    def has_delete_permission(self, request, obj=None):
+        return request.user.is_manager or request.user.is_superuser
 
 
 # ---------------------------------
@@ -67,19 +86,38 @@ class QuestionInline(admin.TabularInline):
 # Custom Report Admin
 # ---------------------------------
 class ReportAdmin(admin.ModelAdmin):
-    list_display = ('title','num_questions', 'number_of_users_submitted')
+    list_display = ('title', 'num_questions', 'number_of_users_submitted', 'view_statistics_button')
     search_fields = ('title', 'description', 'users__username')
-    readonly_fields=('pub_date','users_submitted')
+    readonly_fields = ('pub_date', 'users_submitted')
     filter_horizontal = ('users',)
     inlines = [QuestionInline]
-    list_filter = ( 'users','title')  # Filters reports by publication date and associated users
+    list_filter = ('users', 'title')  # Filters reports by publication date and associated users
+
     def num_questions(self, obj):
         return obj.linked_questions.count()
     num_questions.short_description = 'Number of Questions'
+
     def number_of_users_submitted(self, obj):
         return obj.users_submitted.count()
     number_of_users_submitted.short_description = 'Number of Users Submitted'
-    
+
+    def view_statistics_button(self, obj):
+        return format_html(
+            '<a class="button" href="{}?report_id={}">View Statistics</a>',
+            reverse('rebort'),  # Updated to match the correct URL name defined in urls.py
+            obj.id
+        )
+    view_statistics_button.short_description = 'Statistics'
+    view_statistics_button.allow_tags = True
+
+    def has_change_permission(self, request, obj=None):
+        return request.user.is_manager or request.user.is_superuser
+
+    def has_add_permission(self, request):
+        return request.user.is_manager or request.user.is_superuser
+
+    def has_delete_permission(self, request, obj=None):
+        return request.user.is_manager or request.user.is_superuser
 
 
 class QuestionAdmin(admin.ModelAdmin):
@@ -92,6 +130,14 @@ class QuestionAdmin(admin.ModelAdmin):
     search_fields = ('question',)
     readonly_fields = ('is_statistic',)  # Prevents editing the report field in the admin interface
     radio_fields = {'question_type': admin.HORIZONTAL}  # Displays question types as radio buttons
+    def has_change_permission(self, request, obj=None):
+        return request.user.is_manager or request.user.is_superuser
+
+    def has_add_permission(self, request):
+        return request.user.is_manager or request.user.is_superuser
+
+    def has_delete_permission(self, request, obj=None):
+        return request.user.is_manager or request.user.is_superuser
     
 
 
@@ -106,6 +152,17 @@ class AnswerAdmin(admin.ModelAdmin):
     def get_question_type(self, obj):
         return obj.question.question_type
     get_question_type.short_description = 'Question Type'
+    
+    def has_view_permission(self, request, obj = ...):
+        return request.user.is_manager or request.user.is_superuser 
+        
+    def has_change_permission(self, request, obj=None):
+        return False
+    def has_add_permission(self, request):
+        return False
+    def has_delete_permission(self, request, obj=None):
+        return False    
+
 
 
 # ---------------------------------
