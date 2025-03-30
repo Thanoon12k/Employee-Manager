@@ -1,17 +1,49 @@
 
-GET https://thanoon.pythonanywhere.com/get-user-announcements/ HTTP/1.1
+GET http://127.0.0.1:8000/get-user-announcements/ HTTP/1.1
+Authorization: Token 475df63667e8f11749104ff00e7715d6639e8270
 
-# GET http://127.0.0.1:8000/get-users-list/ HTTP/1.1
+###
+GET http://127.0.0.1:8000/get-users-list/ HTTP/1.1
+Authorization: Token 475df63667e8f11749104ff00e7715d6639e8270
+
+###
+
+POST http://127.0.0.1:8000/submit-report/ HTTP/1.1
+Authorization: Token 475df63667e8f11749104ff00e7715d6639e8270
+Content-Type: application/json
+
+{
+    "report_id": 1,
+    "answers": [
+        {
+            "question_id": 1,
+            "text_answer": "ali"
+        },
+        {
+            "question_id": 2,
+            "text_answer": "amal"
+        },
+        {
+            "question_id": 3,
+            "true_false_answer": false
+        },
+        {
+            "question_id": 4,
+            "selected_option": "2"
+        }
+      
+    ]
+}
 
 
+###
 
+POST http://127.0.0.1:8000/api-token-auth/ HTTP/1.1
+Content-Type: application/json
 
-# POST http://127.0.0.1:8000/api-token-auth/ HTTP/1.1
-# Content-Type: application/json
+{"username": "thanoon","password": "123" }
 
-# {"username": "thanoon1","password": "123" }
-
-
+###
 POST http://thanoon.pythonanywhere.com/api-token-auth/ HTTP/1.1
 Content-Type: application/json
 
@@ -19,3 +51,9 @@ Content-Type: application/json
     "username": "thanoon",
     "password": "123"
 }
+
+###
+GET http://127.0.0.1:8000/get-user-reports/ HTTP/1.1
+Authorization: Token 6df881ea1fdcc58b621041ef29f62b271a3d91c9
+
+

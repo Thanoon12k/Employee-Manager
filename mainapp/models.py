@@ -41,7 +41,7 @@ class Report(models.Model):
     description = models.TextField(blank=True)
     users = models.ManyToManyField(User, related_name='linked_reports', blank=True)
     pub_date = models.DateTimeField('date published', auto_now_add=True)
-
+    users_submitted = models.ManyToManyField(User, related_name='submitted_reports', blank=True)
     def __str__(self):
         return self.title
 
