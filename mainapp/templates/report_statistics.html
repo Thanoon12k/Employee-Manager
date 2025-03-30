@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Statistics</title>
+    <style>
+        /* General Reset & Styling */
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin: 0 0 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #212529;
+        }
+
+        h2 {
+            font-size: 22px;
+            color: #495057;
+        }
+
+        /* Report Selector Styling */
+        .report-selector {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        select {
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background: #f9f9f9;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+        }
+
+        select:hover {
+            background: #ffffff;
+            border-color: #ddd;
+        }
+
+        select:focus {
+            outline: none;
+            box-shadow: 0 0 6px rgba(52, 144, 220, 0.3);
+            border-color: #3490dc;
+        }
+
+        /* Question Cards */
+        .questions-container {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .question-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .question-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .question-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: #495057;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .pie-chart {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f8f9fa;
+            border-radius: 50%;
+            width: 180px;
+            height: 180px;
+            box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .pie-chart img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* No Data Message */
+        .no-data {
+            text-align: center;
+            color: #adb5bd;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .question-card {
+                padding: 15px;
+            }
+
+            .pie-chart {
+                width: 150px;
+                height: 150px;
+            }
+
+            .question-text {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Report Statistics</h1>
+        
+        <!-- Report Selector -->
+        <div class="report-selector">
+            <form method="get">
+                <select name="report_id" id="report_id" onchange="this.form.submit()">
+                    <option value="">-- Select a Report --</option>
+                    {% for report in reports %}
+                    <option value="{{ report.id }}" {% if selected_report and report.id == selected_report.id %}selected{% endif %}>
+                        {{ report.title }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </form>
+        </div>
+
+        {% if selected_report %}
+        <!-- Selected Report Questions -->
+        <h2>Questions for: {{ selected_report.title }}</h2>
+        <div class="questions-container">
+            {% for question in questions_data %}
+            <div>
+                <h3>{{ question.question_text }}</h3>
+                {% if question.pie_chart %}
+                    <img src="{{ question.pie_chart }}" alt="Pie Chart">
+                {% else %}
+                    <p>No data available for this question.</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+        </div>
+        {% else %}
+        <!-- No Report Selected -->
+        <p style="text-align: center; color: #6c757d;">Please select a report to view its statistics.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

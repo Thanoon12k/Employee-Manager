@@ -2,7 +2,7 @@ from django.contrib import admin
 from django import forms
 from django.contrib.auth.models import Group
 from django.utils.safestring import mark_safe
-from .models import User, Announcement, Report, Question, Answer, AnswerStatistics
+from .models import *
 
 # ---------------------------------
 # Custom User Admin
@@ -67,69 +67,45 @@ class QuestionInline(admin.TabularInline):
 # Custom Report Admin
 # ---------------------------------
 class ReportAdmin(admin.ModelAdmin):
-    list_display = ('title', 'description', 'pub_date')
+    list_display = ('title','num_questions', 'number_of_users_submitted')
     search_fields = ('title', 'description', 'users__username')
+    readonly_fields=('pub_date','users_submitted')
     filter_horizontal = ('users',)
     inlines = [QuestionInline]
-    list_filter = ('pub_date', 'users')  # Filters reports by publication date and associated users
-
-
-# ---------------------------------
-# Custom Question Admin
-# ---------------------------------
-class AnswerStatisticsInline(admin.StackedInline):
-    model = AnswerStatistics
-    readonly_fields = (
-        'option1_percentage', 'option2_percentage', 'option3_percentage',
-        'option4_percentage', 'true_percentage', 'false_percentage',
-        'last_updated', 'pie_chart_preview'
-    )
-    can_delete = False
-    extra = 0
-
-    def pie_chart_preview(self, obj):
-        """Display a pie chart for each question's statistics."""
-        if obj and obj.question.question_type in ['multiple_choice', 'true_false']:
-            image_base64 = obj.generate_pie_chart()
-            return mark_safe(f'<img src="data:image/png;base64,{image_base64}" style="width: 100%; max-height: 400px;" />')
-        return "No data to display"
-    pie_chart_preview.short_description = "Answer Statistics Pie Chart"
+    list_filter = ( 'users','title')  # Filters reports by publication date and associated users
+    def num_questions(self, obj):
+        return obj.linked_questions.count()
+    num_questions.short_description = 'Number of Questions'
+    def number_of_users_submitted(self, obj):
+        return obj.users_submitted.count()
+    number_of_users_submitted.short_description = 'Number of Users Submitted'
+    
 
 
 class QuestionAdmin(admin.ModelAdmin):
-    list_display = ('question_text', 'question_type', 'report')
-    list_filter = ('question_type', 'report')  # Filters questions by type and associated report
-    search_fields = ('question_text',)
+    list_display = ('report', 'question', 'is_statistic', 'number_of_users_submitted')
+    list_filter = ('report', )  # Filters questions by type and associated report
+
+    def number_of_users_submitted(self, obj):
+        return obj.report.users_submitted.count()
+    number_of_users_submitted.short_description = 'Number of Users Submitted'
+    search_fields = ('question',)
+    readonly_fields = ('is_statistic',)  # Prevents editing the report field in the admin interface
+    radio_fields = {'question_type': admin.HORIZONTAL}  # Displays question types as radio buttons
+    
 
 
 # ---------------------------------
 # Custom Answer Admin
 # ---------------------------------
 class AnswerAdmin(admin.ModelAdmin):
-    list_display = ('report', 'question', 'user', 'response_date')
-    list_filter = ('response_date', 'report', 'question', 'user')  # Filters by date, report, question, and user
-    search_fields = ('report__title', 'question__question_text', 'user__username')
+    list_display = ('report', 'user', 'get_question_type', 'question', 'answer_data',)
+    list_filter = ('report', 'user')  # Filters by date, report, question, and user
+    # search_fields = ('report__title', 'question__question', 'user__username')
 
-
-# ---------------------------------
-# Custom AnswerStatistics Admin
-# ---------------------------------
-class AnswerStatisticsAdmin(admin.ModelAdmin):
-    list_display = ('question', 'last_updated')
-    readonly_fields = (
-        'option1_percentage', 'option2_percentage', 'option3_percentage',
-        'option4_percentage', 'true_percentage', 'false_percentage',
-        'last_updated', 'pie_chart_preview'
-    )
-    list_filter = ('last_updated', 'question')  # Filters by question and last updated timestamp
-
-    def pie_chart_preview(self, obj):
-        """Render the pie chart as an image in the admin panel."""
-        pie_chart = obj.generate_pie_chart()
-        if pie_chart:
-            return mark_safe(f'<img src="data:image/png;base64,{pie_chart}" style="width: 400px; height: auto;" />')
-        return "No data to display"
-    pie_chart_preview.short_description = "Pie Chart"
+    def get_question_type(self, obj):
+        return obj.question.question_type
+    get_question_type.short_description = 'Question Type'
 
 
 # ---------------------------------
@@ -140,7 +116,6 @@ admin.site.register(Announcement, AnnouncementAdmin)
 admin.site.register(Report, ReportAdmin)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Answer, AnswerAdmin)
-admin.site.register(AnswerStatistics, AnswerStatisticsAdmin)
 
 # Unregister the default Group model (if unused)
 admin.site.unregister(Group)

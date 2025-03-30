@@ -4,8 +4,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from .views import *
+from .plots import report_statistics_view
 
 urlpatterns = [
+    path('',report_statistics_view, name='reboot'),  # Custom endpoint to reboot the server
     path('admin/', admin.site.urls),
     path('get-user-announcements/', getAnnouncement, name='get_announcements'),  # Custom endpoint to get announcements
    path('api-token-auth/', authenticate_user_and_get_token, name='api_token_auth'),  # Custom endpoint for token authentication

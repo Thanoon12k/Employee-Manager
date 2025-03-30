@@ -46,14 +46,14 @@ def get_users_list(request):
     return JsonResponse({"error": "User not authenticated"}, status=401)
 
 def get_user_reports(request):
-    user=GetUserFromToken(request)
+    user = GetUserFromToken(request)
     if user is None:
         return JsonResponse({"error": "Invalid token"}, status=401)
     reports = user.linked_reports.all()
     reports_data = []
     for report in reports:
-        questions = report.questions.all()
-        questions_data = list(questions.values('id', 'question_text', 'question_type', 'option1', 'option2', 'option3', 'option4'))
+        questions = report.linked_questions.all()
+        questions_data = list(questions.values('id', 'question', 'question_type', 'options_data', 'is_statistic'))
         reports_data.append({
             "id": report.id,
             "title": report.title,
@@ -61,8 +61,7 @@ def get_user_reports(request):
             "pub_date": report.pub_date,
             "questions": questions_data
         })
-    return JsonResponse({"reports": reports_data}, safe=False)
-    
+    return JsonResponse({"reports": reports_data}, safe=False, json_dumps_params={'ensure_ascii': False})
 
 @csrf_exempt
 def authenticate_user_and_get_token(request):
@@ -94,43 +93,42 @@ def submit_report(request):
         return JsonResponse({"error": "Invalid token"}, status=401)
     try:
         data = json.loads(request.body)
-        report_id = data.get("report_id")
+        report_title = data.get("report_title")
         answers = data.get("answers", [])
 
-        if not report_id or not answers:
+        if not report_title or not answers:
             return JsonResponse({"error": "Invalid data"}, status=400)
 
-        report = Report.objects.get(id=report_id)
+        try:
+            report = Report.objects.get(title=report_title)
+        except Report.DoesNotExist:
+            return JsonResponse({"error": f"Report with title '{report_title}' does not exist"}, status=400)
 
         # Check if the user has already submitted the report
         if report.users_submitted.filter(id=user.id).exists():
             return JsonResponse({
-                "already exist": f"User '{user.username}' has already submitted answers for the report"
-            }, status=208 )
+                "error": f"User '{user.username}' has already submitted answers for the report"
+            }, status=208)
 
         for answer in answers:
-            question_id = answer.get("question_id")
-            text_answer = answer.get("text_answer")
-            selected_option = answer.get("selected_option")
-            true_false_answer = answer.get("true_false_answer")
+            question_title = answer.get("question_title")
+            answer_data = answer.get("answer_data")
 
-            if not question_id:
-                continue
+            if not question_title or answer_data is None:
+                return JsonResponse({"error": "Invalid answer data"}, status=400)
 
             try:
-                question = report.questions.get(id=question_id)
+                question = report.linked_questions.get(question=question_title)
             except Question.DoesNotExist:
                 return JsonResponse({
-                    "error": f"Question with ID {question_id} does not exist in the report"
+                    "error": f"Question with title '{question_title}' does not exist in the report"
                 }, status=400)
 
             Answer.objects.create(
                 report=report,
                 user=user,
                 question=question,
-                text_answer=text_answer,
-                selected_option=selected_option,
-                true_false_answer=true_false_answer,
+                answer_data=answer_data,
             )
 
         report.users_submitted.add(user)
