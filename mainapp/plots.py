@@ -1,34 +1,63 @@
 from django.shortcuts import render
 from mainapp.models import Report
-
-import io
+from arabic_reshaper import reshape
+from bidi.algorithm import get_display
+import matplotlib.pyplot as plt
+from io import BytesIO
 import base64
-from matplotlib import pyplot as plt
+import numpy as np
+import matplotlib
+
+# Use a non-interactive backend for Matplotlib
+matplotlib.use('Agg')
+from arabic_reshaper import reshape
+from bidi.algorithm import get_display
+import matplotlib.pyplot as plt
+from io import BytesIO
+import base64
+import numpy as np
+import matplotlib
+
+# Use a non-interactive backend for Matplotlib
+matplotlib.use('Agg')
+
+def autopct_func(pct):
+    return f'{pct:.1f}%' if pct > 0 else ''  # Hide if 0%
 
 def generate_pie_chart(values, labels):
-    """
-    Generate pie chart for statistical visualization.
+    # Reshape and apply Bidi algorithm for Arabic labels
+    labels = [get_display(reshape(label)) for label in labels]
 
-    Args:
-        values (list): Numerical values for each slice of the pie.
-        labels (list): Labels for each slice of the pie.
+    # Create the figure
+    fig, ax = plt.subplots(figsize=(6, 6))  # Larger size for better visibility
 
-    Returns:
-        str: Base64-encoded PNG image string for embedding in HTML.
-    """
-    fig, ax = plt.subplots()
-    ax.pie(values, labels=labels, autopct='%1.1f%%', startangle=90, colors=['#66b3ff', '#99ff99', '#ffcc99', '#ff9999'])
-    ax.axis('equal')  # Equal aspect ratio ensures circular pie chart
+    # Generate the pie chart without labels
+    wedges, texts, autotexts = ax.pie(
+        values,
+        labels=None,  # Remove labels from slices
+        startangle=90,
+        autopct=autopct_func,  # Use custom function to hide 0%
+        colors=['#66b3ff', '#99ff99', '#ffcc99', '#ff9999'],
+        pctdistance=0.8  
+    )
+    ax.axis('equal')  # Ensure the pie chart is circular
 
-    # Save chart to buffer
-    buf = io.BytesIO()
-    plt.savefig(buf, format='png')
-    buf.seek(0)
-    base64_string = base64.b64encode(buf.read()).decode('utf-8')
-    buf.close()
+    # Create a legend table below the pie chart
+    ax.legend(wedges, labels, loc='upper center', bbox_to_anchor=(0.5, -0.05),
+              fancybox=True, shadow=True, ncol=2)  # Adjust position & columns
+
+    # Save the plot to a buffer
+    buffer = BytesIO()
+    plt.tight_layout()  # Ensure everything fits properly
+    plt.savefig(buffer, format='png', dpi=300)  # High DPI ensures clear text
+    buffer.seek(0)
+
+    # Encode the image as a base64 string
+    base64_string = base64.b64encode(buffer.read()).decode('utf-8')
+    buffer.close()
     plt.close(fig)
-    return f"data:image/png;base64,{base64_string}"
 
+    return f"data:image/png;base64,{base64_string}"
 
 def report_statistics_view(request):
     # Fetch report ID from query parameters

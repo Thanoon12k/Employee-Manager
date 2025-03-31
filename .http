@@ -18,24 +18,23 @@ Authorization: Token 59042f6aa70ac873f40aa64071b2890f6b13af8a
 
 ###
 POST http://127.0.0.1:8000/submit-report/ HTTP/1.1
-Authorization: Token 2868a1f947bf5f1eb8114ee3660cc45c7670337d
+Authorization: Token 59042f6aa70ac873f40aa64071b2890f6b13af8a
 Content-Type: application/json
 
 {
-    "report_title": "معلومات السكن",
+    "report_title": "العيد",
     "answers": [
         {
-            "question_title": "السكن",
-            "answer_data": "مدينة baghdad "
+            "question_title": "عدد الايام",
+            "answer_data": "3"
         },
         {
-            "question_title": "عدد الغرف",
-            "answer_data": "5"
+            "question_title": "نوع العيد",
+            "answer_data": "صغير"
         },
         {
-            "question_title": "داخل العراق",
-            "answer_data": "true"
+            "question_title": "هل جاء",
+            "answer_data": "false"
         }
-      
     ]
 }

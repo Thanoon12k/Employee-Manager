@@ -5,113 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report Statistics</title>
     <style>
-        /* General Reset & Styling */
+        /* General Styles */
         body {
-            font-family: 'Inter', Arial, sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f7fa;
+            background-color: #f4f4f9;
             color: #333;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 900px; /* Adjusted width to focus on the pie charts */
             margin: 40px auto;
             padding: 20px;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         h1, h2 {
             text-align: center;
-            margin: 0 0 20px;
+            margin-bottom: 20px;
         }
 
         h1 {
-            font-size: 28px;
-            color: #212529;
+            font-size: 32px;
+            color: #222;
         }
 
         h2 {
-            font-size: 22px;
-            color: #495057;
+            font-size: 24px;
+            color: #555;
         }
 
-        /* Report Selector Styling */
+        /* Report Selector */
         .report-selector {
-            margin: 20px auto;
             text-align: center;
+            margin-bottom: 30px;
         }
 
         select {
-            padding: 12px 20px;
-            font-size: 16px;
-            border: 1px solid #e0e0e0;
+            padding: 12px 18px;
+            font-size: 18px;
+            border: 1px solid #ddd;
             border-radius: 8px;
-            background: #f9f9f9;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: all 0.2s ease;
-        }
-
-        select:hover {
-            background: #ffffff;
-            border-color: #ddd;
+            background-color: #f9f9f9;
+            transition: box-shadow 0.3s ease;
         }
 
         select:focus {
             outline: none;
-            box-shadow: 0 0 6px rgba(52, 144, 220, 0.3);
-            border-color: #3490dc;
+            box-shadow: 0 0 6px rgba(0, 123, 255, 0.5);
+            border-color: #007bff;
         }
 
-        /* Question Cards */
-        .questions-container {
-            margin-top: 30px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+        /* Questions Section */
+        .questions-grid {
+            display: flex;
+            flex-direction: column; /* Focus on one chart per row */
+            gap: 30px; /* Larger spacing between charts */
         }
 
         .question-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             padding: 20px;
-            background: #ffffff;
-            border-radius: 12px;
-            border: 1px solid #e9ecef;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .question-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .question-text {
-            font-size: 18px;
-            font-weight: 600;
-            color: #495057;
-            text-align: center;
-            margin-bottom: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
         }
 
-        .pie-chart {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #f8f9fa;
+        .chart-container {
+            width: 300px; /* Larger width to emphasize the pie chart */
+            height: 300px; /* Larger height to emphasize the pie chart */
+            margin: 0 auto;
             border-radius: 50%;
-            width: 180px;
-            height: 180px;
-            box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1);
             overflow: hidden;
+            background-color: #f9f9f9;
+            box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .pie-chart img {
+        .chart-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -119,24 +106,16 @@
 
         /* No Data Message */
         .no-data {
-            text-align: center;
-            color: #adb5bd;
-            font-size: 14px;
+            color: #999;
+            font-size: 16px;
+            margin-top: 10px;
         }
 
-        /* Responsive Design */
+        /* Responsive Adjustments */
         @media (max-width: 768px) {
-            .question-card {
-                padding: 15px;
-            }
-
-            .pie-chart {
-                width: 150px;
-                height: 150px;
-            }
-
-            .question-text {
-                font-size: 16px;
+            .chart-container {
+                width: 250px; /* Slightly smaller for mobile devices */
+                height: 250px; /* Slightly smaller for mobile devices */
             }
         }
     </style>
@@ -144,39 +123,39 @@
 <body>
     <div class="container">
         <h1>Report Statistics</h1>
-        
+
         <!-- Report Selector -->
         <div class="report-selector">
             <form method="get">
                 <select name="report_id" id="report_id" onchange="this.form.submit()">
                     <option value="">-- Select a Report --</option>
                     {% for report in reports %}
-                    <option value="{{ report.id }}" {% if selected_report and report.id == selected_report.id %}selected{% endif %}>
-                        {{ report.title }}
-                    </option>
+                        <option value="{{ report.id }}" {% if selected_report and report.id == selected_report.id %}selected{% endif %}>
+                            {{ report.title }}
+                        </option>
                     {% endfor %}
                 </select>
             </form>
         </div>
 
         {% if selected_report %}
-        <!-- Selected Report Questions -->
-        <h2>Questions for: {{ selected_report.title }}</h2>
-        <div class="questions-container">
-            {% for question in questions_data %}
-            <div>
-                <h3>{{ question.question_text }}</h3>
-                {% if question.pie_chart %}
-                    <img src="{{ question.pie_chart }}" alt="Pie Chart">
-                {% else %}
-                    <p>No data available for this question.</p>
-                {% endif %}
+            <h2>Questions for: {{ selected_report.title }}</h2>
+            <div class="questions-grid">
+                {% for question in questions_data %}
+                <div class="question-card">
+                    <div class="question-text">{{ question.question_text }}</div>
+                    {% if question.pie_chart %}
+                        <div class="chart-container">
+                            <img src="{{ question.pie_chart }}" alt="Pie Chart">
+                        </div>
+                    {% else %}
+                        <div class="no-data">No data available for this question.</div>
+                    {% endif %}
+                </div>
+                {% endfor %}
             </div>
-        {% endfor %}
-        </div>
         {% else %}
-        <!-- No Report Selected -->
-        <p style="text-align: center; color: #6c757d;">Please select a report to view its statistics.</p>
+            <p style="text-align: center; color: #666;">Please select a report to view its statistics.</p>
         {% endif %}
     </div>
 </body>
