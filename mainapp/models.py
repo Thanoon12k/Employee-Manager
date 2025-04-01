@@ -69,6 +69,7 @@ class Question(models.Model):
     def __str__(self):
         return self.question
     
+    
     def save(self, *args, **kwargs):
         if self.question_type == 'multiple_choice' or self.question_type == 'T/F':
             self.is_statistic = True
