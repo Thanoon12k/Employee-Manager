@@ -46,8 +46,8 @@ class UserAdmin(admin.ModelAdmin):
         return request.user.is_superuser
     def has_view_permission(self, request, obj = ...):
         return request.user.is_manager or request.user.is_superuser
-    def has_module_permission(self, request):
-        return request.user.is_superuser or request.user.is_manager
+    # def has_module_permission(self, request):
+    #     return request.user.is_superuser or request.user.is_manager
     
 
 # ---------------------------------
