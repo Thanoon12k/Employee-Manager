@@ -16,8 +16,8 @@ def GetUserFromToken(request):
     return token.user
 
 def getAnnouncement(request):
-    # user=GetUserFromToken(request)
-    user=request.user
+    user=GetUserFromToken(request)
+    # user=request.user
     if user is None or user.is_anonymous:
         return JsonResponse({"error": "Invalid token"}, status=401)
     
@@ -34,7 +34,7 @@ def getAnnouncement(request):
 
 def get_users_list(request):
 
-    user=request.user
+    user=GetUserFromToken(request)#user=request.user
     if user is None or user.is_anonymous:
         return JsonResponse({"error": "Invalid token"}, status=401)
     
@@ -48,7 +48,7 @@ def get_users_list(request):
     return JsonResponse({"error": "You are not manager"}, status=403)            
 
 def get_user_reports(request):
-    user=request.user
+    user=GetUserFromToken(request)#user=request.user
     if user is None or user.is_anonymous:
         return JsonResponse({"error": "Invalid token"}, status=401)
     reports = user.linked_reports.all()
@@ -90,7 +90,7 @@ def authenticate_user_and_get_token(request):
 
 @csrf_exempt
 def submit_report(request):
-    user = GetUserFromToken(request)
+    user=GetUserFromToken(request)#user = GetUserFromToken(request)
     if user is None:
         return JsonResponse({"error": "Invalid token"}, status=401)
     try:
@@ -141,7 +141,7 @@ def submit_report(request):
         return JsonResponse({"error": str(e)}, status=500)
 
 def getComplaintsList(request):
-    user = request.user
+    user=GetUserFromToken(request)#user = request.user
     if user is None or user.is_anonymous:
         return JsonResponse({"error": "Invalid token"}, status=401)
     
@@ -151,7 +151,7 @@ def getComplaintsList(request):
 
 
 def addComplaint(request):
-    user = request.user
+    user=GetUserFromToken(request)#user = request.user
     if user is None or user.is_anonymous:
         return JsonResponse({"error": "Invalid token"}, status=401)
 
