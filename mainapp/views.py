@@ -1,7 +1,7 @@
 
 import json
 from django.http import JsonResponse
-from mainapp.models import Announcement, Answer, Question, Report, User
+from mainapp.models import Announcement, Answer, Question, Report, User,Complaint
 from django.core.exceptions import PermissionDenied
 from django.contrib.auth import authenticate, login
 from rest_framework.authtoken.models import Token
@@ -16,9 +16,11 @@ def GetUserFromToken(request):
     return token.user
 
 def getAnnouncement(request):
-    user=GetUserFromToken(request)
-    if user is None:
+    # user=GetUserFromToken(request)
+    user=request.user
+    if user is None or user.is_anonymous:
         return JsonResponse({"error": "Invalid token"}, status=401)
+    
     announcements = Announcement.objects.filter(users=user)
     announcements_data = list(announcements.values())
     for announcement in announcements_data:
@@ -31,23 +33,23 @@ def getAnnouncement(request):
 
 
 def get_users_list(request):
-    user=GetUserFromToken(request)
-    if user is None:
+
+    user=request.user
+    if user is None or user.is_anonymous:
         return JsonResponse({"error": "Invalid token"}, status=401)
-    if user.is_authenticated:
-        if user.is_manager or user.is_superuser:
-            users = User.objects.all()
-            users_data = list(users.values('id', 'username', 'email', 'birth_date', 'address', 'phone', 'image'))
-            for user_data in users_data:
-                if user_data['image']:
-                    user_data['image'] = request.build_absolute_uri('/media/' + user_data['image'])
-            return JsonResponse({"users": users_data}, safe=False)
-        return JsonResponse({"error": "You are not manager"}, status=403)            
-    return JsonResponse({"error": "User not authenticated"}, status=401)
+    
+    if user.is_manager or user.is_superuser:
+        users = User.objects.all()
+        users_data = list(users.values('id', 'username', 'email', 'birth_date', 'address', 'phone', 'image'))
+        for user_data in users_data:
+            if user_data['image']:
+                user_data['image'] = request.build_absolute_uri('/media/' + user_data['image'])
+        return JsonResponse({"users": users_data}, safe=False)
+    return JsonResponse({"error": "You are not manager"}, status=403)            
 
 def get_user_reports(request):
-    user = GetUserFromToken(request)
-    if user is None:
+    user=request.user
+    if user is None or user.is_anonymous:
         return JsonResponse({"error": "Invalid token"}, status=401)
     reports = user.linked_reports.all()
     reports_data = []
@@ -135,5 +137,42 @@ def submit_report(request):
         report.save()
 
         return JsonResponse({"message": "Answers submitted successfully"}, status=201)
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)
+
+def getComplaintsList(request):
+    user = request.user
+    if user is None or user.is_anonymous:
+        return JsonResponse({"error": "Invalid token"}, status=401)
+    
+    complaints = Complaint.objects.all()
+    complaints_data = list(complaints.values('id', 'text', 'complainant', 'respondent', 'created_at', 'is_resolved'))
+    return JsonResponse({"complaints": complaints_data}, safe=False)
+
+
+def addComplaint(request):
+    user = request.user
+    if user is None or user.is_anonymous:
+        return JsonResponse({"error": "Invalid token"}, status=401)
+
+    try:
+        data = json.loads(request.body)
+        text = data.get("text")
+        respondent_id = data.get("respondent")
+    
+        if not text or not respondent_id:
+            return JsonResponse({"error": "Invalid data"}, status=400)
+        
+        respondent = User.objects.get(id=respondent_id)
+    
+        complaint = Complaint.objects.create(
+            text=text,
+            complainant=user,
+            respondent=respondent,
+            is_resolved=False
+        )
+        return JsonResponse({"message": "Complaint added successfully"}, status=201)
+    except User.DoesNotExist:
+        return JsonResponse({"error": "Respondent user not found"}, status=404)
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=500)

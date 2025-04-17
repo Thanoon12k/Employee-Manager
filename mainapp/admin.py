@@ -22,7 +22,15 @@ class UserAdminForm(forms.ModelForm):
         if self.instance and self.instance.pk:
             self.fields['password'].disabled = True  # Prevent editing the password for existing users
     
-
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        if not self.instance.pk and self.cleaned_data['password']:
+            user.set_password(self.cleaned_data['password'])
+        if user.is_superuser or user.is_manager:
+            user.is_staff = True
+        if commit:
+            user.save()
+        return user
 class UserAdmin(admin.ModelAdmin):
     form = UserAdminForm
     list_display = ('username', 'phone', 'email', 'is_superuser', 'is_manager')
@@ -36,25 +44,19 @@ class UserAdmin(admin.ModelAdmin):
 
     def has_delete_permission(self, request, obj=None):
         return request.user.is_superuser
-
+    def has_view_permission(self, request, obj = ...):
+        return request.user.is_manager or request.user.is_superuser
+    def has_module_permission(self, request):
+        return request.user.is_superuser or request.user.is_manager
+    
 
 # ---------------------------------
 # Custom Announcement Admin
 # ---------------------------------
-class AnnouncementAdminForm(forms.ModelForm):
-    users = forms.ModelMultipleChoiceField(
-        queryset=User.objects.all(),
-        widget=forms.CheckboxSelectMultiple,
-        required=False
-    )
-
-    class Meta:
-        model = Announcement
-        fields = '__all__'
 
 
 class AnnouncementAdmin(admin.ModelAdmin):
-    form = AnnouncementAdminForm
+   
     list_display = ('title', 'description', 'pub_date', 'linked_users')
     search_fields = ('title', 'description', 'users__username')
     filter_horizontal = ('users',)
@@ -63,7 +65,8 @@ class AnnouncementAdmin(admin.ModelAdmin):
     def linked_users(self, obj):
         return ", ".join([user.username for user in obj.users.all()])
     linked_users.short_description = 'Linked Users'
-    
+    def has_view_permission(self, request, obj = ...):
+        return request.user.is_manager or request.user.is_superuser
     def has_change_permission(self, request, obj=None):
         return request.user.is_manager or request.user.is_superuser
 
@@ -77,6 +80,7 @@ class AnnouncementAdmin(admin.ModelAdmin):
 # ---------------------------------
 # Inline admin for managing Questions within a Report
 # ---------------------------------
+
 class QuestionInline(admin.TabularInline):
     model = Question
     extra = 1  # Number of empty fields to display for adding new questions
@@ -85,6 +89,7 @@ class QuestionInline(admin.TabularInline):
 # ---------------------------------
 # Custom Report Admin
 # ---------------------------------
+
 class ReportAdmin(admin.ModelAdmin):
     list_display = ('title', 'num_questions', 'number_of_users_submitted', 'view_statistics_button')
     search_fields = ('title', 'description', 'users__username')
@@ -115,7 +120,8 @@ class ReportAdmin(admin.ModelAdmin):
 
     def has_add_permission(self, request):
         return request.user.is_manager or request.user.is_superuser
-
+    def has_view_permission(self, request, obj = ...):
+        return request.user.is_manager or request.user.is_superuser
     def has_delete_permission(self, request, obj=None):
         return request.user.is_manager or request.user.is_superuser
 
@@ -144,6 +150,7 @@ class QuestionAdmin(admin.ModelAdmin):
 # ---------------------------------
 # Custom Answer Admin
 # ---------------------------------
+
 class AnswerAdmin(admin.ModelAdmin):
     list_display = ('report', 'user', 'get_question_type', 'question', 'answer_data',)
     list_filter = ('report', 'user')  # Filters by date, report, question, and user
@@ -168,6 +175,7 @@ class AnswerAdmin(admin.ModelAdmin):
 # ---------------------------------
 # Register Models in Admin
 # ---------------------------------
+
 admin.site.register(User, UserAdmin)
 admin.site.register(Announcement, AnnouncementAdmin)
 admin.site.register(Report, ReportAdmin)

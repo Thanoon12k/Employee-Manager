@@ -2,8 +2,6 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import FileExtensionValidator
 from matplotlib import pyplot as plt
-import io
-import base64
 
 
 class User(AbstractUser):
@@ -16,11 +14,6 @@ class User(AbstractUser):
    
     is_superuser = models.BooleanField(default=False)
     is_manager = models.BooleanField(default=False)
-
-    def save(self, *args, **kwargs):
-        if self.pk is None and self.password:  # Check if it's a new user and password is set
-            self.set_password(self.password)  # Hash the password
-        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.username
@@ -38,6 +31,7 @@ class Announcement(models.Model):
 
     def __str__(self):
         return self.title
+
 
 
 # Report Model
@@ -89,3 +83,15 @@ class Answer(models.Model):
     def __str__(self):
         return self.answer_data
 
+
+
+
+class Complaint(models.Model):
+    complainant = models.ForeignKey(User, on_delete=models.CASCADE, related_name='complaints_made')
+    respondent = models.ForeignKey(User, on_delete=models.CASCADE, related_name='complaints_received')
+    text = models.CharField(max_length=500)
+    created_at = models.DateTimeField('Date Published', auto_now_add=True)
+    is_resolved = models.BooleanField(default=False)
+    
+    def __str__(self):
+        return self.text

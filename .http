@@ -5,8 +5,18 @@ ali 1c1ef87e1eeb5411c3024edbb78c18d93ebee6bb
 thanoon 2868a1f947bf5f1eb8114ee3660cc45c7670337d
 
 ###
+
+###
+GET http://127.0.0.1:8000/get-complaints-list/ HTTP/1.1
+
+
+{
+    "username": "qw",
+    "password": "123"
+}
+###
+
 GET http://127.0.0.1:8000/get-user-announcements/ HTTP/1.1
-Authorization: Token 59042f6aa70ac873f40aa64071b2890f6b13af8a
 
 ###
 GET http://127.0.0.1:8000/get-users-list/ HTTP/1.1
