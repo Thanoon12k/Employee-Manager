@@ -137,7 +137,6 @@ def submit_report(request):
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=500)
 
-@csrf_exempt
 def getComplaintsList(request):
     user=GetUserFromToken(request)#user = request.user
     if user is None or user.is_anonymous:
@@ -145,7 +144,10 @@ def getComplaintsList(request):
     
     complaints = Complaint.objects.all()
     complaints_data = list(complaints.values('id', 'text', 'complainant__username', 'respondent__username', 'created_at', 'is_resolved'))
-    return JsonResponse({"complaints": complaints_data}, safe=False)
+    return JsonResponse({"complaints": complaints_data}, safe=False)@csrf_exempt
+
+
+@csrf_exempt
 def addComplaint(request):
     user=GetUserFromToken(request)#user = request.user
     if user is None or user.is_anonymous:
