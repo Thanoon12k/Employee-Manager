@@ -34,18 +34,13 @@ def getAnnouncement(request):
 
 def get_users_list(request):
 
-    user=GetUserFromToken(request)#user=request.user
-    if user is None or user.is_anonymous:
-        return JsonResponse({"error": "Invalid token"}, status=401)
     
-    if user.is_manager or user.is_superuser:
-        users = User.objects.all()
-        users_data = list(users.values('id', 'username', 'email', 'birth_date', 'address', 'phone', 'image','is_manger'))
-        for user_data in users_data:
-            if user_data['image']:
-                user_data['image'] = request.build_absolute_uri('/media/' + user_data['image'])
-        return JsonResponse({"users": users_data}, safe=False)
-    return JsonResponse({"error": "You are not manager"}, status=403)            
+    users = User.objects.all()
+    users_data = list(users.values('id', 'username', 'email', 'birth_date', 'address', 'phone', 'image','is_manger'))
+    for user_data in users_data:
+        if user_data['image']:
+            user_data['image'] = request.build_absolute_uri('/media/' + user_data['image'])
+    return JsonResponse({"users": users_data}, safe=False)
 
 def get_user_reports(request):
     user=GetUserFromToken(request)#user=request.user
