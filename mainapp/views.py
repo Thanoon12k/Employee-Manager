@@ -40,7 +40,7 @@ def get_users_list(request):
     
     if user.is_manager or user.is_superuser:
         users = User.objects.all()
-        users_data = list(users.values('id', 'username', 'email', 'birth_date', 'address', 'phone', 'image'))
+        users_data = list(users.values('id', 'username', 'email', 'birth_date', 'address', 'phone', 'image','is_manger'))
         for user_data in users_data:
             if user_data['image']:
                 user_data['image'] = request.build_absolute_uri('/media/' + user_data['image'])
@@ -82,6 +82,8 @@ def authenticate_user_and_get_token(request):
             "birth_date": user.birth_date,
             "address": user.address,
             "phone": user.phone,
+            'is_manager': user.is_manager,
+            'is_superuser': user.is_superuser,
             "image": request.build_absolute_uri(user.image.url) if user.image else None,
             "token": token.key
         }
