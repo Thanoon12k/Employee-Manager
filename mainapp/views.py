@@ -36,7 +36,7 @@ def get_users_list(request):
 
     
     users = User.objects.all()
-    users_data = list(users.values('id', 'username', 'email', 'birth_date', 'address', 'phone', 'image','is_manger'))
+    users_data = list(users.values('id', 'username', 'email', 'birth_date', 'address', 'phone', 'image','is_manager'))
     for user_data in users_data:
         if user_data['image']:
             user_data['image'] = request.build_absolute_uri('/media/' + user_data['image'])
