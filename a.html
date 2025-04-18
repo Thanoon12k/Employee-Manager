@@ -1,23 +1,21 @@
 HTTP/1.1 500 Internal Server Error
-Date: Sat, 29 Mar 2025 18:56:13 GMT
+Date: Fri, 18 Apr 2025 06:59:47 GMT
+Server: WSGIServer/0.2 CPython/3.10.9
 Content-Type: text/html; charset=utf-8
-Content-Length: 59779
-Connection: close
 X-Frame-Options: DENY
+Content-Length: 84432
 Vary: Cookie
 X-Content-Type-Options: nosniff
 Referrer-Policy: same-origin
 Cross-Origin-Opener-Policy: same-origin
-Set-Cookie: csrftoken=P2CfNdyvIowqUPVBoTahmJiruTHp4veX; expires=Sat, 28 Mar 2026 18:56:13 GMT; Max-Age=31449600; Path=/; SameSite=Lax
-Server: PythonAnywhere
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="robots" content="NONE,NOARCHIVE">
-  <title>TypeError
-          at /api-token-auth/</title>
+  <title>JSONDecodeError
+          at /submit-complaint/</title>
   <style>
     html * { padding:0; margin:0; }
     body * { padding:10px 20px; }
@@ -113,9 +111,9 @@ Server: PythonAnywhere
 </head>
 <body>
 <header id="summary">
-  <h1>TypeError
-       at /api-token-auth/</h1>
-  <pre class="exception_value">can only concatenate str (not &quot;ImageFieldFile&quot;) to str</pre>
+  <h1>JSONDecodeError
+       at /submit-complaint/</h1>
+  <pre class="exception_value">Expecting value: line 1 column 1 (char 0)</pre>
   <table class="meta">
 
     <tr>
@@ -124,7 +122,7 @@ Server: PythonAnywhere
     </tr>
     <tr>
       <th scope="row">Request URL:</th>
-      <td>http://thanoon.pythonanywhere.com/api-token-auth/</td>
+      <td>http://127.0.0.1:8000/submit-complaint/</td>
     </tr>
 
     <tr>
@@ -134,50 +132,51 @@ Server: PythonAnywhere
 
     <tr>
       <th scope="row">Exception Type:</th>
-      <td>TypeError</td>
+      <td>JSONDecodeError</td>
     </tr>
 
 
     <tr>
       <th scope="row">Exception Value:</th>
-      <td><pre>can only concatenate str (not &quot;ImageFieldFile&quot;) to str</pre></td>
+      <td><pre>Expecting value: line 1 column 1 (char 0)</pre></td>
     </tr>
 
 
     <tr>
       <th scope="row">Exception Location:</th>
-      <td><span class="fname">/home/thanoon/Employee-Manager/mainapp/views.py</span>, line 73, in authenticate_user_and_get_token</td>
+      <td><span class="fname">D:\Program Files\Python3109\lib\json\decoder.py</span>, line 355, in raw_decode</td>
     </tr>
 
 
     <tr>
       <th scope="row">Raised during:</th>
-      <td>mainapp.views.authenticate_user_and_get_token</td>
+      <td>mainapp.views.addComplaint</td>
     </tr>
 
     <tr>
       <th scope="row">Python Executable:</th>
-      <td>/usr/local/bin/uwsgi</td>
+      <td>D:\Program Files\Python3109\python.exe</td>
     </tr>
     <tr>
       <th scope="row">Python Version:</th>
-      <td>3.10.5</td>
+      <td>3.10.9</td>
     </tr>
     <tr>
       <th scope="row">Python Path:</th>
-      <td><pre><code>[&#x27;/var/www&#x27;,
- &#x27;.&#x27;,
- &#x27;&#x27;,
- &#x27;/var/www&#x27;,
- &#x27;/usr/local/lib/python310.zip&#x27;,
- &#x27;/usr/local/lib/python3.10&#x27;,
- &#x27;/usr/local/lib/python3.10/lib-dynload&#x27;,
- &#x27;/home/thanoon/Employee-Manager/venv/lib/python3.10/site-packages&#x27;,
- &#x27;/home/thanoon/Employee-Manager&#x27;]</code></pre></td>
+      <td><pre><code>[&#x27;C:\\Users\\WIN10\\Desktop\\Projects\\working - Employee &#x27;
+ &#x27;Manager\\employees_manager&#x27;,
+ &#x27;D:\\Program Files\\Python3109\\python310.zip&#x27;,
+ &#x27;D:\\Program Files\\Python3109\\DLLs&#x27;,
+ &#x27;D:\\Program Files\\Python3109\\lib&#x27;,
+ &#x27;D:\\Program Files\\Python3109&#x27;,
+ &#x27;D:\\Program Files\\Python3109\\lib\\site-packages&#x27;,
+ &#x27;D:\\Program Files\\Python3109\\lib\\site-packages\\win32&#x27;,
+ &#x27;D:\\Program Files\\Python3109\\lib\\site-packages\\win32\\lib&#x27;,
+ &#x27;D:\\Program Files\\Python3109\\lib\\site-packages\\Pythonwin&#x27;]</code></pre></td>
     </tr>
     <tr>
       <th scope="row">Server time:</th>
-      <td>Sat, 29 Mar 2025 18:56:13 +0000</td>
+      <td>Fri, 18 Apr 2025 06:59:47 +0000</td>
     </tr>
   </table>
 </header>
@@ -197,47 +196,47 @@ Server: PythonAnywhere
         
         <li class="frame django">
           
-            <code class="fname">/home/thanoon/Employee-Manager/venv/lib/python3.10/site-packages/django/core/handlers/exception.py</code>, line 55, in inner
+            <code class="fname">D:\Program Files\Python3109\lib\site-packages\django\core\handlers\exception.py</code>, line 55, in inner
           
 
           
-            <div class="context" id="c125544145134784">
+            <div class="context" id="c1672470750528">
               
-                <ol start="48" class="pre-context" id="pre125544145134784">
+                <ol start="48" class="pre-context" id="pre1672470750528">
                 
-                  <li onclick="toggle('pre125544145134784', 'post125544145134784')"><pre></pre></li>
+                  <li onclick="toggle('pre1672470750528', 'post1672470750528')"><pre></pre></li>
                 
-                  <li onclick="toggle('pre125544145134784', 'post125544145134784')"><pre>        return inner</pre></li>
+                  <li onclick="toggle('pre1672470750528', 'post1672470750528')"><pre>        return inner</pre></li>
                 
-                  <li onclick="toggle('pre125544145134784', 'post125544145134784')"><pre>    else:</pre></li>
+                  <li onclick="toggle('pre1672470750528', 'post1672470750528')"><pre>    else:</pre></li>
                 
-                  <li onclick="toggle('pre125544145134784', 'post125544145134784')"><pre></pre></li>
+                  <li onclick="toggle('pre1672470750528', 'post1672470750528')"><pre></pre></li>
                 
-                  <li onclick="toggle('pre125544145134784', 'post125544145134784')"><pre>        @wraps(get_response)</pre></li>
+                  <li onclick="toggle('pre1672470750528', 'post1672470750528')"><pre>        @wraps(get_response)</pre></li>
                 
-                  <li onclick="toggle('pre125544145134784', 'post125544145134784')"><pre>        def inner(request):</pre></li>
+                  <li onclick="toggle('pre1672470750528', 'post1672470750528')"><pre>        def inner(request):</pre></li>
                 
-                  <li onclick="toggle('pre125544145134784', 'post125544145134784')"><pre>            try:</pre></li>
+                  <li onclick="toggle('pre1672470750528', 'post1672470750528')"><pre>            try:</pre></li>
                 
                 </ol>
               
               <ol start="55" class="context-line">
-                <li onclick="toggle('pre125544145134784', 'post125544145134784')"><pre>                response = get_response(request)</pre> <span>…</span></li>
+                <li onclick="toggle('pre1672470750528', 'post1672470750528')"><pre>                response = get_response(request)</pre> <span>…</span></li>
               </ol>
               
-                <ol start='56' class="post-context" id="post125544145134784">
+                <ol start='56' class="post-context" id="post1672470750528">
                   
-                  <li onclick="toggle('pre125544145134784', 'post125544145134784')"><pre>            except Exception as exc:</pre></li>
+                  <li onclick="toggle('pre1672470750528', 'post1672470750528')"><pre>            except Exception as exc:</pre></li>
                   
-                  <li onclick="toggle('pre125544145134784', 'post125544145134784')"><pre>                response = response_for_exception(request, exc)</pre></li>
+                  <li onclick="toggle('pre1672470750528', 'post1672470750528')"><pre>                response = response_for_exception(request, exc)</pre></li>
                   
-                  <li onclick="toggle('pre125544145134784', 'post125544145134784')"><pre>            return response</pre></li>
+                  <li onclick="toggle('pre1672470750528', 'post1672470750528')"><pre>            return response</pre></li>
                   
-                  <li onclick="toggle('pre125544145134784', 'post125544145134784')"><pre></pre></li>
+                  <li onclick="toggle('pre1672470750528', 'post1672470750528')"><pre></pre></li>
                   
-                  <li onclick="toggle('pre125544145134784', 'post125544145134784')"><pre>        return inner</pre></li>
+                  <li onclick="toggle('pre1672470750528', 'post1672470750528')"><pre>        return inner</pre></li>
                   
-                  <li onclick="toggle('pre125544145134784', 'post125544145134784')"><pre></pre></li>
+                  <li onclick="toggle('pre1672470750528', 'post1672470750528')"><pre></pre></li>
                   
               </ol>
               
@@ -249,7 +248,7 @@ Server: PythonAnywhere
               <details>
                 <summary class="commands">Local vars</summary>
             
-            <table class="vars" id="v125544145134784">
+            <table class="vars" id="v1672470750528">
               <thead>
                 <tr>
                   <th scope="col">Variable</th>
@@ -260,17 +259,17 @@ Server: PythonAnywhere
                 
                   <tr>
                     <td>exc</td>
-                    <td class="code"><pre>TypeError(&#x27;can only concatenate str (not &quot;ImageFieldFile&quot;) to str&#x27;)</pre></td>
+                    <td class="code"><pre>JSONDecodeError(&#x27;Expecting value: line 1 column 1 (char 0)&#x27;)</pre></td>
                   </tr>
                 
                   <tr>
                     <td>get_response</td>
-                    <td class="code"><pre>&lt;bound method BaseHandler._get_response of &lt;django.core.handlers.wsgi.WSGIHandler object at 0x722e86fb0a60&gt;&gt;</pre></td>
+                    <td class="code"><pre>&lt;bound method BaseHandler._get_response of &lt;django.core.handlers.wsgi.WSGIHandler object at 0x000001855D4E2FE0&gt;&gt;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>request</td>
-                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/api-token-auth/&#x27;&gt;</pre></td>
+                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/submit-complaint/&#x27;&gt;</pre></td>
                   </tr>
                 
               </tbody>
@@ -282,47 +281,47 @@ Server: PythonAnywhere
         
         <li class="frame django">
           
-            <code class="fname">/home/thanoon/Employee-Manager/venv/lib/python3.10/site-packages/django/core/handlers/base.py</code>, line 197, in _get_response
+            <code class="fname">D:\Program Files\Python3109\lib\site-packages\django\core\handlers\base.py</code>, line 197, in _get_response
           
 
           
-            <div class="context" id="c125544157623552">
+            <div class="context" id="c1672470743744">
               
-                <ol start="190" class="pre-context" id="pre125544157623552">
+                <ol start="190" class="pre-context" id="pre1672470743744">
                 
-                  <li onclick="toggle('pre125544157623552', 'post125544157623552')"><pre></pre></li>
+                  <li onclick="toggle('pre1672470743744', 'post1672470743744')"><pre></pre></li>
                 
-                  <li onclick="toggle('pre125544157623552', 'post125544157623552')"><pre>        if response is None:</pre></li>
+                  <li onclick="toggle('pre1672470743744', 'post1672470743744')"><pre>        if response is None:</pre></li>
                 
-                  <li onclick="toggle('pre125544157623552', 'post125544157623552')"><pre>            wrapped_callback = self.make_view_atomic(callback)</pre></li>
+                  <li onclick="toggle('pre1672470743744', 'post1672470743744')"><pre>            wrapped_callback = self.make_view_atomic(callback)</pre></li>
                 
-                  <li onclick="toggle('pre125544157623552', 'post125544157623552')"><pre>            # If it is an asynchronous view, run it in a subthread.</pre></li>
+                  <li onclick="toggle('pre1672470743744', 'post1672470743744')"><pre>            # If it is an asynchronous view, run it in a subthread.</pre></li>
                 
-                  <li onclick="toggle('pre125544157623552', 'post125544157623552')"><pre>            if iscoroutinefunction(wrapped_callback):</pre></li>
+                  <li onclick="toggle('pre1672470743744', 'post1672470743744')"><pre>            if iscoroutinefunction(wrapped_callback):</pre></li>
                 
-                  <li onclick="toggle('pre125544157623552', 'post125544157623552')"><pre>                wrapped_callback = async_to_sync(wrapped_callback)</pre></li>
+                  <li onclick="toggle('pre1672470743744', 'post1672470743744')"><pre>                wrapped_callback = async_to_sync(wrapped_callback)</pre></li>
                 
-                  <li onclick="toggle('pre125544157623552', 'post125544157623552')"><pre>            try:</pre></li>
+                  <li onclick="toggle('pre1672470743744', 'post1672470743744')"><pre>            try:</pre></li>
                 
                 </ol>
               
               <ol start="197" class="context-line">
-                <li onclick="toggle('pre125544157623552', 'post125544157623552')"><pre>                response = wrapped_callback(request, *callback_args, **callback_kwargs)</pre> <span>…</span></li>
+                <li onclick="toggle('pre1672470743744', 'post1672470743744')"><pre>                response = wrapped_callback(request, *callback_args, **callback_kwargs)</pre> <span>…</span></li>
               </ol>
               
-                <ol start='198' class="post-context" id="post125544157623552">
+                <ol start='198' class="post-context" id="post1672470743744">
                   
-                  <li onclick="toggle('pre125544157623552', 'post125544157623552')"><pre>            except Exception as e:</pre></li>
+                  <li onclick="toggle('pre1672470743744', 'post1672470743744')"><pre>            except Exception as e:</pre></li>
                   
-                  <li onclick="toggle('pre125544157623552', 'post125544157623552')"><pre>                response = self.process_exception_by_middleware(e, request)</pre></li>
+                  <li onclick="toggle('pre1672470743744', 'post1672470743744')"><pre>                response = self.process_exception_by_middleware(e, request)</pre></li>
                   
-                  <li onclick="toggle('pre125544157623552', 'post125544157623552')"><pre>                if response is None:</pre></li>
+                  <li onclick="toggle('pre1672470743744', 'post1672470743744')"><pre>                if response is None:</pre></li>
                   
-                  <li onclick="toggle('pre125544157623552', 'post125544157623552')"><pre>                    raise</pre></li>
+                  <li onclick="toggle('pre1672470743744', 'post1672470743744')"><pre>                    raise</pre></li>
                   
-                  <li onclick="toggle('pre125544157623552', 'post125544157623552')"><pre></pre></li>
+                  <li onclick="toggle('pre1672470743744', 'post1672470743744')"><pre></pre></li>
                   
-                  <li onclick="toggle('pre125544157623552', 'post125544157623552')"><pre>        # Complain if the view returned None (a common error).</pre></li>
+                  <li onclick="toggle('pre1672470743744', 'post1672470743744')"><pre>        # Complain if the view returned None (a common error).</pre></li>
                   
               </ol>
               
@@ -334,7 +333,7 @@ Server: PythonAnywhere
               <details>
                 <summary class="commands">Local vars</summary>
             
-            <table class="vars" id="v125544157623552">
+            <table class="vars" id="v1672470743744">
               <thead>
                 <tr>
                   <th scope="col">Variable</th>
@@ -345,7 +344,7 @@ Server: PythonAnywhere
                 
                   <tr>
                     <td>callback</td>
-                    <td class="code"><pre>&lt;function authenticate_user_and_get_token at 0x722e86e9c700&gt;</pre></td>
+                    <td class="code"><pre>&lt;function addComplaint at 0x00000185664F5D80&gt;</pre></td>
                   </tr>
                 
                   <tr>
@@ -365,7 +364,7 @@ Server: PythonAnywhere
                 
                   <tr>
                     <td>request</td>
-                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/api-token-auth/&#x27;&gt;</pre></td>
+                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/submit-complaint/&#x27;&gt;</pre></td>
                   </tr>
                 
                   <tr>
@@ -375,12 +374,12 @@ Server: PythonAnywhere
                 
                   <tr>
                     <td>self</td>
-                    <td class="code"><pre>&lt;django.core.handlers.wsgi.WSGIHandler object at 0x722e86fb0a60&gt;</pre></td>
+                    <td class="code"><pre>&lt;django.core.handlers.wsgi.WSGIHandler object at 0x000001855D4E2FE0&gt;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>wrapped_callback</td>
-                    <td class="code"><pre>&lt;function authenticate_user_and_get_token at 0x722e86e9c700&gt;</pre></td>
+                    <td class="code"><pre>&lt;function addComplaint at 0x00000185664F5D80&gt;</pre></td>
                   </tr>
                 
               </tbody>
@@ -392,43 +391,43 @@ Server: PythonAnywhere
         
         <li class="frame django">
           
-            <code class="fname">/home/thanoon/Employee-Manager/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py</code>, line 65, in _view_wrapper
+            <code class="fname">D:\Program Files\Python3109\lib\site-packages\django\views\decorators\csrf.py</code>, line 65, in _view_wrapper
           
 
           
-            <div class="context" id="c125544146030976">
+            <div class="context" id="c1672470753408">
               
-                <ol start="58" class="pre-context" id="pre125544146030976">
+                <ol start="58" class="pre-context" id="pre1672470753408">
                 
-                  <li onclick="toggle('pre125544146030976', 'post125544146030976')"><pre></pre></li>
+                  <li onclick="toggle('pre1672470753408', 'post1672470753408')"><pre></pre></li>
                 
-                  <li onclick="toggle('pre125544146030976', 'post125544146030976')"><pre>        async def _view_wrapper(request, *args, **kwargs):</pre></li>
+                  <li onclick="toggle('pre1672470753408', 'post1672470753408')"><pre>        async def _view_wrapper(request, *args, **kwargs):</pre></li>
                 
-                  <li onclick="toggle('pre125544146030976', 'post125544146030976')"><pre>            return await view_func(request, *args, **kwargs)</pre></li>
+                  <li onclick="toggle('pre1672470753408', 'post1672470753408')"><pre>            return await view_func(request, *args, **kwargs)</pre></li>
                 
-                  <li onclick="toggle('pre125544146030976', 'post125544146030976')"><pre></pre></li>
+                  <li onclick="toggle('pre1672470753408', 'post1672470753408')"><pre></pre></li>
                 
-                  <li onclick="toggle('pre125544146030976', 'post125544146030976')"><pre>    else:</pre></li>
+                  <li onclick="toggle('pre1672470753408', 'post1672470753408')"><pre>    else:</pre></li>
                 
-                  <li onclick="toggle('pre125544146030976', 'post125544146030976')"><pre></pre></li>
+                  <li onclick="toggle('pre1672470753408', 'post1672470753408')"><pre></pre></li>
                 
-                  <li onclick="toggle('pre125544146030976', 'post125544146030976')"><pre>        def _view_wrapper(request, *args, **kwargs):</pre></li>
+                  <li onclick="toggle('pre1672470753408', 'post1672470753408')"><pre>        def _view_wrapper(request, *args, **kwargs):</pre></li>
                 
                 </ol>
               
               <ol start="65" class="context-line">
-                <li onclick="toggle('pre125544146030976', 'post125544146030976')"><pre>            return view_func(request, *args, **kwargs)</pre> <span>…</span></li>
+                <li onclick="toggle('pre1672470753408', 'post1672470753408')"><pre>            return view_func(request, *args, **kwargs)</pre> <span>…</span></li>
               </ol>
               
-                <ol start='66' class="post-context" id="post125544146030976">
+                <ol start='66' class="post-context" id="post1672470753408">
                   
-                  <li onclick="toggle('pre125544146030976', 'post125544146030976')"><pre></pre></li>
+                  <li onclick="toggle('pre1672470753408', 'post1672470753408')"><pre></pre></li>
                   
-                  <li onclick="toggle('pre125544146030976', 'post125544146030976')"><pre>    _view_wrapper.csrf_exempt = True</pre></li>
+                  <li onclick="toggle('pre1672470753408', 'post1672470753408')"><pre>    _view_wrapper.csrf_exempt = True</pre></li>
                   
-                  <li onclick="toggle('pre125544146030976', 'post125544146030976')"><pre></pre></li>
+                  <li onclick="toggle('pre1672470753408', 'post1672470753408')"><pre></pre></li>
                   
-                  <li onclick="toggle('pre125544146030976', 'post125544146030976')"><pre>    return wraps(view_func)(_view_wrapper)</pre></li>
+                  <li onclick="toggle('pre1672470753408', 'post1672470753408')"><pre>    return wraps(view_func)(_view_wrapper)</pre></li>
                   
               </ol>
               
@@ -440,7 +439,7 @@ Server: PythonAnywhere
               <details>
                 <summary class="commands">Local vars</summary>
             
-            <table class="vars" id="v125544146030976">
+            <table class="vars" id="v1672470753408">
               <thead>
                 <tr>
                   <th scope="col">Variable</th>
@@ -461,12 +460,12 @@ Server: PythonAnywhere
                 
                   <tr>
                     <td>request</td>
-                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/api-token-auth/&#x27;&gt;</pre></td>
+                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/submit-complaint/&#x27;&gt;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>view_func</td>
-                    <td class="code"><pre>&lt;function authenticate_user_and_get_token at 0x722e86e9c670&gt;</pre></td>
+                    <td class="code"><pre>&lt;function addComplaint at 0x00000185664F5CF0&gt;</pre></td>
                   </tr>
                 
               </tbody>
@@ -478,43 +477,47 @@ Server: PythonAnywhere
         
         <li class="frame user">
           
-            <code class="fname">/home/thanoon/Employee-Manager/mainapp/views.py</code>, line 73, in authenticate_user_and_get_token
+            <code class="fname">C:\Users\WIN10\Desktop\Projects\working - Employee Manager\employees_manager\mainapp\views.py</code>, line 159, in addComplaint
           
 
           
-            <div class="context" id="c125544152767680">
+            <div class="context" id="c1672438499712">
               
-                <ol start="66" class="pre-context" id="pre125544152767680">
+                <ol start="152" class="pre-context" id="pre1672438499712">
                 
-                  <li onclick="toggle('pre125544152767680', 'post125544152767680')"><pre>        user_data = {</pre></li>
+                  <li onclick="toggle('pre1672438499712', 'post1672438499712')"><pre>@csrf_exempt</pre></li>
                 
-                  <li onclick="toggle('pre125544152767680', 'post125544152767680')"><pre>            &quot;id&quot;: user.id,</pre></li>
+                  <li onclick="toggle('pre1672438499712', 'post1672438499712')"><pre>def addComplaint(request):</pre></li>
                 
-                  <li onclick="toggle('pre125544152767680', 'post125544152767680')"><pre>            &quot;username&quot;: user.username,</pre></li>
+                  <li onclick="toggle('pre1672438499712', 'post1672438499712')"><pre>    user=GetUserFromToken(request)#user = request.user</pre></li>
                 
-                  <li onclick="toggle('pre125544152767680', 'post125544152767680')"><pre>            &quot;email&quot;: user.email,</pre></li>
+                  <li onclick="toggle('pre1672438499712', 'post1672438499712')"><pre>    if user is None or user.is_anonymous:</pre></li>
                 
-                  <li onclick="toggle('pre125544152767680', 'post125544152767680')"><pre>            &quot;birth_date&quot;: user.birth_date,</pre></li>
+                  <li onclick="toggle('pre1672438499712', 'post1672438499712')"><pre>        return JsonResponse({&quot;error&quot;: &quot;Invalid token&quot;}, status=401)</pre></li>
                 
-                  <li onclick="toggle('pre125544152767680', 'post125544152767680')"><pre>            &quot;address&quot;: user.address,</pre></li>
+                  <li onclick="toggle('pre1672438499712', 'post1672438499712')"><pre>    </pre></li>
                 
-                  <li onclick="toggle('pre125544152767680', 'post125544152767680')"><pre>            &quot;phone&quot;: user.phone,</pre></li>
+                  <li onclick="toggle('pre1672438499712', 'post1672438499712')"><pre></pre></li>
                 
                 </ol>
               
-              <ol start="73" class="context-line">
-                <li onclick="toggle('pre125544152767680', 'post125544152767680')"><pre>            &quot;image&quot;: request.build_absolute_uri(&#x27;/media/&#x27; + user.image) if user.image else None,</pre> <span>…</span></li>
+              <ol start="159" class="context-line">
+                <li onclick="toggle('pre1672438499712', 'post1672438499712')"><pre>    data = json.loads(request.body)</pre> <span>…</span></li>
               </ol>
               
-                <ol start='74' class="post-context" id="post125544152767680">
+                <ol start='160' class="post-context" id="post1672438499712">
                   
-                  <li onclick="toggle('pre125544152767680', 'post125544152767680')"><pre>            &quot;token&quot;: token.key</pre></li>
+                  <li onclick="toggle('pre1672438499712', 'post1672438499712')"><pre>    text = data.get(&quot;text&quot;)</pre></li>
                   
-                  <li onclick="toggle('pre125544152767680', 'post125544152767680')"><pre>        }</pre></li>
+                  <li onclick="toggle('pre1672438499712', 'post1672438499712')"><pre>    respondent_name = data.get(&quot;respondent&quot;)</pre></li>
                   
-                  <li onclick="toggle('pre125544152767680', 'post125544152767680')"><pre>        return JsonResponse(user_data, status=200)</pre></li>
+                  <li onclick="toggle('pre1672438499712', 'post1672438499712')"><pre></pre></li>
                   
-                  <li onclick="toggle('pre125544152767680', 'post125544152767680')"><pre>    return JsonResponse({&quot;error&quot;: &quot;Invalid credentials &quot;}, status=401)</pre></li>
+                  <li onclick="toggle('pre1672438499712', 'post1672438499712')"><pre>    if not text or not respondent_name:</pre></li>
+                  
+                  <li onclick="toggle('pre1672438499712', 'post1672438499712')"><pre>        return JsonResponse({&quot;error&quot;: &quot;Invalid data&quot;}, status=400)</pre></li>
+                  
+                  <li onclick="toggle('pre1672438499712', 'post1672438499712')"><pre>    </pre></li>
                   
               </ol>
               
@@ -526,7 +529,7 @@ Server: PythonAnywhere
               <details>
                 <summary class="commands">Local vars</summary>
             
-            <table class="vars" id="v125544152767680">
+            <table class="vars" id="v1672438499712">
               <thead>
                 <tr>
                   <th scope="col">Variable</th>
@@ -536,38 +539,301 @@ Server: PythonAnywhere
               <tbody>
                 
                   <tr>
-                    <td>_</td>
-                    <td class="code"><pre>False</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>data</td>
-                    <td class="code"><pre>{&#x27;password&#x27;: &#x27;123&#x27;, &#x27;username&#x27;: &#x27;thanoon&#x27;}</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>password</td>
-                    <td class="code"><pre>&#x27;123&#x27;</pre></td>
-                  </tr>
-                
-                  <tr>
                     <td>request</td>
-                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/api-token-auth/&#x27;&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>token</td>
-                    <td class="code"><pre>&lt;Token: b895b0926cbd77e5e117247e6d48038439f7e81e&gt;</pre></td>
+                    <td class="code"><pre>&lt;WSGIRequest: POST &#x27;/submit-complaint/&#x27;&gt;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>user</td>
-                    <td class="code"><pre>&lt;User: thanoon&gt;</pre></td>
+                    <td class="code"><pre>&lt;User: qw&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          
+            <code class="fname">D:\Program Files\Python3109\lib\json\__init__.py</code>, line 346, in loads
+          
+
+          
+            <div class="context" id="c1672257787072">
+              
+                <ol start="339" class="pre-context" id="pre1672257787072">
+                
+                  <li onclick="toggle('pre1672257787072', 'post1672257787072')"><pre>            raise TypeError(f&#x27;the JSON object must be str, bytes or bytearray, &#x27;</pre></li>
+                
+                  <li onclick="toggle('pre1672257787072', 'post1672257787072')"><pre>                            f&#x27;not {s.__class__.__name__}&#x27;)</pre></li>
+                
+                  <li onclick="toggle('pre1672257787072', 'post1672257787072')"><pre>        s = s.decode(detect_encoding(s), &#x27;surrogatepass&#x27;)</pre></li>
+                
+                  <li onclick="toggle('pre1672257787072', 'post1672257787072')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre1672257787072', 'post1672257787072')"><pre>    if (cls is None and object_hook is None and</pre></li>
+                
+                  <li onclick="toggle('pre1672257787072', 'post1672257787072')"><pre>            parse_int is None and parse_float is None and</pre></li>
+                
+                  <li onclick="toggle('pre1672257787072', 'post1672257787072')"><pre>            parse_constant is None and object_pairs_hook is None and not kw):</pre></li>
+                
+                </ol>
+              
+              <ol start="346" class="context-line">
+                <li onclick="toggle('pre1672257787072', 'post1672257787072')"><pre>        return _default_decoder.decode(s)</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='347' class="post-context" id="post1672257787072">
+                  
+                  <li onclick="toggle('pre1672257787072', 'post1672257787072')"><pre>    if cls is None:</pre></li>
+                  
+                  <li onclick="toggle('pre1672257787072', 'post1672257787072')"><pre>        cls = JSONDecoder</pre></li>
+                  
+                  <li onclick="toggle('pre1672257787072', 'post1672257787072')"><pre>    if object_hook is not None:</pre></li>
+                  
+                  <li onclick="toggle('pre1672257787072', 'post1672257787072')"><pre>        kw[&#x27;object_hook&#x27;] = object_hook</pre></li>
+                  
+                  <li onclick="toggle('pre1672257787072', 'post1672257787072')"><pre>    if object_pairs_hook is not None:</pre></li>
+                  
+                  <li onclick="toggle('pre1672257787072', 'post1672257787072')"><pre>        kw[&#x27;object_pairs_hook&#x27;] = object_pairs_hook</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            
+              <details>
+                <summary class="commands">Local vars</summary>
+            
+            <table class="vars" id="v1672257787072">
+              <thead>
+                <tr>
+                  <th scope="col">Variable</th>
+                  <th scope="col">Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>cls</td>
+                    <td class="code"><pre>None</pre></td>
                   </tr>
                 
                   <tr>
-                    <td>username</td>
-                    <td class="code"><pre>&#x27;thanoon&#x27;</pre></td>
+                    <td>kw</td>
+                    <td class="code"><pre>{}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>object_hook</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>object_pairs_hook</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>parse_constant</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>parse_float</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>parse_int</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>s</td>
+                    <td class="code"><pre>(&#x27;Content-Type: application/json\r\n&#x27;
+ &#x27;\r\n&#x27;
+ &#x27;\r\n&#x27;
+ &#x27;{\r\n&#x27;
+ &#x27;    &quot;text&quot;: &quot;This is a complaint text&quot;,\r\n&#x27;
+ &#x27;    &quot;respondent&quot;: &quot;qw&quot;\r\n&#x27;
+ &#x27;}&#x27;)</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          
+            <code class="fname">D:\Program Files\Python3109\lib\json\decoder.py</code>, line 337, in decode
+          
+
+          
+            <div class="context" id="c1672470881792">
+              
+                <ol start="330" class="pre-context" id="pre1672470881792">
+                
+                  <li onclick="toggle('pre1672470881792', 'post1672470881792')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre1672470881792', 'post1672470881792')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre1672470881792', 'post1672470881792')"><pre>    def decode(self, s, _w=WHITESPACE.match):</pre></li>
+                
+                  <li onclick="toggle('pre1672470881792', 'post1672470881792')"><pre>        &quot;&quot;&quot;Return the Python representation of ``s`` (a ``str`` instance</pre></li>
+                
+                  <li onclick="toggle('pre1672470881792', 'post1672470881792')"><pre>        containing a JSON document).</pre></li>
+                
+                  <li onclick="toggle('pre1672470881792', 'post1672470881792')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre1672470881792', 'post1672470881792')"><pre>        &quot;&quot;&quot;</pre></li>
+                
+                </ol>
+              
+              <ol start="337" class="context-line">
+                <li onclick="toggle('pre1672470881792', 'post1672470881792')"><pre>        obj, end = self.raw_decode(s, idx=_w(s, 0).end())</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='338' class="post-context" id="post1672470881792">
+                  
+                  <li onclick="toggle('pre1672470881792', 'post1672470881792')"><pre>        end = _w(s, end).end()</pre></li>
+                  
+                  <li onclick="toggle('pre1672470881792', 'post1672470881792')"><pre>        if end != len(s):</pre></li>
+                  
+                  <li onclick="toggle('pre1672470881792', 'post1672470881792')"><pre>            raise JSONDecodeError(&quot;Extra data&quot;, s, end)</pre></li>
+                  
+                  <li onclick="toggle('pre1672470881792', 'post1672470881792')"><pre>        return obj</pre></li>
+                  
+                  <li onclick="toggle('pre1672470881792', 'post1672470881792')"><pre></pre></li>
+                  
+                  <li onclick="toggle('pre1672470881792', 'post1672470881792')"><pre>    def raw_decode(self, s, idx=0):</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            
+              <details>
+                <summary class="commands">Local vars</summary>
+            
+            <table class="vars" id="v1672470881792">
+              <thead>
+                <tr>
+                  <th scope="col">Variable</th>
+                  <th scope="col">Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>_w</td>
+                    <td class="code"><pre>&lt;built-in method match of re.Pattern object at 0x000001855C8C6330&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>s</td>
+                    <td class="code"><pre>(&#x27;Content-Type: application/json\r\n&#x27;
+ &#x27;\r\n&#x27;
+ &#x27;\r\n&#x27;
+ &#x27;{\r\n&#x27;
+ &#x27;    &quot;text&quot;: &quot;This is a complaint text&quot;,\r\n&#x27;
+ &#x27;    &quot;respondent&quot;: &quot;qw&quot;\r\n&#x27;
+ &#x27;}&#x27;)</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;json.decoder.JSONDecoder object at 0x000001855CDCDDB0&gt;</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+            </details>
+          
+        </li>
+      
+        
+        <li class="frame user">
+          
+            <code class="fname">D:\Program Files\Python3109\lib\json\decoder.py</code>, line 355, in raw_decode
+          
+
+          
+            <div class="context" id="c1672439162944">
+              
+                <ol start="348" class="pre-context" id="pre1672439162944">
+                
+                  <li onclick="toggle('pre1672439162944', 'post1672439162944')"><pre>        This can be used to decode a JSON document from a string that may</pre></li>
+                
+                  <li onclick="toggle('pre1672439162944', 'post1672439162944')"><pre>        have extraneous data at the end.</pre></li>
+                
+                  <li onclick="toggle('pre1672439162944', 'post1672439162944')"><pre></pre></li>
+                
+                  <li onclick="toggle('pre1672439162944', 'post1672439162944')"><pre>        &quot;&quot;&quot;</pre></li>
+                
+                  <li onclick="toggle('pre1672439162944', 'post1672439162944')"><pre>        try:</pre></li>
+                
+                  <li onclick="toggle('pre1672439162944', 'post1672439162944')"><pre>            obj, end = self.scan_once(s, idx)</pre></li>
+                
+                  <li onclick="toggle('pre1672439162944', 'post1672439162944')"><pre>        except StopIteration as err:</pre></li>
+                
+                </ol>
+              
+              <ol start="355" class="context-line">
+                <li onclick="toggle('pre1672439162944', 'post1672439162944')"><pre>            raise JSONDecodeError(&quot;Expecting value&quot;, s, err.value) from None</pre> <span>…</span></li>
+              </ol>
+              
+                <ol start='356' class="post-context" id="post1672439162944">
+                  
+                  <li onclick="toggle('pre1672439162944', 'post1672439162944')"><pre>        return obj, end</pre></li>
+                  
+              </ol>
+              
+            </div>
+          
+
+          
+            
+              <details>
+                <summary class="commands">Local vars</summary>
+            
+            <table class="vars" id="v1672439162944">
+              <thead>
+                <tr>
+                  <th scope="col">Variable</th>
+                  <th scope="col">Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>idx</td>
+                    <td class="code"><pre>0</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>s</td>
+                    <td class="code"><pre>(&#x27;Content-Type: application/json\r\n&#x27;
+ &#x27;\r\n&#x27;
+ &#x27;\r\n&#x27;
+ &#x27;{\r\n&#x27;
+ &#x27;    &quot;text&quot;: &quot;This is a complaint text&quot;,\r\n&#x27;
+ &#x27;    &quot;respondent&quot;: &quot;qw&quot;\r\n&#x27;
+ &#x27;}&#x27;)</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;json.decoder.JSONDecoder object at 0x000001855CDCDDB0&gt;</pre></td>
                   </tr>
                 
               </tbody>
@@ -583,7 +849,7 @@ Server: PythonAnywhere
   <div id="pastebinTraceback" class="pastebin">
     <input type="hidden" name="language" value="PythonConsole">
     <input type="hidden" name="title"
-      value="TypeError at /api-token-auth/">
+      value="JSONDecodeError at /submit-complaint/">
     <input type="hidden" name="source" value="Django Dpaste Agent">
     <input type="hidden" name="poster" value="Django">
     <textarea name="content" id="traceback_area" cols="140" rows="25">
@@ -591,10 +857,10 @@ Environment:
 
 
 Request Method: POST
-Request URL: http://thanoon.pythonanywhere.com/api-token-auth/
+Request URL: http://127.0.0.1:8000/submit-complaint/
 
 Django Version: 5.1.6
-Python Version: 3.10.5
+Python Version: 3.10.9
 Installed Applications:
 [&#x27;django.contrib.admin&#x27;,
  &#x27;django.contrib.auth&#x27;,
@@ -617,17 +883,23 @@ Installed Middleware:
 
 
 Traceback (most recent call last):
-  File "/home/thanoon/Employee-Manager/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+  File "D:\Program Files\Python3109\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
     response = get_response(request)
-  File "/home/thanoon/Employee-Manager/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+  File "D:\Program Files\Python3109\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/home/thanoon/Employee-Manager/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+  File "D:\Program Files\Python3109\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
     return view_func(request, *args, **kwargs)
-  File "/home/thanoon/Employee-Manager/mainapp/views.py", line 73, in authenticate_user_and_get_token
-    &quot;image&quot;: request.build_absolute_uri(&#x27;/media/&#x27; + user.image) if user.image else None,
+  File "C:\Users\WIN10\Desktop\Projects\working - Employee Manager\employees_manager\mainapp\views.py", line 159, in addComplaint
+    data = json.loads(request.body)
+  File "D:\Program Files\Python3109\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "D:\Program Files\Python3109\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "D:\Program Files\Python3109\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError(&quot;Expecting value&quot;, s, err.value) from None
 
-Exception Type: TypeError at /api-token-auth/
-Exception Value: can only concatenate str (not &quot;ImageFieldFile&quot;) to str
+Exception Type: JSONDecodeError at /submit-complaint/
+Exception Value: Expecting value: line 1 column 1 (char 0)
 </textarea>
   <br><br>
   <input type="submit" value="Share this traceback on a public website">
@@ -643,7 +915,7 @@ Exception Value: can only concatenate str (not &quot;ImageFieldFile&quot;) to st
 
   
     <h3 id="user-info">USER</h3>
-    <p>thanoon</p>
+    <p>qw</p>
   
 
   <h3 id="get-info">GET</h3>
@@ -697,28 +969,138 @@ Exception Value: can only concatenate str (not &quot;ImageFieldFile&quot;) to st
     <tbody>
       
         <tr>
+          <td>ALLUSERSPROFILE</td>
+          <td class="code"><pre>&#x27;C:\\ProgramData&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ANDROID_SDK_ROOT</td>
+          <td class="code"><pre>&#x27;D:\\AndroidSdks&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>APPDATA</td>
+          <td class="code"><pre>&#x27;C:\\Users\\WIN10\\AppData\\Roaming&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>BUNDLED_DEBUGPY_PATH</td>
+          <td class="code"><pre>&#x27;c:\\Users\\WIN10\\.vscode\\extensions\\ms-python.debugpy-2025.6.0-win32-x64\\bundled\\libs\\debugpy&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CHROME_CRASHPAD_PIPE_NAME</td>
+          <td class="code"><pre>&#x27;\\\\.\\pipe\\crashpad_8600_WDJDGSNXBTBZYHUU&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CHROME_EXECUTABLE</td>
+          <td class="code"><pre>&#x27;C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe &#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COLORTERM</td>
+          <td class="code"><pre>&#x27;truecolor&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMMONPROGRAMFILES</td>
+          <td class="code"><pre>&#x27;C:\\Program Files\\Common Files&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMMONPROGRAMFILES(X86)</td>
+          <td class="code"><pre>&#x27;C:\\Program Files (x86)\\Common Files&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMMONPROGRAMW6432</td>
+          <td class="code"><pre>&#x27;C:\\Program Files\\Common Files&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMPUTERNAME</td>
+          <td class="code"><pre>&#x27;DESKTOP-T3L5UDU&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMSPEC</td>
+          <td class="code"><pre>&#x27;C:\\Windows\\system32\\cmd.exe&#x27;</pre></td>
+        </tr>
+      
+        <tr>
           <td>CONTENT_LENGTH</td>
-          <td class="code"><pre>&#x27;55&#x27;</pre></td>
+          <td class="code"><pre>&#x27;105&#x27;</pre></td>
         </tr>
       
         <tr>
           <td>CONTENT_TYPE</td>
-          <td class="code"><pre>&#x27;application/json&#x27;</pre></td>
+          <td class="code"><pre>&#x27;text/plain&#x27;</pre></td>
         </tr>
       
         <tr>
           <td>CSRF_COOKIE</td>
-          <td class="code"><pre>&#x27;P2CfNdyvIowqUPVBoTahmJiruTHp4veX&#x27;</pre></td>
+          <td class="code"><pre>&#x27;gynVxiw1VwlEbqMbYwRlVRsZm1ZaDa6K&#x27;</pre></td>
         </tr>
       
         <tr>
-          <td>CSRF_COOKIE_NEEDS_UPDATE</td>
-          <td class="code"><pre>True</pre></td>
+          <td>DEVENVDIR</td>
+          <td class="code"><pre>&#x27;C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\Common7\\IDE&#x27;</pre></td>
         </tr>
       
         <tr>
-          <td>DOCUMENT_ROOT</td>
-          <td class="code"><pre>&#x27;/usr/local/openresty/nginx/html&#x27;</pre></td>
+          <td>DJANGO_SETTINGS_MODULE</td>
+          <td class="code"><pre>&#x27;employee_manager.settings&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DRIVERDATA</td>
+          <td class="code"><pre>&#x27;C:\\Windows\\System32\\Drivers\\DriverData&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FPS_BROWSER_APP_PROFILE_STRING</td>
+          <td class="code"><pre>&#x27;Internet Explorer&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FPS_BROWSER_USER_PROFILE_STRING</td>
+          <td class="code"><pre>&#x27;Default&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FRAMEWORK35VERSION</td>
+          <td class="code"><pre>&#x27;v3.5&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FRAMEWORKDIR</td>
+          <td class="code"><pre>&#x27;C:\\WINDOWS\\Microsoft.NET\\Framework&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FRAMEWORKVERSION</td>
+          <td class="code"><pre>&#x27;v2.0.50727&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>GATEWAY_INTERFACE</td>
+          <td class="code"><pre>&#x27;CGI/1.1&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>GIT_ASKPASS</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HOMEDRIVE</td>
+          <td class="code"><pre>&#x27;C:&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HOMEPATH</td>
+          <td class="code"><pre>&#x27;\\Users\\WIN10&#x27;</pre></td>
         </tr>
       
         <tr>
@@ -727,18 +1109,13 @@ Exception Value: can only concatenate str (not &quot;ImageFieldFile&quot;) to st
         </tr>
       
         <tr>
+          <td>HTTP_AUTHORIZATION</td>
+          <td class="code"><pre>&#x27;Token 179ed55373c6d574efaaabe5586706d433173c90&#x27;</pre></td>
+        </tr>
+      
+        <tr>
           <td>HTTP_CONNECTION</td>
-          <td class="code"><pre>&#x27;upgrade&#x27;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HTTP_CONTENT_LENGTH</td>
-          <td class="code"><pre>&#x27;55&#x27;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HTTP_CONTENT_TYPE</td>
-          <td class="code"><pre>&#x27;application/json&#x27;</pre></td>
+          <td class="code"><pre>&#x27;close&#x27;</pre></td>
         </tr>
       
         <tr>
@@ -748,7 +1125,12 @@ Exception Value: can only concatenate str (not &quot;ImageFieldFile&quot;) to st
       
         <tr>
           <td>HTTP_HOST</td>
-          <td class="code"><pre>&#x27;thanoon.pythonanywhere.com&#x27;</pre></td>
+          <td class="code"><pre>&#x27;127.0.0.1:8000&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_TRACEPARENT</td>
+          <td class="code"><pre>&#x27;00-c54e2ccdeb5901fbad2ec50679745c7e-70300599d3d4c12b-01&#x27;</pre></td>
         </tr>
       
         <tr>
@@ -757,18 +1139,155 @@ Exception Value: can only concatenate str (not &quot;ImageFieldFile&quot;) to st
         </tr>
       
         <tr>
-          <td>HTTP_X_FORWARDED_FOR</td>
-          <td class="code"><pre>&#x27;104.28.243.179&#x27;</pre></td>
+          <td>INCLUDE</td>
+          <td class="code"><pre>(&#x27;C:\\Program Files (x86)\\Microsoft Visual Studio &#x27;
+ &#x27;10.0\\VC\\ATLMFC\\INCLUDE;C:\\Program Files (x86)\\Microsoft Visual Studio &#x27;
+ &#x27;10.0\\VC\\INCLUDE;C:\\Program Files (x86)\\Microsoft &#x27;
+ &#x27;SDKs\\Windows\\v7.0A\\Include; &#x27;)</pre></td>
         </tr>
       
         <tr>
-          <td>HTTP_X_REAL_IP</td>
-          <td class="code"><pre>&#x27;104.28.243.179&#x27;</pre></td>
+          <td>JAVA_HOME</td>
+          <td class="code"><pre>&#x27;D:\\AndroidSdks\\jdk-23.0.2&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANG</td>
+          <td class="code"><pre>&#x27;en_US.UTF-8&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LIB</td>
+          <td class="code"><pre>(&#x27;C:\\Program Files (x86)\\Microsoft Visual Studio &#x27;
+ &#x27;10.0\\VC\\atlmfc\\lib;C:\\Program Files (x86)\\Microsoft Visual Studio &#x27;
+ &#x27;10.0\\VC\\lib;C:\\Program Files (x86)\\Microsoft SDKs\\Windows\\v7.0A\\Lib; &#x27;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LIBPATH</td>
+          <td class="code"><pre>(&#x27;C:\\WINDOWS\\Microsoft.NET\\Framework\\v3.5;C:\\WINDOWS\\Microsoft.NET\\Framework\\v2.0.50727;C:\\Program &#x27;
+ &#x27;Files (x86)\\Microsoft Visual Studio 10.0\\VC\\ATLMFC\\LIB;C:\\Program Files &#x27;
+ &#x27;(x86)\\Microsoft Visual Studio 10.0\\VC\\LIB;&#x27;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOCALAPPDATA</td>
+          <td class="code"><pre>&#x27;C:\\Users\\WIN10\\AppData\\Local&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGONSERVER</td>
+          <td class="code"><pre>&#x27;\\\\DESKTOP-T3L5UDU&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>NUMBER_OF_PROCESSORS</td>
+          <td class="code"><pre>&#x27;4&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ONEDRIVE</td>
+          <td class="code"><pre>&#x27;C:\\Users\\WIN10\\OneDrive&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ORIGINAL_XDG_CURRENT_DESKTOP</td>
+          <td class="code"><pre>&#x27;undefined&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>OS</td>
+          <td class="code"><pre>&#x27;Windows_NT&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PATH</td>
+          <td class="code"><pre>(&#x27;D:\\Program Files\\Python3109\\;D:\\Program &#x27;
+ &#x27;Files\\Python3109\\Scripts\\;D:\\Program Files\\python313;D:\\Program &#x27;
+ &#x27;Files\\python313\\Scripts\\;D:\\Program Files\\python311;D:\\Program &#x27;
+ &#x27;Files\\python311\\Scripts\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;c:\\Program &#x27;
+ &#x27;Files (x86)\\Microsoft SQL Server\\100\\Tools\\Binn\\;c:\\Program &#x27;
+ &#x27;Files\\Microsoft SQL Server\\100\\Tools\\Binn\\;c:\\Program Files\\Microsoft &#x27;
+ &#x27;SQL &#x27;
+ &#x27;Server\\100\\DTS\\Binn\\;C:\\Users\\WIN10\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Program &#x27;
+ &#x27;Files (x86)\\Microsoft Visual Studio &#x27;
+ &#x27;10.0\\VC\\BIN;C:\\WINDOWS\\Microsoft.NET\\Framework\\v3.5;C:\\WINDOWS\\Microsoft.NET\\Framework\\v2.0.50727;C:\\Program &#x27;
+ &#x27;Files (x86)\\Microsoft Visual Studio 10.0\\VC\\VCPackages;C:\\Program Files &#x27;
+ &#x27;(x86)\\Microsoft Visual Studio 10.0\\Common7\\IDE;C:\\Program Files &#x27;
+ &#x27;(x86)\\Microsoft Visual Studio 10.0\\Common7\\Tools;C:\\Program Files &#x27;
+ &#x27;(x86)\\Microsoft SDKs\\Windows\\v7.0A\\Bin;C:\\Program &#x27;
+ &#x27;Files\\Cloudflare\\Cloudflare WARP\\;C:\\programs\\Microsoft VS &#x27;
+ &#x27;Code\\bin;D:\\AndroidSdks\\cmdline-tools\\latest\\bin;D:\\AndroidSdks\\platform-tools;D:\\AndroidSdks\\emulator;C:\\Program &#x27;
+ &#x27;Files\\Git\\cmd;C:\\Program Files\\Arduino CLI\\;C:\\Program &#x27;
+ &#x27;Files\\nodejs\\;D:\\AndroidSdks\\cmdline-tools\\latest\\bin;D:\\AndroidSdks\\platform-tools;D:\\AndroidSdks\\emulator;D:\\AndroidSdks\\jdk-23.0.2\\bin;D:\\AndroidSdks\\flutter\\bin;D:\\AndroidSdks\\gradle-8.12.1\\bin;C:\\programs\\Microsoft &#x27;
+ &#x27;VS &#x27;
+ &#x27;Code\\bin;C:\\Users\\WIN10\\AppData\\Local\\Pub\\Cache\\bin;C:\\Users\\WIN10\\AppData\\Roaming\\npm;c:\\Users\\WIN10\\.vscode\\extensions\\ms-python.debugpy-2025.6.0-win32-x64\\bundled\\scripts\\noConfigScripts;c:\\Users\\WIN10\\AppData\\Roaming\\Code\\User\\globalStorage\\github.copilot-chat\\debugCommand&#x27;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PATHEXT</td>
+          <td class="code"><pre>&#x27;.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW;.CPL&#x27;</pre></td>
         </tr>
       
         <tr>
           <td>PATH_INFO</td>
-          <td class="code"><pre>&#x27;/api-token-auth/&#x27;</pre></td>
+          <td class="code"><pre>&#x27;/submit-complaint/&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROCESSOR_ARCHITECTURE</td>
+          <td class="code"><pre>&#x27;AMD64&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROCESSOR_IDENTIFIER</td>
+          <td class="code"><pre>&#x27;Intel64 Family 6 Model 158 Stepping 9, GenuineIntel&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROCESSOR_LEVEL</td>
+          <td class="code"><pre>&#x27;6&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROCESSOR_REVISION</td>
+          <td class="code"><pre>&#x27;9e09&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROGRAMDATA</td>
+          <td class="code"><pre>&#x27;C:\\ProgramData&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROGRAMFILES</td>
+          <td class="code"><pre>&#x27;C:\\Program Files&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROGRAMFILES(X86)</td>
+          <td class="code"><pre>&#x27;C:\\Program Files (x86)&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PROGRAMW6432</td>
+          <td class="code"><pre>&#x27;C:\\Program Files&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PSMODULEPATH</td>
+          <td class="code"><pre>(&#x27;C:\\Users\\WIN10\\Documents\\WindowsPowerShell\\Modules;C:\\Program &#x27;
+ &#x27;Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules&#x27;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PUBLIC</td>
+          <td class="code"><pre>&#x27;C:\\Users\\Public&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PYDEVD_DISABLE_FILE_VALIDATION</td>
+          <td class="code"><pre>&#x27;1&#x27;</pre></td>
         </tr>
       
         <tr>
@@ -778,12 +1297,12 @@ Exception Value: can only concatenate str (not &quot;ImageFieldFile&quot;) to st
       
         <tr>
           <td>REMOTE_ADDR</td>
-          <td class="code"><pre>&#x27;10.0.4.170&#x27;</pre></td>
+          <td class="code"><pre>&#x27;127.0.0.1&#x27;</pre></td>
         </tr>
       
         <tr>
-          <td>REMOTE_PORT</td>
-          <td class="code"><pre>&#x27;55576&#x27;</pre></td>
+          <td>REMOTE_HOST</td>
+          <td class="code"><pre>&#x27;&#x27;</pre></td>
         </tr>
       
         <tr>
@@ -792,8 +1311,8 @@ Exception Value: can only concatenate str (not &quot;ImageFieldFile&quot;) to st
         </tr>
       
         <tr>
-          <td>REQUEST_URI</td>
-          <td class="code"><pre>&#x27;/api-token-auth/&#x27;</pre></td>
+          <td>RUN_MAIN</td>
+          <td class="code"><pre>&#x27;true&#x27;</pre></td>
         </tr>
       
         <tr>
@@ -803,12 +1322,12 @@ Exception Value: can only concatenate str (not &quot;ImageFieldFile&quot;) to st
       
         <tr>
           <td>SERVER_NAME</td>
-          <td class="code"><pre>&#x27;thanoon.pythonanywhere.com&#x27;</pre></td>
+          <td class="code"><pre>&#x27;DESKTOP-T3L5UDU&#x27;</pre></td>
         </tr>
       
         <tr>
           <td>SERVER_PORT</td>
-          <td class="code"><pre>&#x27;80&#x27;</pre></td>
+          <td class="code"><pre>&#x27;8000&#x27;</pre></td>
         </tr>
       
         <tr>
@@ -817,28 +1336,133 @@ Exception Value: can only concatenate str (not &quot;ImageFieldFile&quot;) to st
         </tr>
       
         <tr>
-          <td>uwsgi.node</td>
-          <td class="code"><pre>b&#x27;green-liveweb44&#x27;</pre></td>
+          <td>SERVER_SOFTWARE</td>
+          <td class="code"><pre>&#x27;WSGIServer/0.2&#x27;</pre></td>
         </tr>
       
         <tr>
-          <td>uwsgi.version</td>
-          <td class="code"><pre>b&#x27;2.0.20&#x27;</pre></td>
+          <td>SESSIONNAME</td>
+          <td class="code"><pre>&#x27;Console&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SYSTEMDRIVE</td>
+          <td class="code"><pre>&#x27;C:&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SYSTEMROOT</td>
+          <td class="code"><pre>&#x27;C:\\Windows&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMP</td>
+          <td class="code"><pre>&#x27;C:\\Users\\WIN10\\AppData\\Local\\Temp&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TERM_PROGRAM</td>
+          <td class="code"><pre>&#x27;vscode&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TERM_PROGRAM_VERSION</td>
+          <td class="code"><pre>&#x27;1.99.2&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TMP</td>
+          <td class="code"><pre>&#x27;C:\\Users\\WIN10\\AppData\\Local\\Temp&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USERDOMAIN</td>
+          <td class="code"><pre>&#x27;DESKTOP-T3L5UDU&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USERDOMAIN_ROAMINGPROFILE</td>
+          <td class="code"><pre>&#x27;DESKTOP-T3L5UDU&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USERNAME</td>
+          <td class="code"><pre>&#x27;WIN10&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USERPROFILE</td>
+          <td class="code"><pre>&#x27;C:\\Users\\WIN10&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>VCINSTALLDIR</td>
+          <td class="code"><pre>&#x27;C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\VC&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>VS100COMNTOOLS</td>
+          <td class="code"><pre>&#x27;C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\Common7\\Tools\\&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>VSCODE_DEBUGPY_ADAPTER_ENDPOINTS</td>
+          <td class="code"><pre>&#x27;c:\\Users\\WIN10\\.vscode\\extensions\\ms-python.debugpy-2025.6.0-win32-x64\\.noConfigDebugAdapterEndpoints\\endpoint-c4faea22d6207fe6.txt&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>VSCODE_GIT_ASKPASS_EXTRA_ARGS</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>VSCODE_GIT_ASKPASS_MAIN</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>VSCODE_GIT_ASKPASS_NODE</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>VSCODE_GIT_IPC_HANDLE</td>
+          <td class="code"><pre>&#x27;\\\\.\\pipe\\vscode-git-b7c68839f6-sock&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>VSCODE_INJECTION</td>
+          <td class="code"><pre>&#x27;1&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>VSINSTALLDIR</td>
+          <td class="code"><pre>&#x27;C:\\Program Files (x86)\\Microsoft Visual Studio 10.0&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>WINDIR</td>
+          <td class="code"><pre>&#x27;C:\\Windows&#x27;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>WINDOWSSDKDIR</td>
+          <td class="code"><pre>&#x27;C:\\Program Files (x86)\\Microsoft SDKs\\Windows\\v7.0A;&#x27;</pre></td>
         </tr>
       
         <tr>
           <td>wsgi.errors</td>
-          <td class="code"><pre>&lt;uwsgi_file__bin_user_wsgi_wrapper.ErrorLogFile object at 0x722e86e70490&gt;</pre></td>
+          <td class="code"><pre>&lt;_io.TextIOWrapper name=&#x27;&lt;stderr&gt;&#x27; mode=&#x27;w&#x27; encoding=&#x27;utf-8&#x27;&gt;</pre></td>
         </tr>
       
         <tr>
           <td>wsgi.file_wrapper</td>
-          <td class="code"><pre>&lt;built-in function uwsgi_sendfile&gt;</pre></td>
+          <td class="code"><pre>&lt;class &#x27;wsgiref.util.FileWrapper&#x27;&gt;</pre></td>
         </tr>
       
         <tr>
           <td>wsgi.input</td>
-          <td class="code"><pre>&lt;uwsgi._Input object at 0x722e86abbe10&gt;</pre></td>
+          <td class="code"><pre>&lt;django.core.handlers.wsgi.LimitedStream object at 0x0000018567035F30&gt;</pre></td>
         </tr>
       
         <tr>
@@ -848,7 +1472,7 @@ Exception Value: can only concatenate str (not &quot;ImageFieldFile&quot;) to st
       
         <tr>
           <td>wsgi.multithread</td>
-          <td class="code"><pre>False</pre></td>
+          <td class="code"><pre>True</pre></td>
         </tr>
       
         <tr>
@@ -918,7 +1542,7 @@ Exception Value: can only concatenate str (not &quot;ImageFieldFile&quot;) to st
       
         <tr>
           <td>BASE_DIR</td>
-          <td class="code"><pre>PosixPath(&#x27;/home/thanoon/Employee-Manager&#x27;)</pre></td>
+          <td class="code"><pre>WindowsPath(&#x27;C:/Users/WIN10/Desktop/Projects/working - Employee Manager/employees_manager&#x27;)</pre></td>
         </tr>
       
         <tr>
@@ -1004,7 +1628,7 @@ Exception Value: can only concatenate str (not &quot;ImageFieldFile&quot;) to st
              &#x27;CONN_MAX_AGE&#x27;: 0,
              &#x27;ENGINE&#x27;: &#x27;django.db.backends.sqlite3&#x27;,
              &#x27;HOST&#x27;: &#x27;&#x27;,
-             &#x27;NAME&#x27;: PosixPath(&#x27;/home/thanoon/Employee-Manager/db.sqlite3&#x27;),
+             &#x27;NAME&#x27;: WindowsPath(&#x27;C:/Users/WIN10/Desktop/Projects/working - Employee Manager/employees_manager/db.sqlite3&#x27;),
              &#x27;OPTIONS&#x27;: {},
              &#x27;PASSWORD&#x27;: &#x27;********************&#x27;,
              &#x27;PORT&#x27;: &#x27;&#x27;,
@@ -1454,7 +2078,8 @@ Exception Value: can only concatenate str (not &quot;ImageFieldFile&quot;) to st
       
         <tr>
           <td>MEDIA_ROOT</td>
-          <td class="code"><pre>&#x27;/home/thanoon/Employee-Manager/media&#x27;</pre></td>
+          <td class="code"><pre>(&#x27;C:\\Users\\WIN10\\Desktop\\Projects\\working - Employee &#x27;
+ &#x27;Manager\\employees_manager\\media&#x27;)</pre></td>
         </tr>
       
         <tr>
@@ -1675,7 +2300,8 @@ Exception Value: can only concatenate str (not &quot;ImageFieldFile&quot;) to st
       
         <tr>
           <td>STATICFILES_DIRS</td>
-          <td class="code"><pre>[&#x27;/home/thanoon/Employee-Manager/static&#x27;]</pre></td>
+          <td class="code"><pre>[&#x27;C:\\Users\\WIN10\\Desktop\\Projects\\working - Employee &#x27;
+ &#x27;Manager\\employees_manager\\static&#x27;]</pre></td>
         </tr>
       
         <tr>
@@ -1686,7 +2312,8 @@ Exception Value: can only concatenate str (not &quot;ImageFieldFile&quot;) to st
       
         <tr>
           <td>STATIC_ROOT</td>
-          <td class="code"><pre>&#x27;/home/thanoon/Employee-Manager/staticfiles&#x27;</pre></td>
+          <td class="code"><pre>(&#x27;C:\\Users\\WIN10\\Desktop\\Projects\\working - Employee &#x27;
+ &#x27;Manager\\employees_manager\\staticfiles&#x27;)</pre></td>
         </tr>
       
         <tr>

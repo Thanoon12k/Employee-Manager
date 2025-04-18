@@ -148,8 +148,7 @@ def getComplaintsList(request):
     complaints = Complaint.objects.all()
     complaints_data = list(complaints.values('id', 'text', 'complainant', 'respondent', 'created_at', 'is_resolved'))
     return JsonResponse({"complaints": complaints_data}, safe=False)
-
-
+@csrf_exempt
 def addComplaint(request):
     user=GetUserFromToken(request)#user = request.user
     if user is None or user.is_anonymous:
@@ -158,13 +157,16 @@ def addComplaint(request):
     try:
         data = json.loads(request.body)
         text = data.get("text")
-        respondent_id = data.get("respondent")
-    
-        if not text or not respondent_id:
+        respondent_name = data.get("respondent")
+
+        if not text or not respondent_name:
             return JsonResponse({"error": "Invalid data"}, status=400)
-        
-        respondent = User.objects.get(id=respondent_id)
     
+        try:
+            respondent = User.objects.get(username=respondent_name)
+        except User.DoesNotExist:
+            return JsonResponse({"error": f"User '{respondent_name}' does not exist"}, status=400)
+
         complaint = Complaint.objects.create(
             text=text,
             complainant=user,
@@ -172,7 +174,7 @@ def addComplaint(request):
             is_resolved=False
         )
         return JsonResponse({"message": "Complaint added successfully"}, status=201)
-    except User.DoesNotExist:
-        return JsonResponse({"error": "Respondent user not found"}, status=404)
+    except json.JSONDecodeError:
+        return JsonResponse({"error": "Invalid JSON data"}, status=400)
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=500)

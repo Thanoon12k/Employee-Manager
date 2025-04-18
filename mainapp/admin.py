@@ -22,15 +22,7 @@ class UserAdminForm(forms.ModelForm):
         if self.instance and self.instance.pk:
             self.fields['password'].disabled = True  # Prevent editing the password for existing users
     
-    def save(self, commit=True):
-        user = super().save(commit=False)
-        if not self.instance.pk and self.cleaned_data['password']:
-            user.set_password(self.cleaned_data['password'])
-        if user.is_superuser or user.is_manager:
-            user.is_staff = True
-        if commit:
-            user.save()
-        return user
+    
 class UserAdmin(admin.ModelAdmin):
     form = UserAdminForm
     list_display = ('username', 'phone', 'email', 'is_superuser', 'is_manager')
@@ -171,6 +163,26 @@ class AnswerAdmin(admin.ModelAdmin):
         return request.user.is_manager or request.user.is_superuser  
 
 
+# ---------------------------------
+# Custom Complaint Admin
+# ---------------------------------
+
+class ComplaintAdmin(admin.ModelAdmin):
+    list_display = ('complainant', 'respondent', 'text', 'created_at', 'is_resolved')
+    list_filter = ('is_resolved', 'created_at')
+    search_fields = ('complainant__username', 'respondent__username', 'text')
+    
+    def has_view_permission(self, request, obj = ...):
+        return request.user.is_manager or request.user.is_superuser
+        
+    def has_change_permission(self, request, obj=None):
+        return request.user.is_manager or request.user.is_superuser
+        
+    def has_add_permission(self, request):
+        return request.user.is_manager or request.user.is_superuser
+        
+    def has_delete_permission(self, request, obj=None):
+        return request.user.is_manager or request.user.is_superuser
 
 # ---------------------------------
 # Register Models in Admin
@@ -181,6 +193,7 @@ admin.site.register(Announcement, AnnouncementAdmin)
 admin.site.register(Report, ReportAdmin)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Answer, AnswerAdmin)
+admin.site.register(Complaint, ComplaintAdmin)
 
 # Unregister the default Group model (if unused)
 admin.site.unregister(Group)

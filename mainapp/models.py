@@ -17,10 +17,19 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.username
+    
+    class Meta:
+        verbose_name = 'المستخدم'
+        verbose_name_plural = 'المستخدمين'
+    
+    def save(self, *args, **kwargs):
+          if self.is_superuser or self.is_manager:
+              self.is_staff = True
+          if not self.pk and self.password:  # Only hash if new user or password changed
+              self.set_password(self.password)
+          super().save(*args, **kwargs)
   
 # Announcement Model
-
-
 class Announcement(models.Model):
     users = models.ManyToManyField(User, related_name='linked_announcements', blank=True)
     title = models.CharField(max_length=200)
@@ -32,6 +41,9 @@ class Announcement(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        verbose_name = 'الإعلان'
+        verbose_name_plural = 'الإعلانات'
 
 
 # Report Model
@@ -44,6 +56,9 @@ class Report(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        verbose_name = 'التقرير'
+        verbose_name_plural = 'التقارير'
 
 
 QUESTION_TYPES = [
@@ -58,19 +73,20 @@ class Question(models.Model):
     report = models.ForeignKey(Report, related_name='linked_questions', on_delete=models.CASCADE)
     options_data= models.CharField(max_length=300,blank=True,null=True)
     is_statistic=models.BooleanField(default=False)
-# when the question type is options the options_data field will store the options in this kind "opt1-opt2-opt3-opt4 ....."
-#   the question is_statistic if it was from type options or t/f only
+
     def __str__(self):
         return self.question
-    
     
     def save(self, *args, **kwargs):
         if self.question_type == 'multiple_choice' or self.question_type == 'T/F':
             self.is_statistic = True
         else:
             self.is_statistic = False
-        # Save the question to the database
         super().save(*args, **kwargs)
+
+    class Meta:
+        verbose_name = 'السؤال'
+        verbose_name_plural = 'الأسئلة'
 
 # Answer Model
 class Answer(models.Model):
@@ -83,7 +99,9 @@ class Answer(models.Model):
     def __str__(self):
         return self.answer_data
 
-
+    class Meta:
+        verbose_name = 'الإجابة'
+        verbose_name_plural = 'الإجابات'
 
 
 class Complaint(models.Model):
@@ -95,3 +113,7 @@ class Complaint(models.Model):
     
     def __str__(self):
         return self.text
+
+    class Meta:
+        verbose_name = 'الشكوى'
+        verbose_name_plural = 'الشكاوى'
