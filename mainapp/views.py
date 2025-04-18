@@ -144,7 +144,7 @@ def getComplaintsList(request):
     
     complaints = Complaint.objects.all()
     complaints_data = list(complaints.values('id', 'text', 'complainant__username', 'respondent__username', 'created_at', 'is_resolved'))
-    return JsonResponse({"complaints": complaints_data}, safe=False)@csrf_exempt
+    return JsonResponse({"complaints": complaints_data}, safe=False)
 
 
 @csrf_exempt
